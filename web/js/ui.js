@@ -1,4 +1,6 @@
-/** 작은 DOM 도우미. 프레임워크 없이도 뷰를 함수로 조립하기 위한 최소한의 것. */
+/** Tiny DOM helpers so views can be plain functions without a framework. */
+import { locale, t } from './i18n.js';
+
 export function h(tag, attrs = {}, ...children) {
   const el = document.createElement(tag);
   for (const [k, v] of Object.entries(attrs ?? {})) {
@@ -32,30 +34,34 @@ export function toast(message, ms = 2600) {
 }
 
 export function fmtDate(iso) {
-  // SQLite datetime('now') 는 UTC, 'YYYY-MM-DD HH:MM:SS'
+  // SQLite datetime('now') is UTC, 'YYYY-MM-DD HH:MM:SS'
   const d = new Date(`${iso.replace(' ', 'T')}Z`);
   if (Number.isNaN(d.getTime())) return iso;
-  return d.toLocaleDateString('ko-KR', { year: 'numeric', month: 'short', day: 'numeric' });
+  return d.toLocaleDateString(locale, { year: 'numeric', month: 'short', day: 'numeric' });
 }
 
-export const fmtKrw = (n) => `${Number(n).toLocaleString('ko-KR')}원`;
+export const fmtNum = (n) => Number(n).toLocaleString(locale);
+
+export function fmtMoney(amount, currency) {
+  try {
+    return new Intl.NumberFormat(locale, { style: 'currency', currency, maximumFractionDigits: 0 }).format(amount);
+  } catch {
+    return `${fmtNum(amount)} ${currency}`;
+  }
+}
 
 export function labelOf(list, key) {
   return list.find((x) => x.key === key)?.label ?? key;
 }
 
-export function riskBadge(c) {
-  return h('span', { class: `risk risk--${c.risk_level}`, title: `심각도 ${c.severity} × 가능성 ${c.likelihood}` },
-    `위험도 ${c.risk_score} · ${c.risk_label}`);
+export function riskBadge(c, riskLevels) {
+  return h('span', { class: `risk risk--${c.risk_level}`, title: t('risk.title', { s: c.severity, l: c.likelihood }) },
+    t('risk.badge', { score: c.risk_score, label: labelOf(riskLevels, c.risk_level) }));
 }
 
-export function loading(text = '불러오는 중…') {
-  return h('p', { class: 'empty' }, text);
-}
-
-export function errorBox(e) {
-  return h('p', { class: 'empty' }, e?.message ?? '문제가 생겼습니다.');
-}
+export const loading = () => h('p', { class: 'empty' }, '…');
+export const errorBox = (e) => h('p', { class: 'empty' }, e?.message ?? t('errors.generic'));
+export const stat = (n, label) => h('div', { class: 'stat' }, h('b', {}, typeof n === 'number' ? fmtNum(n) : n), h('span', {}, label));
 
 export function field({ label, name, hint, error, control }) {
   return h('div', { class: 'field' },

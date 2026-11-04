@@ -9,7 +9,7 @@ PRAGMA foreign_keys = ON;
 
 CREATE TABLE IF NOT EXISTS visitors (
   id          TEXT PRIMARY KEY,
-  nickname    TEXT NOT NULL DEFAULT '익명',
+  nickname    TEXT NOT NULL DEFAULT 'Anonymous',
   created_at  TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
@@ -17,11 +17,11 @@ CREATE TABLE IF NOT EXISTS cases (
   id            INTEGER PRIMARY KEY AUTOINCREMENT,
   title         TEXT NOT NULL,
   category      TEXT NOT NULL,
-  situation     TEXT NOT NULL,   -- 무슨 일이 있었나 (또는 있을 뻔했나)
-  hazard        TEXT NOT NULL,   -- 위해 요인: 해의 원천
-  exposure      TEXT NOT NULL,   -- 노출 상태: 어떤 상태가 나를 그 원천 앞에 두었나
-  avoidance     TEXT NOT NULL,   -- 회피 행동: 내가 할 수 있는 것
-  risky_habit   TEXT,            -- 위험을 높이는 흔한 행위
+  situation     TEXT NOT NULL,   -- what happened (or nearly happened)
+  hazard        TEXT NOT NULL,   -- hazard: the source of harm
+  exposure      TEXT NOT NULL,   -- exposure: the state that put me in its path
+  avoidance     TEXT NOT NULL,   -- avoidance: what I can do
+  risky_habit   TEXT,            -- a common habit that raises the risk
   severity      INTEGER NOT NULL CHECK (severity BETWEEN 1 AND 5),
   likelihood    INTEGER NOT NULL CHECK (likelihood BETWEEN 1 AND 5),
   outcome       TEXT NOT NULL DEFAULT 'near_miss',
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS cases (
 CREATE INDEX IF NOT EXISTS idx_cases_category ON cases(category);
 CREATE INDEX IF NOT EXISTS idx_cases_created ON cases(created_at DESC);
 
--- "교훈을 받았습니다": 한 사람이 한 사례에 한 번
+-- "I take this lesson": one per visitor per case
 CREATE TABLE IF NOT EXISTS lessons (
   case_id     INTEGER NOT NULL REFERENCES cases(id) ON DELETE CASCADE,
   visitor_id  TEXT NOT NULL REFERENCES visitors(id),
@@ -41,13 +41,13 @@ CREATE TABLE IF NOT EXISTS lessons (
   PRIMARY KEY (case_id, visitor_id)
 );
 
--- 티켓: 벽에 붙여 두고 누군가 한 명이 가져가는, 물리적 식권과 같은 1회성 선물
+-- ticket: pinned to the wall and taken by exactly one person, like a paper meal voucher
 CREATE TABLE IF NOT EXISTS tickets (
   id          INTEGER PRIMARY KEY AUTOINCREMENT,
   case_id     INTEGER NOT NULL REFERENCES cases(id) ON DELETE CASCADE,
   giver_id    TEXT NOT NULL REFERENCES visitors(id),
   message     TEXT NOT NULL,
-  pledge_krw  INTEGER NOT NULL DEFAULT 0,
+  pledge_amount  INTEGER NOT NULL DEFAULT 0,
   taker_id    TEXT REFERENCES visitors(id),
   taken_at    TEXT,
   created_at  TEXT NOT NULL DEFAULT (datetime('now'))
@@ -83,7 +83,7 @@ const SORTS = {
   lessons: 'lesson_count DESC, c.created_at DESC',
 };
 
-export function openDb(path = process.env.DB_PATH ?? 'data/miribom.db') {
+export function openDb(path = process.env.DB_PATH ?? 'data/stepback.db') {
   if (path !== ':memory:') mkdirSync(dirname(path), { recursive: true });
   const db = new DatabaseSync(path);
   db.exec(SCHEMA);
@@ -188,10 +188,10 @@ export class Repo {
     return this.db.prepare(`${TICKET_SELECT} WHERE t.id = ?`).get(id) ?? null;
   }
 
-  insertTicket(caseId, giverId, { message, pledge_krw }) {
+  insertTicket(caseId, giverId, { message, pledge_amount }) {
     const { lastInsertRowid } = this.db
-      .prepare('INSERT INTO tickets (case_id, giver_id, message, pledge_krw) VALUES (?, ?, ?, ?)')
-      .run(caseId, giverId, message, pledge_krw);
+      .prepare('INSERT INTO tickets (case_id, giver_id, message, pledge_amount) VALUES (?, ?, ?, ?)')
+      .run(caseId, giverId, message, pledge_amount);
     return this.getTicket(Number(lastInsertRowid));
   }
 
@@ -199,7 +199,7 @@ export class Repo {
     return !!this.db.prepare('SELECT 1 FROM tickets WHERE case_id = ? AND taker_id = ?').get(caseId, takerId);
   }
 
-  /** 벽에서 티켓을 떼어 가져간다. 동시에 그 사례의 교훈도 받은 것으로 기록한다. */
+  /** Take a ticket off the wall. The taker is also recorded as having taken the lesson. */
   takeTicket(ticketId, takerId) {
     const run = this.db.prepare(
       `UPDATE tickets SET taker_id = ?, taken_at = datetime('now')
@@ -232,7 +232,7 @@ export class Repo {
       lessons: one('SELECT COUNT(*) AS n FROM lessons').n,
       tickets_on_wall: one('SELECT COUNT(*) AS n FROM tickets WHERE taker_id IS NULL').n,
       tickets_taken: one('SELECT COUNT(*) AS n FROM tickets WHERE taker_id IS NOT NULL').n,
-      pledged_krw: one('SELECT COALESCE(SUM(pledge_krw), 0) AS n FROM tickets').n,
+      pledged_amount: one('SELECT COALESCE(SUM(pledge_amount), 0) AS n FROM tickets').n,
       contributors: one('SELECT COUNT(DISTINCT author_id) AS n FROM cases').n,
       by_category: this.db
         .prepare('SELECT category, COUNT(*) AS n FROM cases GROUP BY category ORDER BY n DESC')

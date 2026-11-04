@@ -4,11 +4,12 @@ import { CATEGORY_KEYS } from '../domain/catalog.js';
 
 const router = Router();
 const repo = (req) => req.app.get('repo');
+const notFound = (res) => res.status(404).json({ error: 'not_found', message: 'Case not found.' });
 
 function caseId(req, res) {
   const id = Number(req.params.id);
   if (!Number.isInteger(id) || id <= 0) {
-    res.status(404).json({ error: 'not_found' });
+    notFound(res);
     return null;
   }
   return id;
@@ -30,16 +31,15 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   const data = validateCase(req.body ?? {});
-  const created = repo(req).insertCase(data, req.visitor.id);
-  res.status(201).json(created);
+  res.status(201).json(repo(req).insertCase(data, req.visitor.id));
 });
 
 router.get('/:id', (req, res) => {
   const id = caseId(req, res);
   if (!id) return;
-  const item = repo(req).getCase(id);
-  if (!item) return res.status(404).json({ error: 'not_found' });
   const r = repo(req);
+  const item = r.getCase(id);
+  if (!item) return notFound(res);
   res.json({
     ...item,
     learned: req.visitor.id ? r.hasLesson(id, req.visitor.id) : false,
@@ -51,19 +51,18 @@ router.post('/:id/lessons', (req, res) => {
   const id = caseId(req, res);
   if (!id) return;
   const r = repo(req);
-  if (!r.getCase(id)) return res.status(404).json({ error: 'not_found' });
-  const lesson_count = r.addLesson(id, req.visitor.id);
-  res.json({ case_id: id, learned: true, lesson_count });
+  if (!r.getCase(id)) return notFound(res);
+  res.json({ case_id: id, learned: true, lesson_count: r.addLesson(id, req.visitor.id) });
 });
 
 router.post('/:id/tickets', (req, res) => {
   const id = caseId(req, res);
   if (!id) return;
   const r = repo(req);
-  if (!r.getCase(id)) return res.status(404).json({ error: 'not_found' });
+  if (!r.getCase(id)) return notFound(res);
   const data = validateTicket(req.body ?? {});
   const ticket = r.insertTicket(id, req.visitor.id, data);
-  // 티켓을 붙이는 사람은 그 교훈을 이미 받은 사람이다.
+  // Whoever pins a ticket has, by definition, taken the lesson.
   r.addLesson(id, req.visitor.id);
   res.status(201).json(ticket);
 });

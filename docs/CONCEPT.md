@@ -1,101 +1,102 @@
-# 미리봄 — 제품 개념서
+# Stepback — Product concept
 
-## 1. 한 문장
+## 1. One sentence
 
-> 아찔했던 순간에서 배운 "피하는 행동"을 기록하고, 식당 벽의 식권처럼 티켓으로 다음 사람에게 건네는 곳.
+> Record the avoiding action you learned from a close call, and hand it to the next person like a voucher pinned to a café wall.
 
-## 2. 출발점이 된 생각
+## 2. Where it started
 
-- 대형 트럭의 우회전 역과, 고속도로 1차선의 정차 차량 추돌, 소형 제트기 추락. 사고 영상은 넘치지만, 거기서 **내가 내일 할 수 있는 행동**을 뽑아 주는 곳은 드물다.
-- 사람이 세상을 떠나는 때는 우리가 정하지 못한다. 그러나 피할 수 있는 위험 앞에서 한 걸음 물러서는 일은 오늘 할 수 있다.
-- 상대가 실수해서 사고가 날 뻔해도, **내가 피해서 아무 일이 없는 것**이 보험 처리나 쉴 명분보다 언제나 낫다. 이 가치가 앱의 첫 문장이 된다: *아무 일도 일어나지 않은 것이 가장 큰 승리입니다.*
+- A heavy truck turning right over a pedestrian at an intersection. A car striking a maintenance vehicle stopped in the fast lane. A small private jet going down after takeoff. Crash footage is everywhere; a place that turns it into **something I can do tomorrow** is rare.
+- None of us decides when we leave this world. But stepping back from an avoidable hazard is something we can do today.
+- Even when the other person made the mistake, **getting out of the way and having nothing happen** beats an insurance claim or an excuse to rest. That value became the app's first sentence: *Nothing happening is the biggest win.*
 
-## 3. 핵심 문제의 재정의
+## 3. Reframing the problem
 
-표면의 문제: "위험을 알려주는 앱이 없다."
-실제 문제는 세 겹이다.
+Surface problem: "there is no app that warns me about hazards."
+The real problem has three layers.
 
-| 겹 | 문제 | 미리봄의 답 |
+| Layer | Problem | Stepback's answer |
 |---|---|---|
-| 지식 | 사고 정보는 공포로 소비되고 행동으로 번역되지 않는다 | 모든 사례를 **원천(Hazard) → 노출 상태(Exposure) → 피하는 행동(Avoidance)** 세 칸으로 강제 구조화 |
-| 참여 | 아찔했던 경험은 부끄럽거나 "별일 아니라서" 기록되지 않는다 | 탓하지 않는 보고 문화, 사람·장소 특정 불필요, 아차 사고가 가장 값진 데이터라는 메시지 |
-| 지속 | 선의는 한 번으로 끝난다 | 1회성 티켓이 만드는 호혜 순환 (아래 4절) |
+| Knowledge | Accident information is consumed as fear and never translated into action | Every case is forced into **hazard (source) → exposure (state) → avoidance (action)** |
+| Participation | Close calls go unrecorded because they are embarrassing or "nothing happened" | A no-blame reporting culture, no need to name people or places, the message that near misses are the most valuable data |
+| Persistence | Goodwill fires once and stops | A one-time ticket that creates a loop of reciprocity (section 4) |
 
-## 4. 경제학: 포지티브섬 순환
+## 4. Economics: a positive-sum loop
 
-### 4.1 원형: 식당 벽의 식권
+### 4.1 The original: vouchers on a café wall
 
-어른이 식사하며 자발적으로 조금 더 낸다 → 식권이 벽에 붙는다 → 학생이 떼어 가 무료로 먹는다.
-사장(매출·평판), 낸 사람(기쁨), 학생(식사) 모두가 나아지고 누구도 손해 보지 않는다. **파레토 개선**이며, 한국의 '미리내 가게', 이탈리아의 '서스펜디드 커피'와 같은 구조다.
+A customer pays a little extra → a voucher goes up on the wall → a student takes it down and eats for free.
+Owner (revenue, reputation), giver (joy) and student (a meal) all end up better off and nobody loses. It is a **Pareto improvement**, the same structure as Naples' *caffè sospeso* and Korea's "Mirinae" shops.
 
-### 4.2 미리봄으로 옮기기
+### 4.2 Mapped onto Stepback
 
-| 식당 | 미리봄 | 얻는 것 |
+| Café | Stepback | What they get |
 |---|---|---|
-| 사장 | 사례를 기록하는 사람 | 내 경험이 사례가 되고, 몇 명이 교훈을 받았는지 보인다 (인정) |
-| 조금 더 내는 어른 | 티켓을 붙이는 사람 | "이 교훈이 나를 지켰다"는 감사를 표현하고, 다음 사람에게 건넨다 (의미) |
-| 식권을 떼는 학생 | 티켓을 받는 사람 | 교훈 + 누군가 나를 위해 남긴 한마디 (보호 + 환대) |
-| 벽 | 티켓 벽 | 선의가 눈에 보이는 공간 (사회적 증거) |
-| 식권 금액 | 안전 기금 약정 | 반사띠·욕실 손잡이·후방 경고등 같은 "피하는 도구"로 환원 (v1 은 약정만) |
+| Owner | The person who records a case | Their experience becomes a case; they can see how many took the lesson (recognition) |
+| Customer paying extra | The person who pins a ticket | Expresses "this lesson protected me" and hands it on (meaning) |
+| Student taking a voucher | The person who takes a ticket | The lesson plus a note someone left for them (protection and welcome) |
+| The wall | The ticket wall | A place where goodwill is visible (social proof) |
+| Voucher value | Safety-fund pledge | Returned as "avoiding tools": reflective strips, grab bars, rear warning lights (v1 records pledges only) |
 
-### 4.3 왜 1회성인가
+### 4.3 Why one-time
 
-'좋아요'는 무한히 복제되어 희소성이 없고, 받는 사람에게 아무것도 건네지 않는다.
-티켓은 **한 장을 한 사람만** 가져갈 수 있다. 가져가면 벽에서 사라진다. 희소한 것을 받은 사람은 갚고 싶어진다(호혜). 그래서 티켓을 받은 사람이 다시 다른 사례에 티켓을 붙이는 순환이 생긴다.
+A "like" copies infinitely, so it is not scarce and hands nothing to anyone.
+A ticket can be taken by **exactly one person** and then leaves the wall. Someone who received something scarce wants to give back (reciprocity), so takers pin tickets on other cases and the loop keeps turning.
 
-서버가 강제하는 규칙: 내 티켓은 내가 못 가져간다 / 같은 사례의 티켓은 한 장만 / 붙인 사람과 받은 사람은 모두 교훈을 받은 것으로 기록.
+Rules enforced by the server: you cannot take your own ticket; one ticket per case per visitor; both giver and taker are recorded as having taken the lesson.
 
-### 4.4 돈의 자리
+### 4.4 Where money sits
 
-v1 에서 돈은 **약정**으로만 존재한다. 결제를 먼저 붙이면 "기부 플랫폼"이 되어 버리고, 핵심 자산인 사례와 교훈이 뒤로 밀린다. 약정 합계는 공개하여 신뢰를 쌓고, 집행은 "피하는 도구"로 한정해 목적을 분명히 한다.
+In v1 money exists only as a **pledge**. Wiring payments first turns the product into a donation platform and pushes the core asset, the cases and lessons, into the background. Pledge totals are public to build trust, and spending is limited to "avoiding tools" to keep the purpose clear. The currency is configurable so the same code runs anywhere.
 
-## 5. 사회학: 탓하지 않는 보고 문화
+## 5. Sociology: a no-blame reporting culture
 
-- **비처벌 아차 사고 보고 (항공 ASRS 모델)**: 항공 산업이 사고율을 극적으로 낮춘 비결 중 하나는 익명·비처벌 보고 제도다. 처벌이 없으니 보고가 쌓이고, 보고가 쌓이니 구조가 바뀐다.
-- **하인리히 법칙 (1 : 29 : 300)**: 중상 1건 뒤에 경상 29건, 아차 사고 300건. 큰 사고를 줄이려면 아차 사고를 모아야 한다. 그래서 기본 결과 유형이 `near_miss` 다.
-- **스위스 치즈 모델**: 사고는 여러 겹의 구멍이 일렬로 맞을 때 일어난다. "피하는 행동"은 내가 통제할 수 있는 한 겹을 막는 것이다.
-- **사회적 증거**: "17명이 이 교훈을 받았습니다"는 안전한 행동을 '유난'에서 '보통'으로 옮긴다.
-- **사람이 아니라 구조를 기록한다**: "그 운전자가 나빴다"는 아무도 지키지 못한다. "우회전 대형차 옆에서는 한 걸음 물러선다"는 누군가를 지킨다. 그래서 작성 폼에 가해자·피해자 칸이 없다.
+- **Non-punitive near-miss reporting (the aviation ASRS model)**: a big part of how aviation cut its accident rate. No punishment means reports accumulate, and accumulated reports change the system.
+- **Heinrich's ratio (1 : 29 : 300)**: behind one serious injury are 29 minor ones and 300 near misses. To prevent the big one, collect the near misses. That is why the default outcome is `near_miss`.
+- **The Swiss-cheese model**: accidents happen when the holes in several layers line up. The avoiding action is the one layer you control.
+- **Social proof**: "17 people have taken this lesson" moves safe behaviour from "fussy" to "normal".
+- **We record structures, not people**: "that driver was reckless" protects nobody. "Next to a turning truck, take one step back" protects someone. So the form has no fields for perpetrator or victim.
 
-## 6. 마케팅: 공유 단위는 공포가 아니라 행동
+## 6. Marketing: what spreads is an action, not fear
 
-- 공유 단위는 **"피하는 행동 한 문장"**. 카드 한 장, 문장 하나, 링크 하나.
-- 공유 버튼은 제목 + 피하는 행동 + 링크를 묶어 보낸다. 받는 사람이 앱을 열지 않아도 문장 하나는 가져간다.
-- 위험도 배지(심각도 × 가능성)는 스크롤 중에도 우선순위를 보여 준다.
-- 홈 화면의 숫자(사례·교훈·티켓)는 "여기 사람이 있다"는 신호다.
-- 다음 단계: 주간 다이제스트("이번 주 가장 많이 받은 교훈 3개"), 계절 캠페인(겨울 블랙아이스, 여름 물놀이), 운전학원·학교·교회·아파트 커뮤니티와의 제휴 — 티켓 벽을 오프라인에 실제로 붙이는 것.
+- The unit of sharing is **one sentence of avoiding action**. One card, one sentence, one link.
+- The share button bundles title, avoiding action and link, so even someone who never opens the app walks away with the sentence.
+- The risk badge (severity × likelihood) shows priority at a glance while scrolling.
+- The counters on the home page signal "there are people here".
+- Next: a weekly digest ("the three most-taken lessons this week"), seasonal campaigns (black ice in winter, water in summer), and partnerships with driving schools, schools, churches and housing communities, including putting a physical ticket wall up offline.
 
-## 7. 용어 (앱 전체에서 동일하게 사용)
+## 7. Vocabulary (used identically everywhere in the app)
 
-| 용어 | 뜻 | 예 |
+| Term | Meaning | Example |
 |---|---|---|
-| 위해 요인 Hazard | 해를 끼칠 수 있는 원천 | 대형차 우측 사각지대, 젖은 타일, 주행 차로 위 정지 물체 |
-| 노출 상태 Exposure | 그 원천 앞에 내가 놓이는 상태 | 트럭 우측 1m 안, 1차선에서 스마트폰 흘끗 |
-| 위험도 Risk | 심각도 × 가능성 (5×5) | 5×3 = 15 → 높음 |
-| 피하는 행동 Avoidance | 노출을 끊는 내 행동 | 한 걸음 물러선다, 1차선은 추월 후 복귀 |
-| 위험을 높이는 행위 | 노출을 만드는 흔한 습관 | 신호 대기 중 스마트폰 |
+| Hazard | The source of potential harm | A truck's right-side blind spot, wet tile, a stopped vehicle in a live lane |
+| Exposure | The state that puts me in its path | Within 1 m of the truck's side, glancing at a phone in the fast lane |
+| Risk | Severity × likelihood (5×5) | 5 × 3 = 15 → High |
+| Avoidance | My action that breaks the exposure | Take one step back; use the fast lane only to pass |
+| Risky habit | A common habit that creates exposure | Phone while waiting at the light |
 
-## 8. 설계 원칙 (코드)
+## 8. Engineering principles
 
-1. 모든 SQL 은 `server/db.js` 의 Repo 에만 있다. 라우트는 얇다.
-2. 도메인 규칙(위험도, 검증, 용어)은 `server/domain/` 에 있고 프론트는 `/api/meta` 로 같은 값을 받는다.
-3. 빌드 단계가 없다. 프론트는 ES 모듈 + 해시 라우터. 뷰는 DOM 을 반환하는 함수.
-4. 의존성은 express 하나. DB 는 내장 `node:sqlite`.
-5. 테스트는 실제 HTTP 로 전체 흐름을 검증한다 (`npm test`).
+1. Every SQL statement lives in the Repo in `server/db.js`. Routes stay thin.
+2. Domain rules (risk, validation, vocabulary) live in `server/domain/`; the frontend fetches the same values from `/api/meta`.
+3. No build step. The frontend is ES modules plus a hash router; a view is a function that returns DOM.
+4. One dependency: express. The database is built-in `node:sqlite`.
+5. Tests exercise the whole flow over real HTTP (`npm test`).
+6. Internationalized from the start: UI strings in one dictionary per locale, server labels localized per request, currency and dates formatted by `Intl`.
 
-## 9. 로드맵
+## 9. Roadmap
 
-| 단계 | 내용 | 왜 |
+| Stage | Scope | Why |
 |---|---|---|
-| v1 (지금) | 사례·교훈·티켓 벽·약정, 브라우저 로컬 식별 | 순환이 돌아가는지 본다 |
-| v1.1 | 신고·숨김, 중복 병합, 출처 미리보기 | 품질 |
-| v1.2 | 계정(소셜 로그인), 내 티켓/내 교훈 페이지 | 지속 참여 |
-| v2 | 결제 연동 + 기금 집행 내역 공개, 오프라인 티켓 벽 | 돈이 돌아도 신뢰가 유지되도록 |
-| v2.x | 장소 유형/지역 보기, 주간 다이제스트, 이미지·영상 | 확산 |
+| v1 (now) | Cases, lessons, ticket wall, pledges, browser-local identity, en/ko | See whether the loop turns |
+| v1.1 | Report and hide, merge duplicates, link previews | Quality |
+| v1.2 | Accounts (social login), "my tickets / my lessons" pages | Sustained participation |
+| v2 | Payments plus a public ledger of fund spending, offline ticket walls | Keep trust while money flows |
+| v2.x | Browse by place type or region, weekly digest, images and video, more locales | Reach |
 
-## 10. 열린 질문
+## 10. Open questions
 
-- 티켓을 받은 사람에게 **다시 붙이기**를 어떻게 자연스럽게 권할까? (받은 직후 한 번만 제안)
-- 약정이 실제 돈이 될 때, 집행 주체는 누구이며 어떻게 투명하게 보여 줄까?
-- 사망 사고 사례를 어디까지 다룰까? 유가족 보호와 교훈 사이의 선.
-- "교훈을 받았다"는 클릭이 실제 행동 변화로 이어졌는지 어떻게 알까? (1주 후 "실천했나요?" 가벼운 회고)
+- How do we invite a taker to **pin a ticket in turn** without nagging? (One prompt, right after taking.)
+- When pledges become real money, who spends it and how is that shown transparently?
+- How far do we go with fatal cases? The line between protecting bereaved families and sharing the lesson.
+- Does a "lesson taken" click become a changed behaviour? (A light check-in one week later: "did you do it?")

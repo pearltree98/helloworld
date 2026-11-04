@@ -2,32 +2,34 @@ import express from 'express';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { randomUUID } from 'node:crypto';
-import { cleanNickname, isVisitorId, ValidationError } from './domain/validate.js';
+import { cleanNickname, isVisitorId, ValidationError, LIMITS } from './domain/validate.js';
 import casesRouter from './routes/cases.js';
 import ticketsRouter from './routes/tickets.js';
 import statsRouter from './routes/stats.js';
-import { CATEGORIES, OUTCOMES } from './domain/catalog.js';
+import { CATEGORIES, OUTCOMES, LOCALES, DEFAULT_LOCALE, localize, pickLocale } from './domain/catalog.js';
 import { RISK_LEVELS } from './domain/risk.js';
 
 const WEB_DIR = join(dirname(fileURLToPath(import.meta.url)), '..', 'web');
 
+/** Pledges are recorded in whole units of one configurable currency (ISO 4217). */
+export const CURRENCY = (process.env.CURRENCY ?? 'USD').toUpperCase();
+
 /**
- * 방문자 식별 (v1: 로그인 없이 브라우저가 만든 id를 헤더로 보낸다)
- *  X-Visitor-Id   : 8~64자의 [A-Za-z0-9_-]
- *  X-Visitor-Name : URL 인코딩된 별명 (선택)
- * 쓰기 요청인데 id가 없으면 새로 발급해 응답 헤더로 돌려준다.
+ * Visitor identity (v1: no login; the browser mints an id and sends it as a header).
+ *  X-Visitor-Id   : 8–64 chars of [A-Za-z0-9_-]
+ *  X-Visitor-Name : URL-encoded display name (optional)
+ * A write without an id gets one issued and returned in the response header.
  */
 function visitor(repo) {
   return (req, res, next) => {
     const rawId = req.get('x-visitor-id');
-    const id = isVisitorId(rawId) ? rawId : null;
-    let nickname = '익명';
+    let nickname = 'Anonymous';
     try {
       nickname = cleanNickname(decodeURIComponent(req.get('x-visitor-name') ?? ''));
     } catch {
-      nickname = '익명';
+      nickname = 'Anonymous';
     }
-    req.visitor = { id, nickname };
+    req.visitor = { id: isVisitorId(rawId) ? rawId : null, nickname };
 
     const writes = req.method !== 'GET' && req.method !== 'HEAD';
     if (writes) {
@@ -48,8 +50,18 @@ export function createApp(repo) {
   app.use(express.json({ limit: '64kb' }));
   app.use(visitor(repo));
 
-  app.get('/api/meta', (_req, res) => {
-    res.json({ categories: CATEGORIES, outcomes: OUTCOMES, risk_levels: RISK_LEVELS });
+  app.get('/api/meta', (req, res) => {
+    const locale = pickLocale(req.query.lang);
+    res.json({
+      locale,
+      locales: LOCALES,
+      default_locale: DEFAULT_LOCALE,
+      currency: CURRENCY,
+      limits: LIMITS,
+      categories: localize(CATEGORIES, locale),
+      outcomes: localize(OUTCOMES, locale),
+      risk_levels: localize(RISK_LEVELS, locale),
+    });
   });
   app.get('/api/me', (req, res) => {
     const v = req.visitor.id ? repo.getVisitor(req.visitor.id) : null;
@@ -63,10 +75,9 @@ export function createApp(repo) {
   app.use('/api/cases', casesRouter);
   app.use('/api/tickets', ticketsRouter);
   app.use('/api/stats', statsRouter);
+  app.use('/api', (_req, res) => res.status(404).json({ error: 'not_found', message: 'Not found.' }));
 
-  app.use('/api', (_req, res) => res.status(404).json({ error: 'not_found' }));
-
-  // 정적 프론트엔드 + 해시 라우터이므로 index.html 하나로 충분
+  // Static frontend; a hash router means index.html is the only page.
   app.use(express.static(WEB_DIR, { extensions: ['html'] }));
 
   // eslint-disable-next-line no-unused-vars
@@ -75,10 +86,10 @@ export function createApp(repo) {
       return res.status(400).json({ error: 'validation', message: err.message, errors: err.errors });
     }
     if (err.type === 'entity.parse.failed') {
-      return res.status(400).json({ error: 'bad_json', message: 'JSON 형식이 올바르지 않습니다.' });
+      return res.status(400).json({ error: 'bad_json', message: 'Malformed JSON.' });
     }
     console.error(err);
-    res.status(500).json({ error: 'internal', message: '서버 오류가 발생했습니다.' });
+    res.status(500).json({ error: 'internal', message: 'Something went wrong on the server.' });
   });
 
   return app;

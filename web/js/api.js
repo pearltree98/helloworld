@@ -1,8 +1,9 @@
 import { visitorId, nickname, adoptVisitorId } from './identity.js';
+import { locale } from './i18n.js';
 
 export class ApiError extends Error {
   constructor(status, body) {
-    super(body?.message ?? `요청 실패 (${status})`);
+    super(body?.message ?? `Request failed (${status})`);
     this.status = status;
     this.body = body ?? {};
     this.errors = body?.errors ?? {};
@@ -33,7 +34,7 @@ const qs = (obj) => {
 };
 
 export const api = {
-  meta: () => call('GET', '/api/meta'),
+  meta: (lang) => call('GET', `/api/meta${qs({ lang })}`),
   me: () => call('GET', '/api/me'),
   setMe: (nick) => call('POST', '/api/me', { nickname: nick }),
   stats: () => call('GET', '/api/stats'),
@@ -46,8 +47,9 @@ export const api = {
   takeTicket: (id) => call('POST', `/api/tickets/${id}/take`),
 };
 
-let metaCache;
+const metaCache = new Map();
+/** Localized catalog (categories, outcomes, risk levels, currency). Cached per locale. */
 export async function meta() {
-  metaCache ??= await api.meta();
-  return metaCache;
+  if (!metaCache.has(locale)) metaCache.set(locale, await api.meta(locale));
+  return metaCache.get(locale);
 }

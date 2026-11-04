@@ -1,9 +1,9 @@
 {
-  "name": "miribom",
+  "name": "stepback",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "미리봄 — 일상의 잠재적 위험을 기록하고, 교훈을 티켓처럼 서로에게 건네는 커뮤니티 앱",
+  "description": "Stepback — record everyday hazards and the avoiding action you learned, then hand the lesson on like a voucher on a café wall",
   "scripts": {
     "start": "node --no-warnings=ExperimentalWarning server/index.js",
     "dev": "node --no-warnings=ExperimentalWarning --watch server/index.js",

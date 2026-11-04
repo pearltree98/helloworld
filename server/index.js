@@ -7,7 +7,7 @@ seedIfEmpty(repo);
 
 const port = Number(process.env.PORT) || 3000;
 const server = createApp(repo).listen(port, () => {
-  console.log(`미리봄이 http://localhost:${port} 에서 실행 중입니다.`);
+  console.log(`Stepback is running at http://localhost:${port}`);
 });
 
 for (const sig of ['SIGINT', 'SIGTERM']) {
