@@ -82,13 +82,14 @@ In v1 money exists only as a **pledge**. Wiring payments first turns the product
 3. No build step. The frontend is ES modules plus a hash router; a view is a function that returns DOM.
 4. One dependency: express. The database is built-in `node:sqlite`.
 5. Tests exercise the whole flow over real HTTP (`npm test`).
-6. Internationalized from the start: UI strings in one dictionary per locale, server labels localized per request, currency and dates formatted by `Intl`.
+6. Internationalized from the start: one JSON file per language in `locales/` holds UI strings, catalog labels and the About page; server and browser read the same file. Currency and dates are formatted by `Intl`; Arabic is right-to-left.
+7. Conventional visual design on purpose: white page, system font, blue links, one-pixel borders, a list for the feed. It should look like a site people already know how to use, not like a demo.
 
 ## 9. Roadmap
 
 | Stage | Scope | Why |
 |---|---|---|
-| v1 (now) | Cases, lessons, ticket wall, pledges, browser-local identity, en/ko | See whether the loop turns |
+| v1 (now) | Cases, lessons, ticket wall, pledges, browser-local identity, 15 languages | See whether the loop turns |
 | v1.1 | Report and hide, merge duplicates, link previews | Quality |
 | v1.2 | Accounts (social login), "my tickets / my lessons" pages | Sustained participation |
 | v2 | Payments plus a public ledger of fund spending, offline ticket walls | Keep trust while money flows |

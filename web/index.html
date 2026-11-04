@@ -7,22 +7,22 @@
   <meta name="description" content="Record close calls and the avoiding action you learned from them, then hand the lesson to the next person like a voucher on a café wall." />
   <meta property="og:title" content="Stepback" />
   <meta property="og:description" content="Nothing happening is the biggest win. See everyday hazards early and hand the lesson on." />
-  <meta name="theme-color" content="#1f6f5c" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%231f6f5c'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23fff'/%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='2' fill='%23222'/%3E%3Cpath d='M4 8h8M8 4l-4 4 4 4' stroke='%23fff' stroke-width='2' fill='none'/%3E%3C/svg%3E" />
   <link rel="stylesheet" href="/css/app.css" />
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-  <header class="topbar">
-    <div class="wrap topbar__inner">
-      <a class="brand" href="#/"><span class="brand__dot"></span><span id="brand-name">Stepback</span></a>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="#/"><span id="brand-name">Stepback</span></a>
       <nav class="nav" id="nav" aria-label="Main"></nav>
-      <select class="lang" id="lang" aria-label="Language"></select>
-      <button class="whoami" id="whoami" type="button"></button>
+      <div class="header-tools">
+        <select id="lang" aria-label="Language"></select>
+        <button class="btn btn-sm" id="whoami" type="button"></button>
+      </div>
     </div>
   </header>
-  <main id="main" class="wrap"></main>
-  <footer class="foot wrap"><p id="footer"></p></footer>
+  <main id="main" class="container"></main>
+  <footer class="footer"><div class="container"><p id="footer"></p></div></footer>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script type="module" src="/js/main.js"></script>
 </body>

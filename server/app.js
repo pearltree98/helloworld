@@ -6,8 +6,9 @@ import { cleanNickname, isVisitorId, ValidationError, LIMITS } from './domain/va
 import casesRouter from './routes/cases.js';
 import ticketsRouter from './routes/tickets.js';
 import statsRouter from './routes/stats.js';
-import { CATEGORIES, OUTCOMES, LOCALES, DEFAULT_LOCALE, localize, pickLocale } from './domain/catalog.js';
+import { CATEGORY_KEYS, OUTCOME_KEYS } from './domain/catalog.js';
 import { RISK_LEVELS } from './domain/risk.js';
+import { LOCALES, LOCALES_DIR, DEFAULT_LOCALE, pickLocale, catalogLabels } from './domain/locales.js';
 
 const WEB_DIR = join(dirname(fileURLToPath(import.meta.url)), '..', 'web');
 
@@ -52,15 +53,16 @@ export function createApp(repo) {
 
   app.get('/api/meta', (req, res) => {
     const locale = pickLocale(req.query.lang);
+    const label = (group, key) => catalogLabels(locale, group)[key] ?? key;
     res.json({
       locale,
       locales: LOCALES,
       default_locale: DEFAULT_LOCALE,
       currency: CURRENCY,
       limits: LIMITS,
-      categories: localize(CATEGORIES, locale),
-      outcomes: localize(OUTCOMES, locale),
-      risk_levels: localize(RISK_LEVELS, locale),
+      categories: CATEGORY_KEYS.map((key) => ({ key, label: label('categories', key) })),
+      outcomes: OUTCOME_KEYS.map((key) => ({ key, label: label('outcomes', key) })),
+      risk_levels: RISK_LEVELS.map(({ key, max }) => ({ key, max, label: label('risk_levels', key) })),
     });
   });
   app.get('/api/me', (req, res) => {
@@ -77,6 +79,8 @@ export function createApp(repo) {
   app.use('/api/stats', statsRouter);
   app.use('/api', (_req, res) => res.status(404).json({ error: 'not_found', message: 'Not found.' }));
 
+  // Locale files are shared with the browser as-is.
+  app.use('/locales', express.static(LOCALES_DIR, { maxAge: '1h' }));
   // Static frontend; a hash router means index.html is the only page.
   app.use(express.static(WEB_DIR, { extensions: ['html'] }));
 

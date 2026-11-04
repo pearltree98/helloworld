@@ -13,7 +13,8 @@ All responses are JSON. Errors look like `{ error, message, errors? }`.
 
 | Method | Path | Description |
 |---|---|---|
-| GET | `/api/meta?lang=en\|ko` | Localized categories, outcomes, risk levels; `currency`; field `limits` |
+| GET | `/api/meta?lang=<code>` | `locales` ([{code,name,dir}]), localized categories, outcomes, risk levels; `currency`; field `limits` |
+| GET | `/locales/<code>.json` | The full locale file (UI strings, labels, About page) |
 | GET / POST | `/api/me` | Read / set my display name `{ nickname }` |
 | GET | `/api/stats` | Totals for cases, lessons, tickets, pledges; cases by category |
 | GET | `/api/cases?category=&sort=recent\|risk\|lessons&q=&limit=&offset=` | List cases with risk score, lesson and ticket counts |

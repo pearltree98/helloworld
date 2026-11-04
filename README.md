@@ -23,7 +23,17 @@ Requires Node 22.13 or newer. The database is Node's built-in `node:sqlite`, so 
 | `DB_PATH` | `data/stepback.db` | SQLite file (`:memory:` for tests) |
 | `CURRENCY` | `USD` | ISO 4217 code used for safety-fund pledges |
 
-The UI ships in English and Korean. The language follows the browser, and a selector in the header overrides it. Adding a locale means adding one dictionary in `web/js/i18n.js`, one page in `web/js/views/about.js`, and labels in `server/domain/catalog.js` and `server/domain/risk.js`.
+## Languages
+
+The UI ships in 15 languages: English, Arabic, German, Spanish, French, Hindi, Indonesian, Italian, Japanese, Korean, Portuguese, Russian, Turkish, Vietnamese and Chinese (Simplified). The language follows the browser and a selector in the header overrides it. Arabic renders right-to-left.
+
+Each language is one file in `locales/<code>.json` holding the UI strings, the category / outcome / risk labels and the About page. The server reads these files for `/api/meta`, and the browser fetches the same files, so there is a single source of truth per language. To add a language, copy `locales/en.json`, translate it, and restart; `npm test` checks that every file carries the same keys.
+
+The non-English translations were drafted by an AI model and have not yet been reviewed by native speakers. Corrections are welcome as plain edits to the JSON files.
+
+## Design
+
+The page is deliberately conventional: white background, system font, blue links, one-pixel borders, a list for the feed. No gradients, shadows or dark mode. The whole stylesheet is `web/css/app.css`.
 
 ## Layout
 
@@ -35,18 +45,21 @@ server/
   seed.js           starter cases
   domain/
     risk.js         risk = severity × likelihood (5×5 matrix), vocabulary
-    catalog.js      categories, outcomes, locales
+    catalog.js      category and outcome keys
+    locales.js      loads locales/*.json, picks a locale, resolves labels
     validate.js     input validation with machine-readable error codes
   routes/
     cases.js        list / detail / create, take a lesson, pin a ticket
     tickets.js      the wall, take a ticket
     stats.js        aggregates
+locales/
+  en.json …         one file per language: UI strings, labels, About page
 web/
   index.html        single page (hash router)
-  css/app.css       design tokens, light/dark
+  css/app.css       plain stylesheet
   js/
     main.js         router, header, language and name controls
-    i18n.js         UI strings (en, ko)
+    i18n.js         loads locale files, t() lookup with English fallback
     api.js          fetch wrapper (attaches visitor headers)
     identity.js     browser-local visitor id
     ui.js           DOM helpers, formatting
@@ -67,4 +80,4 @@ test/
 - No reporting or moderation yet. → report, hide, merge duplicates.
 - Pledges are only recorded. → payments and a public ledger of what the fund bought.
 - No map. → browse by place type or region, "lessons near me".
-- Weekly digest, image and video attachments, more locales.
+- Weekly digest, image and video attachments, native review of translations, more locales.

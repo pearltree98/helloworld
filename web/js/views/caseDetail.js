@@ -1,5 +1,5 @@
 import { api, meta, ApiError } from '../api.js';
-import { h, clear, fmtDate, labelOf, riskBadge, loading, errorBox, toast, field } from '../ui.js';
+import { h, clear, fmtDate, labelOf, riskText, loading, errorBox, toast, field, sep } from '../ui.js';
 import { t, tError } from '../i18n.js';
 import { ticketCard } from './wall.js';
 
@@ -8,25 +8,8 @@ export async function caseView(root, { id }) {
   const [m, c] = await Promise.all([meta(), api.case(id).catch((e) => e)]);
   if (c instanceof Error) return root.replaceChildren(errorBox(c.status === 404 ? new Error(t('errors.case_not_found')) : c));
 
-  const article = h('article', { class: 'article' },
-    h('a', { class: 'back', href: '#/' }, t('detail.back')),
-    h('div', { class: 'meta', style: 'margin-top:10px' },
-      h('span', { class: 'tag' }, labelOf(m.categories, c.category)),
-      h('span', { class: 'tag' }, labelOf(m.outcomes, c.outcome)),
-      riskBadge(c, m.risk_levels),
-    ),
-    h('h1', {}, c.title),
-    h('p', { class: 'back' }, `${t('detail.by', { name: c.author_name ?? 'Anonymous', date: fmtDate(c.created_at) })}${c.location_text ? ` · ${c.location_text}` : ''}`),
-    sect(t('detail.situation'), c.situation),
-    sect(t('detail.hazard'), c.hazard),
-    sect(t('detail.exposure'), c.exposure),
-    sect(t('detail.avoidance'), c.avoidance, 'sect--avoid'),
-    c.risky_habit ? sect(t('detail.habit'), c.risky_habit) : null,
-    c.source_url ? h('p', { class: 'sect' }, h('a', { href: c.source_url, target: '_blank', rel: 'noopener noreferrer', class: 'back' }, t('detail.source'))) : null,
-  );
-
-  const learnBtn = h('button', { class: 'btn btn--primary btn--block', type: 'button', disabled: c.learned }, c.learned ? t('detail.learned') : t('detail.learn'));
-  const learnCount = h('div', { class: 'count' }, countText(c.lesson_count));
+  const learnBtn = h('button', { class: 'btn btn-primary', type: 'button', disabled: c.learned }, c.learned ? t('detail.learned') : t('detail.learn'));
+  const learnCount = h('span', { class: 'muted' }, countText(c.lesson_count));
   learnBtn.addEventListener('click', async () => {
     learnBtn.disabled = true;
     try {
@@ -36,25 +19,13 @@ export async function caseView(root, { id }) {
       toast(t('detail.learnToast'));
     } catch (e) { learnBtn.disabled = false; toast(e.message); }
   });
-
-  const shareBtn = h('button', { class: 'btn btn--block', type: 'button', onclick: () => share(c) }, t('detail.share'));
-
-  const pct = Math.round((c.risk_score / 25) * 100);
-  const riskPanel = h('div', { class: 'panel' },
-    h('h3', {}, t('risk.panel')),
-    h('dl', { class: 'matrix' },
-      h('dt', {}, t('risk.severity')), h('dd', {}, `${c.severity} / 5`),
-      h('dt', {}, t('risk.likelihood')), h('dd', {}, `${c.likelihood} / 5`),
-      h('dt', {}, t('risk.score')), h('dd', {}, `${c.risk_score} / 25 · ${labelOf(m.risk_levels, c.risk_level)}`),
-    ),
-    h('div', { class: 'bar' }, h('i', { class: `risk--${c.risk_level}`, style: `width:${pct}%` })),
-  );
+  const shareBtn = h('button', { class: 'btn', type: 'button', onclick: () => share(c) }, t('detail.share'));
 
   const ticketsWrap = h('div', { class: 'tickets' });
   const renderTickets = (tickets) => ticketsWrap.replaceChildren(
-    ...(tickets.length ? tickets.map((tk) => ticketCard(tk, m, { onTaken: refreshTickets, showCase: false })) : [h('p', { class: 'empty', style: 'padding:12px 0' }, t('detail.noTickets'))]),
+    ...(tickets.length ? tickets.map((tk) => ticketCard(tk, m, { onTaken: refresh, showCase: false })) : [h('p', { class: 'muted' }, t('detail.noTickets'))]),
   );
-  async function refreshTickets() {
+  async function refresh() {
     const fresh = await api.case(c.id);
     renderTickets(fresh.tickets);
     learnCount.textContent = countText(fresh.lesson_count);
@@ -62,20 +33,37 @@ export async function caseView(root, { id }) {
   }
   renderTickets(c.tickets);
 
-  const ticketSection = h('section', { class: 'sect' },
-    h('h2', {}, t('detail.wall')),
-    h('p', { class: 'back', style: 'margin:0 0 12px' }, t('detail.wallLead')),
-    ticketsWrap,
-    ticketForm(c, m, refreshTickets),
-  );
-
   clear(root).append(
-    h('div', { class: 'detail' },
-      h('div', {}, article, ticketSection),
-      h('aside', { class: 'side' },
-        h('div', { class: 'panel learn' }, learnBtn, learnCount, shareBtn),
-        riskPanel,
-        h('div', { class: 'panel' }, h('h3', {}, t('detail.oneLine')), h('p', { style: 'margin:0;font-weight:600' }, c.avoidance)),
+    h('article', { class: 'article' },
+      h('p', { class: 'muted' }, h('a', { href: '#/' }, t('detail.back'))),
+      h('h1', { dir: 'auto' }, c.title),
+      h('div', { class: 'meta' },
+        labelOf(m.categories, c.category), sep(),
+        labelOf(m.outcomes, c.outcome), sep(),
+        riskText(c, m.risk_levels), sep(),
+        t('detail.by', { name: c.author_name ?? 'Anonymous', date: fmtDate(c.created_at) }),
+        c.location_text ? [sep(), c.location_text] : null,
+      ),
+      h('div', { class: 'actions' }, learnBtn, shareBtn, learnCount),
+      sect(t('detail.situation'), c.situation),
+      sect(t('detail.hazard'), c.hazard),
+      sect(t('detail.exposure'), c.exposure),
+      h('section', { class: 'section avoid' }, h('h2', {}, t('detail.avoidance')), h('p', { dir: 'auto' }, c.avoidance)),
+      c.risky_habit ? sect(t('detail.habit'), c.risky_habit) : null,
+      h('section', { class: 'section' },
+        h('h2', {}, t('risk.panel')),
+        h('table', { class: 'table' },
+          h('tr', {}, h('th', {}, t('risk.severity')), h('td', {}, `${c.severity} / 5`)),
+          h('tr', {}, h('th', {}, t('risk.likelihood')), h('td', {}, `${c.likelihood} / 5`)),
+          h('tr', {}, h('th', {}, t('risk.score')), h('td', {}, `${c.risk_score} / 25 · ${labelOf(m.risk_levels, c.risk_level)}`)),
+        ),
+      ),
+      c.source_url ? h('p', {}, h('a', { href: c.source_url, target: '_blank', rel: 'noopener noreferrer' }, t('detail.source'))) : null,
+      h('section', { class: 'section' },
+        h('h2', {}, t('detail.wall')),
+        h('p', { class: 'muted' }, t('detail.wallLead')),
+        ticketsWrap,
+        ticketForm(c, m, refresh),
       ),
     ),
   );
@@ -83,16 +71,14 @@ export async function caseView(root, { id }) {
 
 const countText = (n) => (n === 0 ? t('detail.count.zero') : n === 1 ? t('detail.count.one') : t('detail.count.some', { n }));
 
-function sect(title, body, extra = '') {
-  return h('section', { class: `sect ${extra}` }, h('h2', {}, title), h('p', {}, body));
-}
+const sect = (title, body) => h('section', { class: 'section' }, h('h2', {}, title), h('p', { dir: 'auto' }, body));
 
 function ticketForm(c, m, onDone) {
-  const msg = h('textarea', { id: 'f-message', placeholder: t('ticket.placeholder'), maxlength: m.limits.message });
+  const msg = h('textarea', { id: 'f-message', placeholder: t('ticket.placeholder'), maxlength: m.limits.message, rows: 3 });
   const pledge = h('input', { id: 'f-pledge_amount', type: 'number', min: 0, max: m.limits.pledge_max, step: 1, placeholder: '0' });
-  const errMsg = h('p', { class: 'err' });
-  const btn = h('button', { class: 'btn btn--primary', type: 'submit' }, t('ticket.pin'));
-  return h('form', { class: 'ticket-form', onsubmit: async (e) => {
+  const errMsg = h('p', { class: 'error' });
+  const btn = h('button', { class: 'btn btn-primary', type: 'submit' }, t('ticket.pin'));
+  return h('form', { class: 'form', onsubmit: async (e) => {
     e.preventDefault();
     errMsg.textContent = '';
     btn.disabled = true;

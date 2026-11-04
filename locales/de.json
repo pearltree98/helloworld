@@ -1,0 +1,225 @@
+{
+  "code": "de",
+  "name": "Deutsch",
+  "dir": "ltr",
+  "catalog": {
+    "categories": {
+      "road": "Straße & Fahren",
+      "walk": "Zu Fuß",
+      "home": "Zuhause",
+      "work": "Arbeit & Baustelle",
+      "transit": "Öffentlicher Verkehr",
+      "air": "Luftfahrt",
+      "water": "Wasser",
+      "outdoors": "Draußen",
+      "other": "Sonstiges"
+    },
+    "outcomes": {
+      "near_miss": "Beinahe-Unfall, unverletzt",
+      "observed": "Beobachtet oder aus Video gelernt",
+      "injury": "Verletzung",
+      "fatal": "Tödlich"
+    },
+    "risk_levels": {
+      "low": "Niedrig",
+      "moderate": "Mittel",
+      "high": "Hoch",
+      "critical": "Kritisch"
+    }
+  },
+  "ui": {
+    "tagline": "Die Gefahr früh sehen. Die Lektion weitergeben.",
+    "nav": {
+      "cases": "Fälle",
+      "wall": "Ticketwand",
+      "about": "Über",
+      "new": "Fall erfassen"
+    },
+    "who": {
+      "edit": "Anzeigename (max. 20 Zeichen)",
+      "saved": "Du wirst ab jetzt als „{name}“ erfasst."
+    },
+    "lang": {
+      "label": "Sprache"
+    },
+    "footer": "Keine Schuldzuweisung. Wir halten die Struktur fest, die Menschen schützt.",
+    "errors": {
+      "generic": "Etwas ist schiefgelaufen.",
+      "not_found": "Seite nicht gefunden.",
+      "case_not_found": "Fall nicht gefunden.",
+      "required": "Pflichtfeld.",
+      "too_long": "Bitte höchstens {max} Zeichen.",
+      "invalid_url": "Nur Adressen, die mit http(s) beginnen, sind erlaubt.",
+      "invalid_choice": "Bitte eine der Optionen wählen.",
+      "out_of_range": "Bitte eine ganze Zahl zwischen {min} und {max} eingeben.",
+      "check_fields": "Bitte die rot markierten Felder prüfen."
+    },
+    "home": {
+      "h1": "Dass nichts passiert, ist der größte Sieg.",
+      "lead": "Ein Beinahe-Unfall, ein Crash im Video, das Bad der Eltern. Halte die Ausweichhandlung fest, die du daraus gelernt hast, und gib sie an die nächste Person weiter.",
+      "stats": "{cases} Fälle · {lessons} Lektionen genommen · {wall} Tickets an der Wand · {taken} weitergegeben",
+      "search": "Fälle durchsuchen",
+      "category": "Alle Kategorien",
+      "sort": {
+        "recent": "Neueste",
+        "risk": "Höchstes Risiko",
+        "lessons": "Meiste Lektionen"
+      },
+      "empty": "Noch keine Fälle. Erfasse den ersten."
+    },
+    "card": {
+      "avoid": "So vermeidest du es:",
+      "lessons": "Lektionen: {n}",
+      "tickets": "Tickets: {n}"
+    },
+    "risk": {
+      "badge": "Risiko {score} ({label})",
+      "title": "Schwere {s} × Wahrscheinlichkeit {l}",
+      "panel": "Risiko",
+      "severity": "Schwere",
+      "likelihood": "Wahrscheinlichkeit",
+      "score": "Wert"
+    },
+    "detail": {
+      "back": "← Alle Fälle",
+      "by": "{name} · {date}",
+      "situation": "Was passiert ist",
+      "hazard": "Gefährdung — die Quelle des Schadens",
+      "exposure": "Exposition — der Zustand, der mich in ihren Weg brachte",
+      "avoidance": "Vermeidung — was ich tun kann",
+      "habit": "Eine verbreitete Gewohnheit, die das Risiko erhöht",
+      "source": "Quelle ansehen",
+      "learn": "Ich nehme diese Lektion",
+      "learned": "Lektion genommen",
+      "learnToast": "Gemerkt. Möge nichts passieren.",
+      "count": {
+        "zero": "Noch niemand hat diese Lektion genommen",
+        "one": "1 Person hat diese Lektion genommen",
+        "some": "{n} Personen haben diese Lektion genommen"
+      },
+      "share": "Teilen",
+      "shareCopied": "Link kopiert.",
+      "oneLine": "In einem Satz",
+      "wall": "Tickets",
+      "wallLead": "Wenn dich diese Lektion geschützt hat, hefte ein Ticket für die nächste Person an. Ein Ticket verschwindet, sobald eine Person es nimmt, wie ein Essensgutschein an der Wand eines Cafés.",
+      "noTickets": "Noch keine Tickets. Hefte das erste an."
+    },
+    "ticket": {
+      "message": "Eine Notiz für die nächste Person",
+      "placeholder": "z. B. An jeden Fahranfänger: Die linke Spur ist geliehen, nicht gemietet.",
+      "pledge": "Zusage für den Sicherheitsfonds (optional)",
+      "pledgeHint": "Es wird noch nichts abgebucht. Zugesagte Beträge sind öffentlich und für Hilfsmittel zum Ausweichen gedacht: Reflexstreifen, Haltegriffe im Bad.",
+      "pin": "Ticket anheften",
+      "pinned": "Dein Ticket hängt an der Wand.",
+      "take": "Dieses Ticket nehmen",
+      "mine": "Dein Ticket",
+      "mineTitle": "Ein selbst angeheftetes Ticket kannst du nicht nehmen",
+      "taken": "Du hast das Ticket genommen. Behalte die Notiz von {name} bei dir.",
+      "takenBy": "Genommen von {name} am {date}",
+      "pledged": "Zusage: {amount}"
+    },
+    "wall": {
+      "h1": "Ticketwand",
+      "lead": "Tickets von Menschen, die gesagt haben: „Diese Lektion hat mich geschützt.“ Nimm eines, und die Lektion wird als deine erfasst; das Ticket verlässt die Wand. Wer ein Ticket nimmt, kann bei einem anderen Fall eines anheften.",
+      "stats": "{wall} an der Wand · {taken} weitergegeben · {pledged} zugesagt · {lessons} Lektionen genommen",
+      "empty": "Die Wand ist leer. Lies einen Fall und hefte das erste Ticket an.",
+      "recent": "Kürzlich weitergegeben",
+      "none": "Noch keine."
+    },
+    "form": {
+      "h1": "Fall erfassen",
+      "lead": "Ein Beinahe-Unfall kann den Tag eines anderen Menschen schützen. Die Heinrich-Pyramide (1 schwere Verletzung : 29 leichte : 300 Beinahe-Unfälle) sagt: Beinahe-Unfälle sind unsere wertvollsten Daten.",
+      "title": "Titel",
+      "titlePh": "z. B. Ein Kind läuft auf dem Parkplatz hinter ein rückwärts fahrendes Auto",
+      "category": "Kategorie",
+      "situation": "Was passiert ist (oder beinahe passiert wäre)",
+      "situationHint": "Namen und Orte sind nicht nötig. Keine Schuldzuweisung. Beschreibe die Struktur.",
+      "hazard": "Gefährdung — was war die Quelle des Schadens?",
+      "hazardHint": "z. B. der rechte tote Winkel eines Lkw / nasse Fliesen / ein stehendes Objekt auf einer befahrenen Spur",
+      "exposure": "Exposition — welcher Zustand brachte dich in ihren Weg?",
+      "exposureHint": "z. B. weniger als 1 m neben der Lkw-Seite stehen / auf der linken Spur nur auf die Stoßstange vor dir schauen",
+      "avoidance": "Vermeidung — was kann ich tun?",
+      "avoidanceHint": "Das wichtigste Feld. Schreibe es als etwas, das die Leserin morgen tun kann.",
+      "habit": "Eine verbreitete Gewohnheit, die das Risiko erhöht (optional)",
+      "habitPh": "z. B. an der Ampel aufs Handy schauen",
+      "severity": "Schwere",
+      "severityHint": "Wenn es passiert: wie schlimm sind die Verletzungen?",
+      "severityScale": [
+        "Geringfügig",
+        "Leichte Verletzung",
+        "Behandlung nötig",
+        "Schwer / bleibend",
+        "Tödlich"
+      ],
+      "likelihood": "Wahrscheinlichkeit",
+      "likelihoodHint": "In dieser Situation: wie oft?",
+      "likelihoodScale": [
+        "Selten",
+        "Gelegentlich",
+        "Manchmal",
+        "Oft",
+        "Fast immer"
+      ],
+      "outcome": "Ausgang",
+      "location": "Art des Ortes (optional)",
+      "locationPh": "z. B. Brücken, Tunnelausfahrten",
+      "source": "Quellenlink (optional)",
+      "submit": "Fall speichern",
+      "saved": "Gespeichert. Jemand wird deswegen einen Schritt zurücktreten."
+    }
+  },
+  "about": {
+    "title": "Über Stepback",
+    "intro": "Niemand von uns bestimmt, wann er diese Welt verlässt. Aber vor einer vermeidbaren Gefahr einen Schritt zurückzutreten, das können wir heute tun.",
+    "quote": "Dass nichts passiert, ist der größte Sieg. Selbst wenn der Fehler beim anderen lag: aus dem Weg gehen, und es passiert nichts, schlägt jede Versicherungsmeldung und jede Ausrede zum Ausruhen. Jedes Mal.",
+    "sections": [
+      {
+        "h": "Drei Begriffe",
+        "items": [
+          {
+            "term": "Gefährdung",
+            "def": "Die Quelle eines möglichen Schadens. Der rechte tote Winkel eines Lkw, ein nasser Fliesenboden, ein stehendes Fahrzeug auf einer befahrenen Spur."
+          },
+          {
+            "term": "Exposition",
+            "def": "Der Zustand, der dich in ihren Weg bringt. Weniger als 1 m neben der Lkw-Seite stehen; auf der linken Spur aufs Handy schauen."
+          },
+          {
+            "term": "Risiko",
+            "def": "Schwere × Wahrscheinlichkeit. Die Gefährdung kannst du selten beseitigen, aber die Exposition zu unterbrechen ist deine Entscheidung. Deshalb ist das Schlüsselfeld jedes Falls die „Vermeidung“."
+          }
+        ]
+      },
+      {
+        "h": "Ökonomie: alle stehen besser da",
+        "p": [
+          "In manchen Cafés hängen Gutscheine an der Wand. Ein Gast zahlt etwas mehr, ein Gutschein kommt an die Wand; eine Studentin nimmt ihn ab und isst umsonst. Der Wirt hat Umsatz, der Gebende Freude, die Studentin eine Mahlzeit. Niemand verliert, alle gewinnen ein wenig. Der caffè sospeso aus Neapel und die koreanischen Mirinae-Läden beruhen auf demselben Prinzip.",
+          "Hier sieht, wer einen Beinahe-Unfall erfasst, wie viele Menschen die Lektion genommen haben. Wen die Lektion geschützt hat, heftet ein Ticket mit einer Notiz an und kann dem Sicherheitsfonds etwas zusagen. Wer das Ticket nimmt, bekommt Lektion und Notiz. Zusagen fließen als Hilfsmittel zurück: Reflexstreifen, Haltegriffe, Rückfahrwarnleuchten.",
+          "Es zählt, dass ein Ticket einmalig ist. Ein „Gefällt mir“ kopiert sich endlos und überreicht niemandem etwas. Ein Ticket kann genau eine Person nehmen, und ist es weg, möchte man eines für die nächste anheften. Dieser kleine Mechanismus erzeugt Gegenseitigkeit."
+        ]
+      },
+      {
+        "h": "Soziologie: keine Schuldzuweisung",
+        "p": [
+          "Die Luftfahrt hat ihre Unfallrate drastisch gesenkt. Ein Grund ist die vertrauliche, sanktionsfreie Meldung von Beinahe-Unfällen. Ein Pilot kann melden „ich wäre heute fast auf die falsche Bahn gerollt“, ohne bestraft zu werden; Meldungen häufen sich, und gehäufte Meldungen verändern das System. Die Heinrich-Pyramide (1 schwere Verletzung : 29 leichte : 300 Beinahe-Unfälle) sagt dasselbe: Wer den großen Unfall verhindern will, sammelt die kleinen.",
+          "Deshalb weist Stepback keine Schuld zu. Du musst nie den Fahrer, das Opfer oder den Ort nennen. Wir erfassen Strukturen, keine Personen. „Der Fahrer war rücksichtslos“ schützt niemanden. „Neben einem abbiegenden Lkw einen Schritt zurück“ schützt jemanden.",
+          "Der zweite Hebel ist sozialer Beweis. „17 Personen haben diese Lektion genommen“ macht die Norm sichtbar: Der sichere Schritt wirkt nicht mehr übervorsichtig, sondern normal."
+        ]
+      },
+      {
+        "h": "Was sich verbreitet, ist eine Handlung, nicht Angst",
+        "p": [
+          "Unfallvideos verbreiten sich als Angst, und Angst ändert kein Verhalten. Die Teileinheit von Stepback ist ein Satz Vermeidung. Eine Karte, ein Satz, ein Link. Er reist nur, wenn die Leserin es morgen tun kann."
+        ]
+      },
+      {
+        "h": "Was du jetzt tun kannst",
+        "steps": [
+          "Lies einen Fall und drücke „Ich nehme diese Lektion“.",
+          "Hat dich eine Lektion geschützt, hefte ein Ticket an die Wand.",
+          "Hattest du einen Beinahe-Unfall, erfasse ihn. Drei Felder reichen: Quelle, Zustand, Ausweichhandlung."
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "code": "tr",
+  "name": "Türkçe",
+  "dir": "ltr",
+  "catalog": {
+    "categories": { "road": "Yol ve sürüş", "walk": "Yaya", "home": "Ev", "work": "İş ve şantiye", "transit": "Toplu taşıma", "air": "Havacılık", "water": "Su", "outdoors": "Açık hava", "other": "Diğer" },
+    "outcomes": { "near_miss": "Ramak kala, yara yok", "observed": "Tanık olundu veya videodan öğrenildi", "injury": "Yaralanma", "fatal": "Ölümcül" },
+    "risk_levels": { "low": "Düşük", "moderate": "Orta", "high": "Yüksek", "critical": "Kritik" }
+  },
+  "ui": {
+    "tagline": "Tehlikeyi erken gör. Dersi bir sonrakine aktar.",
+    "nav": { "cases": "Vakalar", "wall": "Fiş duvarı", "about": "Hakkında", "new": "Vaka kaydet" },
+    "who": { "edit": "Görünen ad (en fazla 20 karakter)", "saved": "Artık \"{name}\" olarak kaydedileceksiniz." },
+    "lang": { "label": "Dil" },
+    "footer": "Suçlama yok. İnsanları koruyan yapıyı kaydediyoruz.",
+    "errors": {
+      "generic": "Bir şeyler ters gitti.",
+      "not_found": "Sayfa bulunamadı.",
+      "case_not_found": "Vaka bulunamadı.",
+      "required": "Bu alan zorunludur.",
+      "too_long": "{max} karakterin altında tutun.",
+      "invalid_url": "Yalnızca http(s) ile başlayan adreslere izin verilir.",
+      "invalid_choice": "Seçeneklerden birini seçin.",
+      "out_of_range": "{min} ile {max} arasında bir tam sayı girin.",
+      "check_fields": "Kırmızı işaretli alanları kontrol edin."
+    },
+    "home": {
+      "h1": "Hiçbir şey olmaması en büyük zaferdir.",
+      "lead": "Ramak kala bir an, videoda gördüğünüz bir kaza, ailenizin banyosu. Orada öğrendiğiniz kaçınma hareketini kaydedin ve bir sonraki kişiye aktarın.",
+      "stats": "{cases} vaka · {lessons} ders alındı · {wall} fiş duvarda · {taken} aktarıldı",
+      "search": "Vaka ara",
+      "category": "Tüm kategoriler",
+      "sort": { "recent": "En yeni", "risk": "En yüksek risk", "lessons": "En çok ders alınan" },
+      "empty": "Henüz vaka yok. İlkini kaydedin."
+    },
+    "card": { "avoid": "Kaçınma:", "lessons": "{n} ders", "tickets": "{n} fiş" },
+    "risk": { "badge": "Risk {score} ({label})", "title": "Şiddet {s} × Olasılık {l}", "panel": "Risk", "severity": "Şiddet", "likelihood": "Olasılık", "score": "Puan" },
+    "detail": {
+      "back": "← Tüm vakalar",
+      "by": "{name} · {date}",
+      "situation": "Ne oldu",
+      "hazard": "Tehlike — zararın kaynağı",
+      "exposure": "Maruziyet — beni onun yoluna koyan durum",
+      "avoidance": "Kaçınma — yapabileceğim şey",
+      "habit": "Riski artıran yaygın bir alışkanlık",
+      "source": "Kaynağı gör",
+      "learn": "Bu dersi alıyorum",
+      "learned": "Ders alındı",
+      "learnToast": "Not alındı. Hiçbir şey olmasın.",
+      "count": { "zero": "Bu dersi henüz kimse almadı", "one": "1 kişi bu dersi aldı", "some": "{n} kişi bu dersi aldı" },
+      "share": "Paylaş",
+      "shareCopied": "Bağlantı kopyalandı.",
+      "oneLine": "Tek satırda",
+      "wall": "Fişler",
+      "wallLead": "Bu ders sizi korudusa, bir sonraki kişi için bir fiş asın. Fiş, bir kişi aldığında kaybolur; tıpkı bir kafenin duvarındaki yemek fişi gibi.",
+      "noTickets": "Henüz fiş yok. İlkini asın."
+    },
+    "ticket": {
+      "message": "Bir sonraki kişiye not",
+      "placeholder": "örn. Her yeni sürücüye: sol şerit ödünç alınır, işgal edilmez.",
+      "pledge": "Güvenlik fonu taahhüdü (isteğe bağlı)",
+      "pledgeHint": "Henüz ödeme alınmıyor. Taahhüt toplamı herkese açıktır ve reflektör şerit, banyo tutunma barı gibi kaçınma araçlarına ayrılacaktır.",
+      "pin": "Fişi as",
+      "pinned": "Fişiniz duvarda.",
+      "take": "Bu fişi al",
+      "mine": "Sizin fişiniz",
+      "mineTitle": "Kendi astığınız fişi alamazsınız",
+      "taken": "Fişi aldınız. {name} adlı kişinin notunu yanınızda tutun.",
+      "takenBy": "{date} tarihinde {name} aldı",
+      "pledged": "Taahhüt: {amount}"
+    },
+    "wall": {
+      "h1": "Fiş duvarı",
+      "lead": "\"Bu ders beni korudu\" diyen kişilerin astığı fişler. Birini alın; ders sizin adınıza kaydedilir ve fiş duvardan iner. Fiş alan kişi başka bir vakaya fiş asabilir.",
+      "stats": "{wall} duvarda · {taken} aktarıldı · {pledged} taahhüt · {lessons} ders alındı",
+      "empty": "Duvar boş. Bir vaka okuyun ve ilk fişi asın.",
+      "recent": "Yakın zamanda aktarılanlar",
+      "none": "Henüz yok."
+    },
+    "form": {
+      "h1": "Vaka kaydet",
+      "lead": "Ramak kala bir an, bir başkasının gününü koruyabilir. Heinrich oranı (1 ağır yaralanma : 29 hafif : 300 ramak kala) ramak kala olayların elimizdeki en değerli veri olduğunu söyler.",
+      "title": "Başlık",
+      "titlePh": "örn. Otoparkta geri giden arabanın arkasına koşan çocuk",
+      "category": "Kategori",
+      "situation": "Ne oldu (ya da neredeyse oluyordu)",
+      "situationHint": "Kişi veya yer adı gerekmez. Suçlama yok. Yapıyı anlatın.",
+      "hazard": "Tehlike — zararın kaynağı neydi?",
+      "hazardHint": "örn. kamyonun sağ kör noktası / ıslak fayans / akan şeritte duran bir nesne",
+      "exposure": "Maruziyet — hangi durum sizi onun yoluna koydu?",
+      "exposureHint": "örn. kamyonun yanına 1 m'den yakın durmak / sol şeritte yalnızca öndeki tampona bakmak",
+      "avoidance": "Kaçınma — ne yapabilirim?",
+      "avoidanceHint": "En önemli alan. Okuyanın yarın yapabileceği bir şey olarak yazın.",
+      "habit": "Riski artıran yaygın bir alışkanlık (isteğe bağlı)",
+      "habitPh": "örn. ışıkta beklerken telefona bakmak",
+      "severity": "Şiddet",
+      "severityHint": "Olursa, ne kadar ağır yaralanılır?",
+      "severityScale": ["Önemsiz", "Hafif yaralanma", "Tedavi gerekir", "Ağır / kalıcı", "Ölümcül"],
+      "likelihood": "Olasılık",
+      "likelihoodHint": "Bu durumda ne sıklıkla?",
+      "likelihoodScale": ["Nadir", "Ara sıra", "Bazen", "Sık", "Neredeyse her zaman"],
+      "outcome": "Sonuç",
+      "location": "Yer türü (isteğe bağlı)",
+      "locationPh": "örn. köprüler, tünel çıkışları",
+      "source": "Kaynak bağlantısı (isteğe bağlı)",
+      "submit": "Vakayı kaydet",
+      "saved": "Kaydedildi. Biri bu sayede bir adım geri atacak."
+    }
+  },
+  "about": {
+    "title": "Stepback hakkında",
+    "intro": "Hiçbirimiz bu dünyadan ne zaman ayrılacağımıza karar vermeyiz. Ama kaçınılabilir bir tehlikeden bir adım geri çekilmek bugün yapabileceğimiz bir şeydir.",
+    "quote": "Hiçbir şey olmaması en büyük zaferdir. Hata karşı taraftan gelse bile, yoldan çekilip hiçbir şey olmaması, bir sigorta dosyasından ya da dinlenme bahanesinden her zaman daha iyidir.",
+    "sections": [
+      {
+        "h": "Üç kelime",
+        "items": [
+          { "term": "Tehlike", "def": "Olası zararın kaynağı. Kamyonun sağ kör noktası, ıslak fayans zemin, akan şeritte duran bir araç." },
+          { "term": "Maruziyet", "def": "Sizi onun yoluna koyan durum. Kamyonun yanına 1 m'den yakın durmak; sol şeritte telefona göz atmak." },
+          { "term": "Risk", "def": "Şiddet × olasılık. Tehlikeyi nadiren ortadan kaldırabilirsiniz, ama maruziyeti kesmek sizin seçiminizdir. Bu yüzden her vakanın kilit alanı \"Kaçınma\"dır." }
+        ]
+      },
+      {
+        "h": "Ekonomi: herkes kazançlı çıkar",
+        "p": [
+          "Bazı kafelerde duvara asılı fişler vardır. Bir müşteri biraz fazla öder, bir fiş duvara çıkar; bir öğrenci onu alır ve bedava yer. İşletmeci iş yapar, veren sevinir, öğrenci doyar. Kimse kaybetmez, herkes biraz kazanır. Napoli'nin caffè sospeso'su ve Kore'nin Mirinae dükkânları aynı ilkeyle işler.",
+          "Burada, ramak kala anı kaydeden kişi kaç kişinin dersi aldığını görür. O dersin koruduğu kişi bir not ile fiş asar ve güvenlik fonuna taahhütte bulunabilir. Fişi alan kişi dersi ve notu alır. Taahhütler kaçınma araçları olarak geri döner: reflektör şeritler, tutunma barları, arka uyarı lambaları.",
+          "Fişin tek kullanımlık olması önemlidir. Bir \"beğeni\" sonsuza dek kopyalanır ve kimseye bir şey vermez. Bir fişi yalnızca bir kişi alabilir; gidince bir sonraki için bir tane asmak istersiniz. Karşılıklılığı yaratan işte bu küçük mekanizmadır."
+        ]
+      },
+      {
+        "h": "Sosyoloji: suçlama yok",
+        "p": [
+          "Havacılık kaza oranını çarpıcı biçimde düşürdü. Nedenlerinden biri, gizli ve cezasız ramak kala bildirimi. Bir pilot \"bugün neredeyse yanlış piste giriyordum\" diye bildirir ve ceza almaz; bildirimler birikir, biriken bildirimler sistemi değiştirir. Heinrich oranı (1 ağır yaralanma : 29 hafif : 300 ramak kala) aynı şeyi söyler: büyüğü önlemek için küçükleri toplayın.",
+          "Bu yüzden Stepback suçlamaz. Sürücüyü, kurbanı ya da yeri asla adlandırmak zorunda değilsiniz. İnsanları değil yapıları kaydederiz. \"O sürücü pervasızdı\" kimseyi korumaz. \"Dönen bir kamyonun yanında bir adım geri çekil\" birini korur.",
+          "Diğer kaldıraç sosyal kanıttır. \"17 kişi bu dersi aldı\" normu görünür kılar; güvenli hareket aşırılık değil normal görünür."
+        ]
+      },
+      {
+        "h": "Yayılan şey korku değil, eylemdir",
+        "p": [
+          "Kaza videoları korku olarak yayılır ve korku davranışı değiştirmez. Stepback'in paylaşım birimi tek cümlelik bir kaçınma hareketidir. Bir kart, bir cümle, bir bağlantı. Ancak okuyan yarın yapabiliyorsa yol alır."
+        ]
+      },
+      {
+        "h": "Şu anda yapabilecekleriniz",
+        "steps": [
+          "Bir vaka okuyun ve \"Bu dersi alıyorum\"a basın.",
+          "Bir ders sizi korudusa duvara bir fiş asın.",
+          "Ramak kala bir an yaşadıysanız kaydedin. Üç alan yeter: kaynak, durum, kaçınma hareketi."
+        ]
+      }
+    ]
+  }
+}

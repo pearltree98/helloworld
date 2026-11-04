@@ -1,0 +1,155 @@
+{
+  "code": "id",
+  "name": "Bahasa Indonesia",
+  "dir": "ltr",
+  "catalog": {
+    "categories": { "road": "Jalan & berkendara", "walk": "Berjalan kaki", "home": "Rumah", "work": "Kerja & proyek", "transit": "Transportasi umum", "air": "Penerbangan", "water": "Air", "outdoors": "Luar ruangan", "other": "Lainnya" },
+    "outcomes": { "near_miss": "Nyaris celaka, selamat", "observed": "Menyaksikan atau belajar dari video", "injury": "Cedera", "fatal": "Meninggal" },
+    "risk_levels": { "low": "Rendah", "moderate": "Sedang", "high": "Tinggi", "critical": "Kritis" }
+  },
+  "ui": {
+    "tagline": "Lihat bahaya lebih awal. Teruskan pelajarannya.",
+    "nav": { "cases": "Kasus", "wall": "Dinding tiket", "about": "Tentang", "new": "Catat kasus" },
+    "who": { "edit": "Nama tampilan (maks. 20 karakter)", "saved": "Mulai sekarang Anda tercatat sebagai \"{name}\"." },
+    "lang": { "label": "Bahasa" },
+    "footer": "Tanpa menyalahkan. Kami mencatat struktur yang menjaga orang tetap aman.",
+    "errors": {
+      "generic": "Terjadi kesalahan.",
+      "not_found": "Halaman tidak ditemukan.",
+      "case_not_found": "Kasus tidak ditemukan.",
+      "required": "Wajib diisi.",
+      "too_long": "Maksimal {max} karakter.",
+      "invalid_url": "Hanya alamat yang diawali http(s) yang diperbolehkan.",
+      "invalid_choice": "Pilih salah satu opsi.",
+      "out_of_range": "Masukkan bilangan bulat antara {min} dan {max}.",
+      "check_fields": "Periksa kolom yang ditandai merah."
+    },
+    "home": {
+      "h1": "Tidak terjadi apa-apa adalah kemenangan terbesar.",
+      "lead": "Nyaris celaka, kecelakaan yang Anda lihat di video, kamar mandi orang tua. Catat tindakan menghindar yang Anda pelajari dan teruskan ke orang berikutnya.",
+      "stats": "{cases} kasus · {lessons} pelajaran diambil · {wall} tiket di dinding · {taken} diteruskan",
+      "search": "Cari kasus",
+      "category": "Semua kategori",
+      "sort": { "recent": "Terbaru", "risk": "Risiko tertinggi", "lessons": "Paling banyak diambil" },
+      "empty": "Belum ada kasus. Catat yang pertama."
+    },
+    "card": { "avoid": "Cara menghindar:", "lessons": "{n} pelajaran", "tickets": "{n} tiket" },
+    "risk": { "badge": "Risiko {score} ({label})", "title": "Keparahan {s} × Kemungkinan {l}", "panel": "Risiko", "severity": "Keparahan", "likelihood": "Kemungkinan", "score": "Skor" },
+    "detail": {
+      "back": "← Semua kasus",
+      "by": "{name} · {date}",
+      "situation": "Apa yang terjadi",
+      "hazard": "Bahaya — sumber celaka",
+      "exposure": "Paparan — keadaan yang menempatkan saya di jalurnya",
+      "avoidance": "Menghindar — yang bisa saya lakukan",
+      "habit": "Kebiasaan umum yang menaikkan risiko",
+      "source": "Lihat sumber",
+      "learn": "Saya ambil pelajaran ini",
+      "learned": "Pelajaran diambil",
+      "learnToast": "Diingat. Semoga tidak terjadi apa-apa.",
+      "count": { "zero": "Belum ada yang mengambil pelajaran ini", "one": "1 orang mengambil pelajaran ini", "some": "{n} orang mengambil pelajaran ini" },
+      "share": "Bagikan",
+      "shareCopied": "Tautan disalin.",
+      "oneLine": "Dalam satu baris",
+      "wall": "Tiket",
+      "wallLead": "Jika pelajaran ini melindungi Anda, tempelkan tiket untuk orang berikutnya. Tiket hilang begitu satu orang mengambilnya, seperti kupon makan di dinding warung.",
+      "noTickets": "Belum ada tiket. Tempelkan yang pertama."
+    },
+    "ticket": {
+      "message": "Pesan untuk orang berikutnya",
+      "placeholder": "mis. Untuk setiap pengemudi baru: lajur cepat itu dipinjam, bukan ditempati.",
+      "pledge": "Janji untuk dana keselamatan (opsional)",
+      "pledgeHint": "Belum ada pembayaran. Total janji bersifat publik dan ditujukan untuk alat menghindar seperti strip reflektif dan pegangan kamar mandi.",
+      "pin": "Tempelkan tiket",
+      "pinned": "Tiket Anda ada di dinding.",
+      "take": "Ambil tiket ini",
+      "mine": "Tiket Anda",
+      "mineTitle": "Anda tidak bisa mengambil tiket yang Anda tempel sendiri",
+      "taken": "Anda mengambil tiket. Simpan pesan dari {name}.",
+      "takenBy": "Diambil oleh {name} pada {date}",
+      "pledged": "Janji: {amount}"
+    },
+    "wall": {
+      "h1": "Dinding tiket",
+      "lead": "Tiket dari orang-orang yang berkata \"pelajaran ini melindungi saya\". Ambil satu, pelajaran tercatat sebagai milik Anda, dan tiket hilang dari dinding. Yang mengambil tiket bisa menempelkan tiket di kasus lain.",
+      "stats": "{wall} di dinding · {taken} diteruskan · {pledged} dijanjikan · {lessons} pelajaran diambil",
+      "empty": "Dinding kosong. Baca satu kasus dan tempelkan tiket pertama.",
+      "recent": "Baru diteruskan",
+      "none": "Belum ada."
+    },
+    "form": {
+      "h1": "Catat kasus",
+      "lead": "Satu kejadian nyaris celaka bisa menjaga hari orang lain. Rasio Heinrich (1 cedera berat : 29 ringan : 300 nyaris celaka) mengatakan nyaris celaka adalah data paling berharga.",
+      "title": "Judul",
+      "titlePh": "mis. Anak berlari di belakang mobil yang mundur di tempat parkir",
+      "category": "Kategori",
+      "situation": "Apa yang terjadi (atau nyaris terjadi)",
+      "situationHint": "Tidak perlu menyebut nama orang atau tempat. Tanpa menyalahkan. Jelaskan strukturnya.",
+      "hazard": "Bahaya — apa sumber celakanya?",
+      "hazardHint": "mis. titik buta kanan truk / ubin basah / benda berhenti di lajur yang aktif",
+      "exposure": "Paparan — keadaan apa yang menempatkan Anda di jalurnya?",
+      "exposureHint": "mis. berdiri kurang dari 1 m dari sisi truk / melaju di lajur cepat sambil hanya menatap bumper di depan",
+      "avoidance": "Menghindar — apa yang bisa saya lakukan?",
+      "avoidanceHint": "Kolom paling penting. Tulis sebagai hal yang bisa dilakukan pembaca besok.",
+      "habit": "Kebiasaan umum yang menaikkan risiko (opsional)",
+      "habitPh": "mis. melihat ponsel saat menunggu lampu merah",
+      "severity": "Keparahan",
+      "severityHint": "Jika terjadi, seberapa parah cederanya?",
+      "severityScale": ["Sepele", "Cedera ringan", "Perlu perawatan", "Berat / cacat", "Meninggal"],
+      "likelihood": "Kemungkinan",
+      "likelihoodHint": "Dalam situasi ini, seberapa sering?",
+      "likelihoodScale": ["Jarang", "Sesekali", "Kadang-kadang", "Sering", "Hampir selalu"],
+      "outcome": "Hasil",
+      "location": "Jenis tempat (opsional)",
+      "locationPh": "mis. jembatan, keluar terowongan",
+      "source": "Tautan sumber (opsional)",
+      "submit": "Simpan kasus",
+      "saved": "Tersimpan. Seseorang akan mundur selangkah karena ini."
+    }
+  },
+  "about": {
+    "title": "Tentang Stepback",
+    "intro": "Tak satu pun dari kita menentukan kapan meninggalkan dunia ini. Tetapi mundur selangkah dari bahaya yang bisa dihindari adalah hal yang bisa kita lakukan hari ini.",
+    "quote": "Tidak terjadi apa-apa adalah kemenangan terbesar. Bahkan saat orang lain yang salah, menyingkir dan tidak terjadi apa-apa selalu lebih baik daripada klaim asuransi atau alasan untuk beristirahat.",
+    "sections": [
+      {
+        "h": "Tiga kata",
+        "items": [
+          { "term": "Bahaya", "def": "Sumber potensi celaka. Titik buta kanan truk, lantai ubin basah, kendaraan berhenti di lajur aktif." },
+          { "term": "Paparan", "def": "Keadaan yang menempatkan Anda di jalurnya. Berdiri kurang dari 1 m dari sisi truk; melirik ponsel di lajur cepat." },
+          { "term": "Risiko", "def": "Keparahan × kemungkinan. Bahaya jarang bisa dihilangkan, tetapi memutus paparan adalah pilihan Anda. Karena itu kolom kunci setiap kasus adalah \"Menghindar\"." }
+        ]
+      },
+      {
+        "h": "Ekonomi: semua jadi lebih baik",
+        "p": [
+          "Di beberapa warung ada kupon tertempel di dinding. Pelanggan membayar sedikit lebih dan sebuah kupon naik; seorang pelajar mengambilnya dan makan gratis. Pemilik dapat usaha, pemberi dapat kegembiraan, pelajar dapat makan. Tak ada yang rugi dan semua untung sedikit. Caffè sospeso di Napoli dan toko Mirinae di Korea berjalan dengan prinsip yang sama.",
+          "Di sini, orang yang mencatat nyaris celaka melihat berapa orang mengambil pelajarannya. Orang yang dilindungi pelajaran itu menempelkan tiket dengan pesan dan bisa berjanji untuk dana keselamatan. Orang yang mengambil tiket mendapat pelajaran dan pesan. Janji kembali sebagai alat menghindar: strip reflektif, pegangan, lampu peringatan belakang.",
+          "Penting bahwa tiket hanya sekali pakai. \"Suka\" tersalin tanpa batas dan tidak menyerahkan apa pun kepada siapa pun. Tiket hanya bisa diambil satu orang, dan begitu hilang Anda ingin menempelkan satu untuk orang berikutnya. Mekanisme kecil itulah yang menciptakan timbal balik."
+        ]
+      },
+      {
+        "h": "Sosiologi: tanpa menyalahkan",
+        "p": [
+          "Penerbangan menurunkan angka kecelakaannya secara drastis. Salah satu sebabnya adalah pelaporan nyaris celaka yang rahasia dan tanpa hukuman. Pilot bisa melapor \"hari ini saya nyaris masuk landasan yang salah\" tanpa dihukum, sehingga laporan menumpuk, dan laporan yang menumpuk mengubah sistem. Rasio Heinrich (1 cedera berat : 29 ringan : 300 nyaris celaka) mengatakan hal yang sama: untuk mencegah yang besar, kumpulkan yang kecil.",
+          "Karena itu Stepback tidak menyalahkan. Anda tidak perlu menyebut pengemudi, korban, atau tempat. Kami mencatat struktur, bukan orang. \"Pengemudi itu ceroboh\" tidak melindungi siapa pun. \"Di samping truk yang berbelok, mundur selangkah\" melindungi seseorang.",
+          "Tuas lainnya adalah bukti sosial. \"17 orang mengambil pelajaran ini\" membuat norma terlihat, sehingga langkah aman terasa wajar, bukan berlebihan."
+        ]
+      },
+      {
+        "h": "Yang menyebar adalah tindakan, bukan rasa takut",
+        "p": [
+          "Video kecelakaan menyebar sebagai rasa takut, dan rasa takut tidak mengubah perilaku. Satuan berbagi di Stepback adalah satu kalimat tindakan menghindar. Satu kartu, satu kalimat, satu tautan. Ia hanya menyebar jika pembaca bisa melakukannya besok."
+        ]
+      },
+      {
+        "h": "Yang bisa Anda lakukan sekarang",
+        "steps": [
+          "Baca satu kasus dan tekan \"Saya ambil pelajaran ini\".",
+          "Jika sebuah pelajaran melindungi Anda, tempelkan tiket di dinding.",
+          "Jika Anda pernah nyaris celaka, catat. Tiga kolom cukup: sumber, keadaan, tindakan menghindar."
+        ]
+      }
+    ]
+  }
+}

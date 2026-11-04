@@ -1,0 +1,225 @@
+{
+  "code": "fr",
+  "name": "Français",
+  "dir": "ltr",
+  "catalog": {
+    "categories": {
+      "road": "Route et conduite",
+      "walk": "À pied",
+      "home": "Maison",
+      "work": "Travail et chantiers",
+      "transit": "Transports en commun",
+      "air": "Aviation",
+      "water": "Eau",
+      "outdoors": "Plein air",
+      "other": "Autre"
+    },
+    "outcomes": {
+      "near_miss": "Presque-accident, indemne",
+      "observed": "Vu ou appris d'une vidéo",
+      "injury": "Blessure",
+      "fatal": "Mortel"
+    },
+    "risk_levels": {
+      "low": "Faible",
+      "moderate": "Modéré",
+      "high": "Élevé",
+      "critical": "Critique"
+    }
+  },
+  "ui": {
+    "tagline": "Voir le danger tôt. Transmettre la leçon.",
+    "nav": {
+      "cases": "Cas",
+      "wall": "Mur de tickets",
+      "about": "À propos",
+      "new": "Enregistrer un cas"
+    },
+    "who": {
+      "edit": "Nom affiché (20 caractères max.)",
+      "saved": "Vous serez désormais enregistré sous « {name} »."
+    },
+    "lang": {
+      "label": "Langue"
+    },
+    "footer": "Sans blâme. Nous enregistrons la structure qui protège les gens.",
+    "errors": {
+      "generic": "Une erreur s'est produite.",
+      "not_found": "Page introuvable.",
+      "case_not_found": "Cas introuvable.",
+      "required": "Ce champ est obligatoire.",
+      "too_long": "Restez sous {max} caractères.",
+      "invalid_url": "Seules les adresses commençant par http(s) sont acceptées.",
+      "invalid_choice": "Choisissez une des options.",
+      "out_of_range": "Saisissez un nombre entier entre {min} et {max}.",
+      "check_fields": "Vérifiez les champs marqués en rouge."
+    },
+    "home": {
+      "h1": "Qu'il ne se passe rien, c'est la plus grande victoire.",
+      "lead": "Une frayeur, un accident vu en vidéo, la salle de bain de vos parents. Notez le geste d'évitement que vous y avez appris et transmettez-le à la personne suivante.",
+      "stats": "{cases} cas · {lessons} leçons prises · {wall} tickets au mur · {taken} transmis",
+      "search": "Rechercher un cas",
+      "category": "Toutes les catégories",
+      "sort": {
+        "recent": "Plus récents",
+        "risk": "Risque le plus élevé",
+        "lessons": "Leçons les plus prises"
+      },
+      "empty": "Aucun cas pour l'instant. Enregistrez le premier."
+    },
+    "card": {
+      "avoid": "Pour l'éviter :",
+      "lessons": "Leçons : {n}",
+      "tickets": "Tickets : {n}"
+    },
+    "risk": {
+      "badge": "Risque {score} ({label})",
+      "title": "Gravité {s} × Probabilité {l}",
+      "panel": "Risque",
+      "severity": "Gravité",
+      "likelihood": "Probabilité",
+      "score": "Score"
+    },
+    "detail": {
+      "back": "← Tous les cas",
+      "by": "{name} · {date}",
+      "situation": "Ce qui s'est passé",
+      "hazard": "Danger — la source du dommage",
+      "exposure": "Exposition — l'état qui m'a mis sur sa trajectoire",
+      "avoidance": "Évitement — ce que je peux faire",
+      "habit": "Une habitude courante qui augmente le risque",
+      "source": "Voir la source",
+      "learn": "Je prends cette leçon",
+      "learned": "Leçon prise",
+      "learnToast": "Noté. Qu'il ne se passe rien.",
+      "count": {
+        "zero": "Personne n'a encore pris cette leçon",
+        "one": "1 personne a pris cette leçon",
+        "some": "{n} personnes ont pris cette leçon"
+      },
+      "share": "Partager",
+      "shareCopied": "Lien copié.",
+      "oneLine": "En une ligne",
+      "wall": "Tickets",
+      "wallLead": "Si cette leçon vous a protégé, épinglez un ticket pour la personne suivante. Un ticket disparaît dès qu'une personne le prend, comme un bon repas sur le mur d'un café.",
+      "noTickets": "Pas encore de ticket. Épinglez le premier."
+    },
+    "ticket": {
+      "message": "Un mot pour la personne suivante",
+      "placeholder": "ex. À chaque nouveau conducteur : la voie rapide s'emprunte, elle ne s'occupe pas.",
+      "pledge": "Promesse au fonds de sécurité (facultatif)",
+      "pledgeHint": "Aucun paiement n'est encore prélevé. Le total des promesses est public et servira à des outils d'évitement : bandes réfléchissantes, barres d'appui de salle de bain.",
+      "pin": "Épingler le ticket",
+      "pinned": "Votre ticket est au mur.",
+      "take": "Prendre ce ticket",
+      "mine": "Votre ticket",
+      "mineTitle": "Vous ne pouvez pas prendre un ticket que vous avez épinglé",
+      "taken": "Vous avez pris le ticket. Gardez le mot de {name} avec vous.",
+      "takenBy": "Pris par {name} le {date}",
+      "pledged": "Promesse : {amount}"
+    },
+    "wall": {
+      "h1": "Mur de tickets",
+      "lead": "Des tickets épinglés par des personnes qui ont dit « cette leçon m'a protégé ». Prenez-en un : la leçon est enregistrée comme la vôtre et le ticket quitte le mur. Qui prend un ticket peut en épingler un sur un autre cas.",
+      "stats": "{wall} au mur · {taken} transmis · {pledged} promis · {lessons} leçons prises",
+      "empty": "Le mur est vide. Lisez un cas et épinglez le premier ticket.",
+      "recent": "Transmis récemment",
+      "none": "Aucun pour l'instant."
+    },
+    "form": {
+      "h1": "Enregistrer un cas",
+      "lead": "Une frayeur peut protéger la journée de quelqu'un d'autre. La pyramide de Heinrich (1 blessure grave : 29 légères : 300 presque-accidents) dit que les presque-accidents sont nos données les plus précieuses.",
+      "title": "Titre",
+      "titlePh": "ex. Un enfant court derrière une voiture qui recule sur un parking",
+      "category": "Catégorie",
+      "situation": "Ce qui s'est passé (ou a failli se passer)",
+      "situationHint": "Inutile de nommer des personnes ou des lieux. Sans blâme. Décrivez la structure.",
+      "hazard": "Danger — quelle était la source du dommage ?",
+      "hazardHint": "ex. l'angle mort droit d'un camion / du carrelage mouillé / un objet arrêté sur une voie circulée",
+      "exposure": "Exposition — quel état vous a mis sur sa trajectoire ?",
+      "exposureHint": "ex. se tenir à moins d'1 m du flanc du camion / rouler sur la voie rapide les yeux sur le pare-chocs devant",
+      "avoidance": "Évitement — que puis-je faire ?",
+      "avoidanceHint": "Le champ le plus important. Écrivez-le comme quelque chose que le lecteur peut faire demain.",
+      "habit": "Une habitude courante qui augmente le risque (facultatif)",
+      "habitPh": "ex. regarder son téléphone en attendant au feu",
+      "severity": "Gravité",
+      "severityHint": "Si cela arrive, à quel point blesse-t-on ?",
+      "severityScale": [
+        "Bénin",
+        "Blessure légère",
+        "Soins nécessaires",
+        "Grave / invalidant",
+        "Mortel"
+      ],
+      "likelihood": "Probabilité",
+      "likelihoodHint": "Dans cette situation, à quelle fréquence ?",
+      "likelihoodScale": [
+        "Rare",
+        "Occasionnel",
+        "Parfois",
+        "Souvent",
+        "Presque toujours"
+      ],
+      "outcome": "Issue",
+      "location": "Type de lieu (facultatif)",
+      "locationPh": "ex. ponts, sorties de tunnel",
+      "source": "Lien source (facultatif)",
+      "submit": "Enregistrer le cas",
+      "saved": "Enregistré. Quelqu'un fera un pas en arrière grâce à cela."
+    }
+  },
+  "about": {
+    "title": "À propos de Stepback",
+    "intro": "Personne ne décide du moment où il quitte ce monde. Mais faire un pas en arrière devant un danger évitable, nous pouvons le faire dès aujourd'hui.",
+    "quote": "Qu'il ne se passe rien, c'est la plus grande victoire. Même quand l'erreur vient de l'autre, s'écarter et qu'il ne se passe rien vaut toujours mieux qu'un dossier d'assurance ou une excuse pour se reposer.",
+    "sections": [
+      {
+        "h": "Trois mots",
+        "items": [
+          {
+            "term": "Danger",
+            "def": "La source du dommage potentiel. L'angle mort droit d'un camion, un carrelage mouillé, un véhicule arrêté sur une voie circulée."
+          },
+          {
+            "term": "Exposition",
+            "def": "L'état qui vous met sur sa trajectoire. Se tenir à moins d'1 m du flanc du camion ; jeter un œil à son téléphone sur la voie rapide."
+          },
+          {
+            "term": "Risque",
+            "def": "Gravité × probabilité. On peut rarement supprimer le danger, mais rompre l'exposition est un choix qui vous appartient. C'est pourquoi le champ clé de chaque cas est « Évitement »."
+          }
+        ]
+      },
+      {
+        "h": "Économie : tout le monde y gagne",
+        "p": [
+          "Dans certains cafés, des bons sont épinglés au mur. Un client paie un peu plus et un bon monte au mur ; un étudiant le décroche et mange gratuitement. Le patron a de la clientèle, le donateur de la joie, l'étudiant un repas. Personne ne perd, tout le monde gagne un peu. Le caffè sospeso de Naples et les boutiques Mirinae de Corée reposent sur le même principe.",
+          "Ici, la personne qui enregistre une frayeur voit combien de gens ont pris la leçon. Celle que la leçon a protégée épingle un ticket avec un mot et peut promettre une somme à un fonds de sécurité. Celle qui prend le ticket reçoit la leçon et le mot. Les promesses reviennent sous forme d'outils d'évitement : bandes réfléchissantes, barres d'appui, feux d'alerte arrière.",
+          "Il est important que le ticket soit à usage unique. Un « j'aime » se copie à l'infini et ne remet rien à personne. Un ticket ne peut être pris que par une seule personne, et une fois parti on a envie d'en épingler un pour la suivante. C'est ce petit mécanisme qui crée la réciprocité."
+        ]
+      },
+      {
+        "h": "Sociologie : sans blâme",
+        "p": [
+          "L'aviation a fait chuter son taux d'accidents. L'une des raisons est le signalement confidentiel et non punitif des presque-accidents. Un pilote peut déclarer « j'ai failli m'engager sur la mauvaise piste » sans être sanctionné ; les signalements s'accumulent et, accumulés, ils changent le système. La pyramide de Heinrich (1 blessure grave : 29 légères : 300 presque-accidents) dit la même chose : pour éviter le gros accident, collectez les petits.",
+          "C'est pourquoi Stepback ne blâme pas. Vous n'avez jamais à nommer le conducteur, la victime ou le lieu. Nous enregistrons des structures, pas des personnes. « Ce conducteur était inconscient » ne protège personne. « À côté d'un camion qui tourne, faites un pas en arrière » protège quelqu'un.",
+          "L'autre levier est la preuve sociale. « 17 personnes ont pris cette leçon » rend la norme visible : le geste sûr passe de « maniaque » à « normal »."
+        ]
+      },
+      {
+        "h": "Ce qui se propage, c'est un geste, pas la peur",
+        "p": [
+          "Les vidéos d'accidents se propagent comme de la peur, et la peur ne change pas les comportements. L'unité de partage de Stepback est une phrase d'évitement. Une carte, une phrase, un lien. Elle ne voyage que si le lecteur peut l'appliquer demain."
+        ]
+      },
+      {
+        "h": "Ce que vous pouvez faire tout de suite",
+        "steps": [
+          "Lisez un cas et appuyez sur « Je prends cette leçon ».",
+          "Si une leçon vous a protégé, épinglez un ticket au mur.",
+          "Si vous avez eu une frayeur, enregistrez-la. Trois champs suffisent : la source, l'état, le geste d'évitement."
+        ]
+      }
+    ]
+  }
+}

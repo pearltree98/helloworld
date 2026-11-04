@@ -14,8 +14,8 @@ export async function newCaseView(root) {
   const select = (name, options) => (refs[name] = h('select', { id: `f-${name}` }, ...options.map((o) => h('option', { value: o.key }, o.label))));
   const scale = (name, labels) => (refs[name] = h('select', { id: `f-${name}` }, ...labels.map((l, i) => h('option', { value: i + 1 }, `${i + 1} — ${l}`))));
 
-  const errBox = h('p', { class: 'err' });
-  const submit = h('button', { class: 'btn btn--primary', type: 'submit' }, t('form.submit'));
+  const errBox = h('p', { class: 'error' });
+  const submit = h('button', { class: 'btn btn-primary', type: 'submit' }, t('form.submit'));
 
   const form = h('form', { onsubmit: async (e) => {
     e.preventDefault();
@@ -41,7 +41,7 @@ export async function newCaseView(root) {
 
   function paint() {
     clear(form).append(
-      h('div', { class: 'row' },
+      h('div', { class: 'cols' },
         field({ label: t('form.title'), name: 'title', error: E('title'), control: text('title', { maxlength: L.title, placeholder: t('form.titlePh') }) }),
         field({ label: t('form.category'), name: 'category', error: E('category'), control: select('category', m.categories) }),
       ),
@@ -50,12 +50,12 @@ export async function newCaseView(root) {
       field({ label: t('form.exposure'), name: 'exposure', error: E('exposure'), hint: t('form.exposureHint'), control: area('exposure', { maxlength: L.exposure }) }),
       field({ label: t('form.avoidance'), name: 'avoidance', error: E('avoidance'), hint: t('form.avoidanceHint'), control: area('avoidance', { maxlength: L.avoidance }) }),
       field({ label: t('form.habit'), name: 'risky_habit', error: E('risky_habit'), control: text('risky_habit', { maxlength: L.risky_habit, placeholder: t('form.habitPh') }) }),
-      h('div', { class: 'row' },
+      h('div', { class: 'cols' },
         field({ label: t('form.severity'), name: 'severity', error: E('severity'), hint: t('form.severityHint'), control: scale('severity', t('form.severityScale')) }),
         field({ label: t('form.likelihood'), name: 'likelihood', error: E('likelihood'), hint: t('form.likelihoodHint'), control: scale('likelihood', t('form.likelihoodScale')) }),
         field({ label: t('form.outcome'), name: 'outcome', error: E('outcome'), control: select('outcome', m.outcomes) }),
       ),
-      h('div', { class: 'row' },
+      h('div', { class: 'cols' },
         field({ label: t('form.location'), name: 'location_text', error: E('location_text'), control: text('location_text', { maxlength: L.location_text, placeholder: t('form.locationPh') }) }),
         field({ label: t('form.source'), name: 'source_url', error: E('source_url'), control: text('source_url', { maxlength: L.source_url, placeholder: 'https://' }) }),
       ),
@@ -70,8 +70,6 @@ export async function newCaseView(root) {
   form.addEventListener('change', remember);
   paint();
 
-  clear(root).append(
-    h('section', { class: 'hero' }, h('h1', {}, t('form.h1')), h('p', {}, t('form.lead'))),
-    h('div', { class: 'article' }, form),
-  );
+  form.classList.add('form');
+  clear(root).append(h('h1', {}, t('form.h1')), h('p', { class: 'lead' }, t('form.lead')), form);
 }

@@ -31,19 +31,42 @@ before(async () => {
 });
 after(() => { server.close(); repo.close(); });
 
-test('meta is localized and carries currency and limits', async () => {
+test('meta is localized and carries locales, currency and limits', async () => {
   const en = await req('GET', '/api/meta');
   assert.equal(en.status, 200);
   assert.equal(en.body.locale, 'en');
   assert.equal(en.body.categories.find((c) => c.key === 'road').label, 'Road & driving');
   assert.equal(en.body.risk_levels.length, 4);
+  assert.equal(en.body.risk_levels[3].label, 'Critical');
   assert.equal(typeof en.body.currency, 'string');
   assert.equal(en.body.limits.title, 80);
+  assert.ok(en.body.locales.length >= 10);
+  assert.equal(en.body.locales[0].code, 'en');
+  assert.equal(en.body.locales.find((l) => l.code === 'ar').dir, 'rtl');
 
   const ko = await req('GET', '/api/meta?lang=ko');
   assert.equal(ko.body.categories.find((c) => c.key === 'road').label, '도로·운전');
+  const ja = await req('GET', '/api/meta?lang=ja');
+  assert.equal(ja.body.outcomes.find((o) => o.key === 'fatal').label, '死亡');
   const unknown = await req('GET', '/api/meta?lang=xx');
   assert.equal(unknown.body.locale, 'en');
+});
+
+test('locale files are served and share one key set', async () => {
+  const { body: meta } = await req('GET', '/api/meta');
+  const keys = (o, p = '') => Object.entries(o).flatMap(([k, v]) => (v && typeof v === 'object' && !Array.isArray(v) ? keys(v, `${p}${k}.`) : [`${p}${k}`]));
+  const en = (await req('GET', '/locales/en.json')).body;
+  const ref = keys(en.ui).sort().join();
+  for (const l of meta.locales) {
+    const res = await req('GET', `/locales/${l.code}.json`);
+    assert.equal(res.status, 200, l.code);
+    assert.equal(res.body.code, l.code);
+    assert.equal(keys(res.body.ui).sort().join(), ref, `ui keys differ in ${l.code}`);
+    assert.ok(res.body.about.sections.length >= 3, `about sections in ${l.code}`);
+    for (const g of ['categories', 'outcomes', 'risk_levels']) {
+      assert.deepEqual(Object.keys(res.body.catalog[g]).sort(), Object.keys(en.catalog[g]).sort(), `${g} in ${l.code}`);
+    }
+  }
 });
 
 test('seeded cases are listed with risk score and counts', async () => {

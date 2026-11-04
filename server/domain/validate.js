@@ -1,4 +1,4 @@
-import { CATEGORY_KEYS, OUTCOME_KEYS } from './catalog.js';
+import { CATEGORY_SET, OUTCOME_SET } from './catalog.js';
 
 /**
  * Validation errors carry machine-readable codes per field so the client can localize them:
@@ -56,10 +56,10 @@ export function validateCase(body) {
   out.source_url = source || null;
 
   out.category = str(body.category);
-  if (!CATEGORY_KEYS.has(out.category)) errors.category = { code: 'invalid_choice' };
+  if (!CATEGORY_SET.has(out.category)) errors.category = { code: 'invalid_choice' };
 
   out.outcome = str(body.outcome) || 'near_miss';
-  if (!OUTCOME_KEYS.has(out.outcome)) errors.outcome = { code: 'invalid_choice' };
+  if (!OUTCOME_SET.has(out.outcome)) errors.outcome = { code: 'invalid_choice' };
 
   out.severity = intIn(body.severity, 1, 5);
   if (out.severity === null) errors.severity = { code: 'out_of_range', min: 1, max: 5 };

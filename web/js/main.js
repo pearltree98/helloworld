@@ -5,8 +5,8 @@ import { wallView } from './views/wall.js';
 import { aboutView } from './views/about.js';
 import { nickname, setNickname } from './identity.js';
 import { api } from './api.js';
-import { h, clear, errorBox, toast } from './ui.js';
-import { t, locale, setLocale, LOCALES, BRAND } from './i18n.js';
+import { h, clear, errorBox, loading, toast } from './ui.js';
+import { t, locale, setLocale, initI18n, available, BRAND } from './i18n.js';
 
 const routes = [
   { pattern: /^\/?$/, view: feedView, nav: '/' },
@@ -20,21 +20,21 @@ const main = document.getElementById('main');
 let token = 0;
 
 function paintChrome() {
-  document.documentElement.lang = locale;
+  document.title = `${BRAND} — ${t('tagline')}`;
   document.getElementById('brand-name').textContent = BRAND;
   document.getElementById('footer').textContent = `${BRAND} · ${t('footer')}`;
   clear(document.getElementById('nav')).append(
     h('a', { href: '#/', dataset: { route: '/' } }, t('nav.cases')),
     h('a', { href: '#/wall', dataset: { route: '/wall' } }, t('nav.wall')),
     h('a', { href: '#/about', dataset: { route: '/about' } }, t('nav.about')),
-    h('a', { href: '#/new', dataset: { route: '/new' }, class: 'btn btn--primary btn--sm' }, t('nav.new')),
+    h('a', { href: '#/new', dataset: { route: '/new' }, class: 'btn btn-primary' }, t('nav.new')),
   );
   const lang = document.getElementById('lang');
-  clear(lang).append(...LOCALES.map((l) => h('option', { value: l.key }, l.label)));
+  clear(lang).append(...available.map((l) => h('option', { value: l.code }, l.name)));
   lang.value = locale;
   lang.setAttribute('aria-label', t('lang.label'));
   const who = document.getElementById('whoami');
-  who.textContent = `${nickname()} ✎`;
+  who.textContent = nickname();
   who.title = t('who.edit');
 }
 
@@ -42,14 +42,20 @@ async function render() {
   const path = location.hash.replace(/^#/, '') || '/';
   const my = ++token;
   const route = routes.find((r) => r.pattern.test(path));
-  for (const link of document.querySelectorAll('.nav a[data-route]')) {
+  for (const link of document.querySelectorAll('#nav a[data-route]')) {
     link.classList.toggle('active', link.dataset.route === route?.nav);
   }
   if (!route) return main.replaceChildren(errorBox(new Error(t('errors.not_found'))));
   const m = path.match(route.pattern);
   const params = Object.fromEntries((route.params ?? []).map((k, i) => [k, m[i + 1]]));
+  // Each view renders into its own container; only the latest navigation gets swapped in,
+  // so a slow earlier view can never overwrite a newer one.
+  const container = h('div');
+  main.replaceChildren(loading());
   try {
-    await route.view(main, params);
+    await route.view(container, params);
+    if (my !== token) return;
+    main.replaceChildren(...container.childNodes);
   } catch (e) {
     if (my === token) main.replaceChildren(errorBox(e));
     console.error(e);
@@ -65,12 +71,21 @@ document.getElementById('whoami').addEventListener('click', async () => {
   try { await api.setMe(clean); toast(t('who.saved', { name: clean })); } catch { /* offline */ }
 });
 
-document.getElementById('lang').addEventListener('change', (e) => {
-  setLocale(e.target.value);
+document.getElementById('lang').addEventListener('change', async (e) => {
+  await setLocale(e.target.value);
   paintChrome();
   render();
 });
 
 window.addEventListener('hashchange', render);
-paintChrome();
-render();
+
+(async () => {
+  try {
+    const meta = await api.meta();
+    await initI18n(meta.locales);
+  } catch (e) {
+    console.error(e);
+  }
+  paintChrome();
+  render();
+})();

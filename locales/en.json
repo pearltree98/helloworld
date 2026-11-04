@@ -1,0 +1,225 @@
+{
+  "code": "en",
+  "name": "English",
+  "dir": "ltr",
+  "catalog": {
+    "categories": {
+      "road": "Road & driving",
+      "walk": "Walking",
+      "home": "Home",
+      "work": "Work & sites",
+      "transit": "Public transit",
+      "air": "Aviation",
+      "water": "Water",
+      "outdoors": "Outdoors",
+      "other": "Other"
+    },
+    "outcomes": {
+      "near_miss": "Near miss, unharmed",
+      "observed": "Witnessed or learned from footage",
+      "injury": "Injury",
+      "fatal": "Fatal"
+    },
+    "risk_levels": {
+      "low": "Low",
+      "moderate": "Moderate",
+      "high": "High",
+      "critical": "Critical"
+    }
+  },
+  "ui": {
+    "tagline": "See the hazard early. Hand the lesson on.",
+    "nav": {
+      "cases": "Cases",
+      "wall": "Ticket wall",
+      "about": "About",
+      "new": "Record a case"
+    },
+    "who": {
+      "edit": "Display name (max 20 characters)",
+      "saved": "You will now be recorded as \"{name}\"."
+    },
+    "lang": {
+      "label": "Language"
+    },
+    "footer": "No blame. We record the structure that keeps people safe.",
+    "errors": {
+      "generic": "Something went wrong.",
+      "not_found": "Page not found.",
+      "case_not_found": "Case not found.",
+      "required": "This field is required.",
+      "too_long": "Keep it under {max} characters.",
+      "invalid_url": "Only addresses starting with http(s) are allowed.",
+      "invalid_choice": "Please pick one of the options.",
+      "out_of_range": "Enter a whole number between {min} and {max}.",
+      "check_fields": "Please check the fields marked in red."
+    },
+    "home": {
+      "h1": "Nothing happening is the biggest win.",
+      "lead": "A close call, a crash you saw on video, your parents' bathroom. Record the avoiding action you learned there and hand it to the next person.",
+      "stats": "{cases} cases · {lessons} lessons taken · {wall} tickets on the wall · {taken} handed on",
+      "search": "Search cases",
+      "category": "All categories",
+      "sort": {
+        "recent": "Newest",
+        "risk": "Highest risk",
+        "lessons": "Most lessons taken"
+      },
+      "empty": "No cases yet. Record the first one."
+    },
+    "card": {
+      "avoid": "Avoid it:",
+      "lessons": "Lessons: {n}",
+      "tickets": "Tickets: {n}"
+    },
+    "risk": {
+      "badge": "Risk {score} ({label})",
+      "title": "Severity {s} × Likelihood {l}",
+      "panel": "Risk",
+      "severity": "Severity",
+      "likelihood": "Likelihood",
+      "score": "Score"
+    },
+    "detail": {
+      "back": "← All cases",
+      "by": "{name} · {date}",
+      "situation": "What happened",
+      "hazard": "Hazard — the source of harm",
+      "exposure": "Exposure — the state that put me in its path",
+      "avoidance": "Avoidance — what I can do",
+      "habit": "A common habit that raises the risk",
+      "source": "View source",
+      "learn": "I take this lesson",
+      "learned": "Lesson taken",
+      "learnToast": "Remembered. May nothing happen.",
+      "count": {
+        "zero": "Nobody has taken this lesson yet",
+        "one": "1 person has taken this lesson",
+        "some": "{n} people have taken this lesson"
+      },
+      "share": "Share",
+      "shareCopied": "Link copied.",
+      "oneLine": "In one line",
+      "wall": "Tickets",
+      "wallLead": "If this lesson protected you, pin a ticket for the next person. A ticket disappears once one person takes it, like a meal voucher on a café wall.",
+      "noTickets": "No tickets yet. Pin the first one."
+    },
+    "ticket": {
+      "message": "A note for the next person",
+      "placeholder": "e.g. To every new driver: the fast lane is borrowed, not owned.",
+      "pledge": "Safety-fund pledge (optional)",
+      "pledgeHint": "No payment is taken yet. Pledge totals are public and are meant for avoiding tools such as reflective strips and bathroom grab bars.",
+      "pin": "Pin the ticket",
+      "pinned": "Your ticket is on the wall.",
+      "take": "Take this ticket",
+      "mine": "Your ticket",
+      "mineTitle": "You cannot take a ticket you pinned yourself",
+      "taken": "You took the ticket. Keep {name}'s note with you.",
+      "takenBy": "Taken by {name} on {date}",
+      "pledged": "Pledge: {amount}"
+    },
+    "wall": {
+      "h1": "Ticket wall",
+      "lead": "Tickets pinned by people who said \"this lesson protected me\". Take one and the lesson is recorded as yours; the ticket leaves the wall. People who take a ticket can pin one on another case.",
+      "stats": "{wall} on the wall · {taken} handed on · {pledged} pledged · {lessons} lessons taken",
+      "empty": "The wall is empty. Read a case and pin the first ticket.",
+      "recent": "Recently handed on",
+      "none": "None yet."
+    },
+    "form": {
+      "h1": "Record a case",
+      "lead": "One close call can protect someone else's day. Heinrich's ratio (1 serious injury : 29 minor : 300 near misses) says near misses are the most valuable data we have.",
+      "title": "Title",
+      "titlePh": "e.g. A child running behind a reversing car in a parking lot",
+      "category": "Category",
+      "situation": "What happened (or nearly happened)",
+      "situationHint": "No need to name people or places. No blame. Describe the structure.",
+      "hazard": "Hazard — what was the source of harm?",
+      "hazardHint": "e.g. a truck's right-side blind spot / wet tile / a stopped object in a live lane",
+      "exposure": "Exposure — what state put you in its path?",
+      "exposureHint": "e.g. standing within 1 m of the truck's side / cruising in the fast lane with eyes on the bumper ahead",
+      "avoidance": "Avoidance — what can I do?",
+      "avoidanceHint": "The most important field. Write it as something the reader can do tomorrow.",
+      "habit": "A common habit that raises the risk (optional)",
+      "habitPh": "e.g. looking at your phone while waiting at the light",
+      "severity": "Severity",
+      "severityHint": "If it happens, how badly are people hurt?",
+      "severityScale": [
+        "Trivial",
+        "Minor injury",
+        "Needs treatment",
+        "Serious / disabling",
+        "Fatal"
+      ],
+      "likelihood": "Likelihood",
+      "likelihoodHint": "In this situation, how often?",
+      "likelihoodScale": [
+        "Rare",
+        "Occasional",
+        "Sometimes",
+        "Often",
+        "Almost always"
+      ],
+      "outcome": "Outcome",
+      "location": "Type of place (optional)",
+      "locationPh": "e.g. bridges, tunnel exits",
+      "source": "Source link (optional)",
+      "submit": "Save the case",
+      "saved": "Saved. Someone will take a step back because of this."
+    }
+  },
+  "about": {
+    "title": "About Stepback",
+    "intro": "None of us decides when we leave this world. But stepping back from an avoidable hazard is something we can do today.",
+    "quote": "Nothing happening is the biggest win. Even when the other person made the mistake, getting out of the way and having nothing happen beats an insurance claim or an excuse to rest. Every time.",
+    "sections": [
+      {
+        "h": "Three words",
+        "items": [
+          {
+            "term": "Hazard",
+            "def": "The source of potential harm. A truck's right-side blind spot, a wet tile floor, a stopped vehicle in a live lane."
+          },
+          {
+            "term": "Exposure",
+            "def": "The state that puts you in its path. Standing within 1 m of the truck's side; glancing at your phone in the fast lane."
+          },
+          {
+            "term": "Risk",
+            "def": "Severity × likelihood. You rarely get to remove the hazard, but breaking the exposure is a choice you can make. That is why the key field in every case is \"Avoidance\"."
+          }
+        ]
+      },
+      {
+        "h": "Economics: everyone ends up better off",
+        "p": [
+          "In some cafés there are vouchers pinned to the wall. A customer pays a little extra and a voucher goes up; a student takes one down and eats for free. The owner gets business, the giver gets joy, the student gets a meal. Nobody loses and everybody gains a little. Naples' caffè sospeso and Korea's Mirinae shops run on the same principle.",
+          "Here, the person who records a close call sees how many people took the lesson. The person it protected pins a ticket with a note and may pledge to a safety fund. The person who takes the ticket gets the lesson and the note. Pledges go back out as avoiding tools: reflective strips, grab bars, rear warning lights.",
+          "It matters that a ticket is one-time. A like copies forever and hands nothing to anyone. A ticket can be taken by exactly one person, and once it is gone you feel like pinning one for the next person. That small device is what creates reciprocity."
+        ]
+      },
+      {
+        "h": "Sociology: no blame",
+        "p": [
+          "Aviation cut its accident rate dramatically. One reason is confidential, non-punitive near-miss reporting. A pilot can report \"I nearly entered the wrong runway today\" without punishment, so reports pile up, and piled-up reports change the system. Heinrich's ratio (1 serious injury : 29 minor : 300 near misses) says the same thing: to prevent the big one, collect the near misses.",
+          "So Stepback does not blame. You never have to name the driver, the victim or the place. We record structures, not people. \"That driver was reckless\" protects nobody. \"Next to a turning truck, take one step back\" protects someone.",
+          "The other lever is social proof. \"17 people have taken this lesson\" makes the norm visible, so the safe move reads as normal instead of fussy."
+        ]
+      },
+      {
+        "h": "What spreads is an action, not fear",
+        "p": [
+          "Crash footage spreads as fear, and fear does not change behaviour. Stepback's unit of sharing is one sentence of avoiding action. One card, one sentence, one link. It travels only if the reader can do it tomorrow."
+        ]
+      },
+      {
+        "h": "What you can do right now",
+        "steps": [
+          "Read one case and press \"I take this lesson\".",
+          "If a lesson has protected you, pin a ticket on the wall.",
+          "If you have had a close call, record it. Three fields are enough: the source, the state, the avoiding action."
+        ]
+      }
+    ]
+  }
+}

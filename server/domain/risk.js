@@ -9,10 +9,10 @@
  */
 
 export const RISK_LEVELS = [
-  { max: 4, key: 'low', labels: { en: 'Low', ko: '낮음' } },
-  { max: 9, key: 'moderate', labels: { en: 'Moderate', ko: '보통' } },
-  { max: 15, key: 'high', labels: { en: 'High', ko: '높음' } },
-  { max: 25, key: 'critical', labels: { en: 'Critical', ko: '매우 높음' } },
+  { max: 4, key: 'low' },
+  { max: 9, key: 'moderate' },
+  { max: 15, key: 'high' },
+  { max: 25, key: 'critical' },
 ];
 
 export function riskScore(severity, likelihood) {

@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { validateCase, validateTicket } from '../domain/validate.js';
-import { CATEGORY_KEYS } from '../domain/catalog.js';
+import { CATEGORY_SET } from '../domain/catalog.js';
 
 const router = Router();
 const repo = (req) => req.app.get('repo');
@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
   const limit = Math.min(Math.max(Number(req.query.limit) || 50, 1), 100);
   const offset = Math.max(Number(req.query.offset) || 0, 0);
   const items = repo(req).listCases({
-    category: CATEGORY_KEYS.has(category) ? category : undefined,
+    category: CATEGORY_SET.has(category) ? category : undefined,
     sort: typeof sort === 'string' ? sort : 'recent',
     q: typeof q === 'string' && q.trim() ? q.trim().slice(0, 60) : undefined,
     limit,
