@@ -1,0 +1,19 @@
+{
+  "name": "miribom",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "미리봄 — 일상의 잠재적 위험을 기록하고, 교훈을 티켓처럼 서로에게 건네는 커뮤니티 앱",
+  "scripts": {
+    "start": "node --no-warnings=ExperimentalWarning server/index.js",
+    "dev": "node --no-warnings=ExperimentalWarning --watch server/index.js",
+    "seed": "node --no-warnings=ExperimentalWarning server/seed.js",
+    "test": "node --no-warnings=ExperimentalWarning --test"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
