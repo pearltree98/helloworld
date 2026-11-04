@@ -31,14 +31,14 @@ before(async () => {
 });
 after(() => { server.close(); repo.close(); });
 
-test('meta is localized and carries locales, currency and limits', async () => {
+test('meta is localized and carries locales, licences and limits', async () => {
   const en = await req('GET', '/api/meta');
   assert.equal(en.status, 200);
   assert.equal(en.body.locale, 'en');
   assert.equal(en.body.categories.find((c) => c.key === 'road').label, 'Road & driving');
   assert.equal(en.body.risk_levels.length, 4);
   assert.equal(en.body.risk_levels[3].label, 'Critical');
-  assert.equal(typeof en.body.currency, 'string');
+  assert.equal(en.body.content_license.name, 'CC BY-SA 4.0');
   assert.equal(en.body.limits.title, 80);
   assert.ok(en.body.locales.length >= 10);
   assert.equal(en.body.locales[0].code, 'en');
@@ -133,15 +133,13 @@ test('lessons are one per visitor per case', async () => {
 test('ticket lifecycle: pin, wall, take once, not own, one per case', async () => {
   const c = (await req('POST', '/api/cases', { body: validCase(), headers: A })).body;
 
-  const badPin = await req('POST', `/api/cases/${c.id}/tickets`, { body: { message: '', pledge_amount: -5 }, headers: A });
+  const badPin = await req('POST', `/api/cases/${c.id}/tickets`, { body: { message: '' }, headers: A });
   assert.equal(badPin.status, 400);
   assert.deepEqual(badPin.body.errors.message, { code: 'required' });
-  assert.equal(badPin.body.errors.pledge_amount.code, 'out_of_range');
 
-  const pin = await req('POST', `/api/cases/${c.id}/tickets`, { body: { message: 'One step back', pledge_amount: 2 }, headers: A });
+  const pin = await req('POST', `/api/cases/${c.id}/tickets`, { body: { message: 'One step back' }, headers: A });
   assert.equal(pin.status, 201);
   assert.equal(pin.body.giver_name, 'Alex');
-  assert.equal(pin.body.pledge_amount, 2);
   assert.equal(pin.body.taker_id, null);
 
   // pinning counts as taking the lesson
@@ -179,8 +177,24 @@ test('stats aggregate everything', async () => {
   const { body } = await req('GET', '/api/stats');
   assert.ok(body.cases > SEED_CASES.length);
   assert.ok(body.tickets_taken >= 1);
-  assert.ok(body.pledged_amount >= 2);
+  assert.equal(body.pledged_amount, undefined);
   assert.ok(Array.isArray(body.by_category));
+});
+
+test('open-data export carries the licence and no visitor ids', async () => {
+  const { status, body } = await req('GET', '/api/export');
+  assert.equal(status, 200);
+  assert.equal(body.license.name, 'CC BY-SA 4.0');
+  assert.ok(body.cases.length > SEED_CASES.length);
+  assert.ok(body.tickets.length >= 1);
+  for (const c of body.cases) {
+    assert.equal(c.author_id, undefined);
+    assert.ok(c.risk_score);
+  }
+  for (const t of body.tickets) {
+    assert.equal(t.giver_id, undefined);
+    assert.equal(t.taker_id, undefined);
+  }
 });
 
 test('unknown api route and bad json are handled', async () => {

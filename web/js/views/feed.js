@@ -24,6 +24,7 @@ export async function feedView(root) {
     stats,
     h('div', { class: 'filters' }, category, sort, search),
     list,
+    h('p', { class: 'muted' }, h('a', { href: '/api/export', download: 'stepback-export.json' }, t('home.export'))),
   );
 
   api.stats().then((s) => {

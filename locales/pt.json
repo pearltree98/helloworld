@@ -42,7 +42,12 @@
     "lang": {
       "label": "Idioma"
     },
-    "footer": "Sem culpa. Registramos a estrutura que protege as pessoas.",
+    "footer": {
+      "blame": "Sem culpa. Registramos a estrutura que protege as pessoas.",
+      "free": "Grátis para todos. Sem anúncios, sem rastreamento, sem planos pagos.",
+      "license": "Código aberto ({code}) · Conteúdo sob {content}",
+      "source": "Código-fonte"
+    },
     "errors": {
       "generic": "Algo deu errado.",
       "not_found": "Página não encontrada.",
@@ -65,7 +70,8 @@
         "risk": "Maior risco",
         "lessons": "Mais lições recebidas"
       },
-      "empty": "Ainda não há casos. Registre o primeiro."
+      "empty": "Ainda não há casos. Registre o primeiro.",
+      "export": "Baixar todos os casos como dados abertos"
     },
     "card": {
       "avoid": "Como evitar:",
@@ -107,21 +113,18 @@
     "ticket": {
       "message": "Um recado para a próxima pessoa",
       "placeholder": "ex. Para todo motorista novo: a faixa da esquerda é emprestada, não é sua.",
-      "pledge": "Promessa ao fundo de segurança (opcional)",
-      "pledgeHint": "Nenhum pagamento é cobrado ainda. O total prometido é público e vai para ferramentas de evitar: faixas refletivas, barras de apoio no banheiro.",
       "pin": "Deixar o ticket",
       "pinned": "Seu ticket está no mural.",
       "take": "Pegar este ticket",
       "mine": "Seu ticket",
       "mineTitle": "Você não pode pegar um ticket que você mesmo deixou",
       "taken": "Você pegou o ticket. Guarde o recado de {name}.",
-      "takenBy": "Pego por {name} em {date}",
-      "pledged": "Promessa: {amount}"
+      "takenBy": "Pego por {name} em {date}"
     },
     "wall": {
       "h1": "Mural de tickets",
       "lead": "Tickets deixados por quem disse \"esta lição me protegeu\". Pegue um e a lição fica registrada como sua; o ticket sai do mural. Quem pega um ticket pode deixar outro em outro caso.",
-      "stats": "{wall} no mural · {taken} repassados · {pledged} prometidos · {lessons} lições recebidas",
+      "stats": "{wall} no mural · {taken} repassados · {lessons} lições recebidas",
       "empty": "O mural está vazio. Leia um caso e deixe o primeiro ticket.",
       "recent": "Repassados recentemente",
       "none": "Nenhum ainda."
@@ -165,7 +168,8 @@
       "locationPh": "ex. pontes, saídas de túnel",
       "source": "Link da fonte (opcional)",
       "submit": "Salvar o caso",
-      "saved": "Salvo. Alguém vai dar um passo atrás por causa disto."
+      "saved": "Salvo. Alguém vai dar um passo atrás por causa disto.",
+      "license": "Ao salvar, você publica este caso sob a licença {content}, para que qualquer pessoa possa compartilhar e reutilizar com crédito. Não inclua nomes nem nada que identifique uma pessoa."
     }
   },
   "about": {
@@ -194,7 +198,7 @@
         "h": "Economia: todo mundo sai ganhando",
         "p": [
           "Em alguns cafés há vales pregados na parede. Um cliente paga um pouco a mais e um vale sobe; um estudante tira um e come de graça. O dono tem movimento, quem deu sente alegria, o estudante come. Ninguém perde e todos ganham um pouco. O caffè sospeso de Nápoles e as lojas Mirinae da Coreia funcionam com o mesmo princípio.",
-          "Aqui, quem registra um susto vê quantas pessoas receberam a lição. Quem foi protegido por ela deixa um ticket com um recado e pode prometer algo ao fundo de segurança. Quem pega o ticket recebe a lição e o recado. As promessas voltam como ferramentas de evitar: faixas refletivas, barras de apoio, luzes de alerta traseiras.",
+          "Aqui, quem registra um susto vê quantas pessoas receberam a lição. Quem foi protegido por ela deixa um ticket com um recado. Quem pega o ticket recebe a lição e o recado. Nada aqui custa dinheiro e nada aqui gera dinheiro.",
           "Importa que o ticket seja de uso único. Uma curtida se copia sem fim e não entrega nada a ninguém. Um ticket só pode ser pego por uma pessoa, e quando some dá vontade de deixar outro para a próxima. É esse pequeno mecanismo que cria reciprocidade."
         ]
       },
@@ -210,6 +214,14 @@
         "h": "O que se espalha é uma ação, não o medo",
         "p": [
           "Vídeos de acidente se espalham como medo, e medo não muda comportamento. A unidade de compartilhamento do Stepback é uma frase de evitar. Um cartão, uma frase, um link. Só viaja se o leitor puder fazer amanhã."
+        ]
+      },
+      {
+        "h": "Grátis, aberto e sem fins lucrativos",
+        "p": [
+          "O Stepback é um bem público. É gratuito, não tem anúncios, não rastreia você e não tem plano pago. Ninguém lucra com ele, e ele foi construído para que ninguém possa: o código é aberto sob a AGPL, cada caso é publicado sob Creative Commons BY-SA e todo o conjunto de dados pode ser baixado por qualquer pessoa a qualquer momento. Se quem o mantém perdesse o rumo, qualquer pessoa poderia pegar o código e os dados e continuar.",
+          "Isso segue as plataformas que continuam úteis há décadas. A Wikipédia vive de pequenas doações e recusa anúncios para proteger sua independência. O OpenStreetMap é mantido por voluntários e entrega seus dados sob licença de compartilhamento igual. O sistema de relatos de segurança da aviação funciona porque o órgão que recebe os relatos é separado do órgão que pune. Copiamos os três: nenhum dinheiro dentro do produto, conteúdo e dados abertos, e sem culpa.",
+          "Os custos de operação são publicados e, se um dia forem cobertos por doações, as contas serão públicas."
         ]
       },
       {

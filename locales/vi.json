@@ -3,16 +3,51 @@
   "name": "Tiếng Việt",
   "dir": "ltr",
   "catalog": {
-    "categories": { "road": "Đường bộ & lái xe", "walk": "Đi bộ", "home": "Gia đình", "work": "Công việc & công trường", "transit": "Giao thông công cộng", "air": "Hàng không", "water": "Sông nước", "outdoors": "Ngoài trời", "other": "Khác" },
-    "outcomes": { "near_miss": "Suýt xảy ra, không sao", "observed": "Chứng kiến hoặc học từ video", "injury": "Bị thương", "fatal": "Tử vong" },
-    "risk_levels": { "low": "Thấp", "moderate": "Trung bình", "high": "Cao", "critical": "Rất cao" }
+    "categories": {
+      "road": "Đường bộ & lái xe",
+      "walk": "Đi bộ",
+      "home": "Gia đình",
+      "work": "Công việc & công trường",
+      "transit": "Giao thông công cộng",
+      "air": "Hàng không",
+      "water": "Sông nước",
+      "outdoors": "Ngoài trời",
+      "other": "Khác"
+    },
+    "outcomes": {
+      "near_miss": "Suýt xảy ra, không sao",
+      "observed": "Chứng kiến hoặc học từ video",
+      "injury": "Bị thương",
+      "fatal": "Tử vong"
+    },
+    "risk_levels": {
+      "low": "Thấp",
+      "moderate": "Trung bình",
+      "high": "Cao",
+      "critical": "Rất cao"
+    }
   },
   "ui": {
     "tagline": "Thấy nguy hiểm sớm. Trao bài học cho người sau.",
-    "nav": { "cases": "Trường hợp", "wall": "Bức tường phiếu", "about": "Giới thiệu", "new": "Ghi lại trường hợp" },
-    "who": { "edit": "Tên hiển thị (tối đa 20 ký tự)", "saved": "Từ giờ bạn sẽ được ghi là \"{name}\"." },
-    "lang": { "label": "Ngôn ngữ" },
-    "footer": "Không đổ lỗi. Chúng tôi ghi lại cấu trúc giữ an toàn cho mọi người.",
+    "nav": {
+      "cases": "Trường hợp",
+      "wall": "Bức tường phiếu",
+      "about": "Giới thiệu",
+      "new": "Ghi lại trường hợp"
+    },
+    "who": {
+      "edit": "Tên hiển thị (tối đa 20 ký tự)",
+      "saved": "Từ giờ bạn sẽ được ghi là \"{name}\"."
+    },
+    "lang": {
+      "label": "Ngôn ngữ"
+    },
+    "footer": {
+      "blame": "Không đổ lỗi. Chúng tôi ghi lại cấu trúc giữ an toàn cho mọi người.",
+      "free": "Miễn phí cho mọi người. Không quảng cáo, không theo dõi, không gói trả phí.",
+      "license": "Mã nguồn mở ({code}) · Nội dung theo giấy phép {content}",
+      "source": "Mã nguồn"
+    },
     "errors": {
       "generic": "Đã có lỗi xảy ra.",
       "not_found": "Không tìm thấy trang.",
@@ -30,11 +65,27 @@
       "stats": "{cases} trường hợp · {lessons} bài học đã nhận · {wall} phiếu trên tường · {taken} đã trao đi",
       "search": "Tìm trường hợp",
       "category": "Tất cả danh mục",
-      "sort": { "recent": "Mới nhất", "risk": "Rủi ro cao nhất", "lessons": "Nhiều bài học nhất" },
-      "empty": "Chưa có trường hợp nào. Hãy ghi lại trường hợp đầu tiên."
+      "sort": {
+        "recent": "Mới nhất",
+        "risk": "Rủi ro cao nhất",
+        "lessons": "Nhiều bài học nhất"
+      },
+      "empty": "Chưa có trường hợp nào. Hãy ghi lại trường hợp đầu tiên.",
+      "export": "Tải toàn bộ trường hợp dưới dạng dữ liệu mở"
     },
-    "card": { "avoid": "Cách tránh:", "lessons": "{n} bài học", "tickets": "{n} phiếu" },
-    "risk": { "badge": "Rủi ro {score} ({label})", "title": "Mức độ {s} × Khả năng {l}", "panel": "Rủi ro", "severity": "Mức độ nghiêm trọng", "likelihood": "Khả năng xảy ra", "score": "Điểm" },
+    "card": {
+      "avoid": "Cách tránh:",
+      "lessons": "{n} bài học",
+      "tickets": "{n} phiếu"
+    },
+    "risk": {
+      "badge": "Rủi ro {score} ({label})",
+      "title": "Mức độ {s} × Khả năng {l}",
+      "panel": "Rủi ro",
+      "severity": "Mức độ nghiêm trọng",
+      "likelihood": "Khả năng xảy ra",
+      "score": "Điểm"
+    },
     "detail": {
       "back": "← Tất cả trường hợp",
       "by": "{name} · {date}",
@@ -47,7 +98,11 @@
       "learn": "Tôi nhận bài học này",
       "learned": "Đã nhận bài học",
       "learnToast": "Đã ghi nhớ. Mong không có gì xảy ra.",
-      "count": { "zero": "Chưa ai nhận bài học này", "one": "1 người đã nhận bài học này", "some": "{n} người đã nhận bài học này" },
+      "count": {
+        "zero": "Chưa ai nhận bài học này",
+        "one": "1 người đã nhận bài học này",
+        "some": "{n} người đã nhận bài học này"
+      },
       "share": "Chia sẻ",
       "shareCopied": "Đã sao chép liên kết.",
       "oneLine": "Trong một dòng",
@@ -58,21 +113,18 @@
     "ticket": {
       "message": "Lời nhắn cho người tiếp theo",
       "placeholder": "vd. Gửi mọi tài xế mới: làn nhanh là mượn, không phải để chiếm.",
-      "pledge": "Cam kết cho quỹ an toàn (tùy chọn)",
-      "pledgeHint": "Chưa thu tiền. Tổng cam kết được công khai và dành cho công cụ tránh né như dải phản quang, tay vịn phòng tắm.",
       "pin": "Ghim phiếu",
       "pinned": "Phiếu của bạn đã ở trên tường.",
       "take": "Lấy phiếu này",
       "mine": "Phiếu của bạn",
       "mineTitle": "Bạn không thể lấy phiếu do chính mình ghim",
       "taken": "Bạn đã lấy phiếu. Hãy giữ lời nhắn của {name}.",
-      "takenBy": "{name} đã lấy vào {date}",
-      "pledged": "Cam kết: {amount}"
+      "takenBy": "{name} đã lấy vào {date}"
     },
     "wall": {
       "h1": "Bức tường phiếu",
       "lead": "Những phiếu do người đã nói \"bài học này bảo vệ tôi\" ghim lên. Lấy một phiếu, bài học được ghi nhận là của bạn và phiếu rời khỏi tường. Người lấy phiếu có thể ghim một phiếu ở trường hợp khác.",
-      "stats": "{wall} trên tường · {taken} đã trao đi · {pledged} cam kết · {lessons} bài học đã nhận",
+      "stats": "{wall} trên tường · {taken} đã trao đi · {lessons} bài học đã nhận",
       "empty": "Bức tường đang trống. Hãy đọc một trường hợp và ghim phiếu đầu tiên.",
       "recent": "Mới trao đi",
       "none": "Chưa có."
@@ -95,16 +147,29 @@
       "habitPh": "vd. xem điện thoại khi chờ đèn đỏ",
       "severity": "Mức độ nghiêm trọng",
       "severityHint": "Nếu xảy ra, thương tích nặng đến đâu?",
-      "severityScale": ["Không đáng kể", "Thương tích nhẹ", "Cần điều trị", "Nặng / tàn tật", "Tử vong"],
+      "severityScale": [
+        "Không đáng kể",
+        "Thương tích nhẹ",
+        "Cần điều trị",
+        "Nặng / tàn tật",
+        "Tử vong"
+      ],
       "likelihood": "Khả năng xảy ra",
       "likelihoodHint": "Trong tình huống này, bao lâu một lần?",
-      "likelihoodScale": ["Hiếm", "Thỉnh thoảng", "Đôi khi", "Thường xuyên", "Gần như luôn luôn"],
+      "likelihoodScale": [
+        "Hiếm",
+        "Thỉnh thoảng",
+        "Đôi khi",
+        "Thường xuyên",
+        "Gần như luôn luôn"
+      ],
       "outcome": "Kết quả",
       "location": "Loại địa điểm (tùy chọn)",
       "locationPh": "vd. cầu, cửa ra hầm",
       "source": "Liên kết nguồn (tùy chọn)",
       "submit": "Lưu trường hợp",
-      "saved": "Đã lưu. Sẽ có người lùi lại một bước nhờ điều này."
+      "saved": "Đã lưu. Sẽ có người lùi lại một bước nhờ điều này.",
+      "license": "Khi lưu, bạn công bố trường hợp này theo giấy phép {content}, để bất kỳ ai cũng có thể chia sẻ và dùng lại kèm ghi nguồn. Vui lòng không ghi tên hay bất cứ điều gì nhận dạng một người."
     }
   },
   "about": {
@@ -115,16 +180,25 @@
       {
         "h": "Ba từ",
         "items": [
-          { "term": "Mối nguy", "def": "Nguồn gây hại tiềm tàng. Điểm mù bên phải xe tải, sàn gạch ướt, xe đứng yên trên làn đang lưu thông." },
-          { "term": "Phơi nhiễm", "def": "Trạng thái đặt bạn vào đường đi của nó. Đứng cách thành xe tải dưới 1 m; liếc điện thoại ở làn nhanh." },
-          { "term": "Rủi ro", "def": "Mức độ × khả năng. Hiếm khi bạn loại bỏ được mối nguy, nhưng cắt đứt phơi nhiễm là lựa chọn của bạn. Vì thế trường then chốt của mỗi trường hợp là \"Tránh né\"." }
+          {
+            "term": "Mối nguy",
+            "def": "Nguồn gây hại tiềm tàng. Điểm mù bên phải xe tải, sàn gạch ướt, xe đứng yên trên làn đang lưu thông."
+          },
+          {
+            "term": "Phơi nhiễm",
+            "def": "Trạng thái đặt bạn vào đường đi của nó. Đứng cách thành xe tải dưới 1 m; liếc điện thoại ở làn nhanh."
+          },
+          {
+            "term": "Rủi ro",
+            "def": "Mức độ × khả năng. Hiếm khi bạn loại bỏ được mối nguy, nhưng cắt đứt phơi nhiễm là lựa chọn của bạn. Vì thế trường then chốt của mỗi trường hợp là \"Tránh né\"."
+          }
         ]
       },
       {
         "h": "Kinh tế học: ai cũng tốt hơn",
         "p": [
           "Ở một số quán có những phiếu ghim trên tường. Khách trả thêm một chút, một phiếu được treo lên; một sinh viên gỡ xuống và ăn miễn phí. Chủ quán có khách, người cho có niềm vui, sinh viên có bữa ăn. Không ai thiệt và ai cũng được một chút. Caffè sospeso ở Napoli và các quán Mirinae ở Hàn Quốc vận hành theo cùng nguyên lý.",
-          "Ở đây, người ghi lại lần suýt gặp nạn thấy bao nhiêu người đã nhận bài học. Người được bài học đó bảo vệ ghim một phiếu kèm lời nhắn và có thể cam kết cho quỹ an toàn. Người lấy phiếu nhận được bài học và lời nhắn. Cam kết quay lại thành công cụ tránh né: dải phản quang, tay vịn, đèn cảnh báo phía sau.",
+          "Ở đây, người ghi lại lần suýt gặp nạn thấy bao nhiêu người đã nhận bài học. Người được bài học đó bảo vệ ghim một phiếu kèm lời nhắn. Người lấy phiếu nhận được bài học và lời nhắn. Không có gì ở đây tốn tiền, và không có gì ở đây kiếm tiền.",
           "Điều quan trọng là phiếu chỉ dùng một lần. Một lượt \"thích\" sao chép vô hạn và không trao gì cho ai. Một phiếu chỉ một người lấy được, và khi nó biến mất bạn muốn ghim một phiếu cho người tiếp theo. Cơ chế nhỏ ấy tạo ra sự có qua có lại."
         ]
       },
@@ -140,6 +214,14 @@
         "h": "Thứ lan truyền là hành động, không phải nỗi sợ",
         "p": [
           "Video tai nạn lan truyền như nỗi sợ, và nỗi sợ không thay đổi hành vi. Đơn vị chia sẻ của Stepback là một câu hành động tránh né. Một thẻ, một câu, một liên kết. Nó chỉ lan đi nếu người đọc có thể làm vào ngày mai."
+        ]
+      },
+      {
+        "h": "Miễn phí, mở và phi lợi nhuận",
+        "p": [
+          "Stepback là một tài sản công. Miễn phí, không quảng cáo, không theo dõi bạn và không có gói trả phí. Không ai kiếm lợi từ nó, và nó được xây để không ai có thể: mã nguồn mở theo AGPL, mọi trường hợp được công bố theo Creative Commons BY-SA, và toàn bộ dữ liệu ai cũng có thể tải về bất cứ lúc nào. Nếu những người vận hành có ngày lạc lối, bất kỳ ai cũng có thể lấy mã nguồn và dữ liệu để tiếp tục.",
+          "Điều này noi theo những nền tảng hữu ích suốt hàng chục năm. Wikipedia sống bằng những khoản quyên góp nhỏ và từ chối quảng cáo để giữ độc lập. OpenStreetMap do tình nguyện viên duy trì và trao dữ liệu theo giấy phép chia sẻ tương tự. Hệ thống báo cáo an toàn hàng không hoạt động vì cơ quan nhận báo cáo tách biệt với cơ quan xử phạt. Chúng tôi học cả ba: không có tiền trong sản phẩm, nội dung và dữ liệu mở, và không đổ lỗi.",
+          "Chi phí vận hành được công khai, và nếu có ngày được quyên góp bù đắp thì sổ sách cũng công khai."
         ]
       },
       {

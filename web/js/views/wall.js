@@ -1,5 +1,5 @@
 import { api, meta } from '../api.js';
-import { h, clear, fmtDate, fmtMoney, fmtNum, labelOf, loading, errorBox, toast } from '../ui.js';
+import { h, clear, fmtDate, fmtNum, labelOf, loading, errorBox, toast } from '../ui.js';
 import { visitorId } from '../identity.js';
 import { t } from '../i18n.js';
 
@@ -22,8 +22,7 @@ export async function wallView(root) {
     h('h1', {}, t('wall.h1')),
     h('p', { class: 'lead' }, t('wall.lead')),
     h('p', { class: 'muted' }, t('wall.stats', {
-      wall: fmtNum(stats.tickets_on_wall), taken: fmtNum(stats.tickets_taken),
-      pledged: fmtMoney(stats.pledged_amount, m.currency), lessons: fmtNum(stats.lessons),
+      wall: fmtNum(stats.tickets_on_wall), taken: fmtNum(stats.tickets_taken), lessons: fmtNum(stats.lessons),
     })),
     grid,
     h('h2', { class: 'section-title' }, t('wall.recent')),
@@ -51,10 +50,7 @@ export function ticketCard(tk, m, { onTaken, showCase = true } = {}) {
   return h('div', { class: `ticket${tk.taker_id ? ' taken' : ''}` },
     showCase ? h('a', { class: 'ticket-case', href: `#/case/${tk.case_id}` }, `${labelOf(m.categories, tk.case_category)} · `, h('span', { dir: 'auto' }, tk.case_title)) : null,
     h('p', { class: 'ticket-msg', dir: 'auto' }, tk.message),
-    h('div', { class: 'meta' },
-      `${tk.giver_name} · ${fmtDate(tk.created_at)}`,
-      tk.pledge_amount ? ` · ${t('ticket.pledged', { amount: fmtMoney(tk.pledge_amount, m.currency) })}` : null,
-    ),
+    h('div', { class: 'meta' }, `${tk.giver_name} · ${fmtDate(tk.created_at)}`),
     tk.taker_id ? h('div', { class: 'meta' }, t('ticket.takenBy', { name: tk.taker_name, date: fmtDate(tk.taken_at) })) : takeBtn,
   );
 }

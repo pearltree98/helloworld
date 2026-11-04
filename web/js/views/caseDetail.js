@@ -75,7 +75,6 @@ const sect = (title, body) => h('section', { class: 'section' }, h('h2', {}, tit
 
 function ticketForm(c, m, onDone) {
   const msg = h('textarea', { id: 'f-message', placeholder: t('ticket.placeholder'), maxlength: m.limits.message, rows: 3 });
-  const pledge = h('input', { id: 'f-pledge_amount', type: 'number', min: 0, max: m.limits.pledge_max, step: 1, placeholder: '0' });
   const errMsg = h('p', { class: 'error' });
   const btn = h('button', { class: 'btn btn-primary', type: 'submit' }, t('ticket.pin'));
   return h('form', { class: 'form', onsubmit: async (e) => {
@@ -83,8 +82,8 @@ function ticketForm(c, m, onDone) {
     errMsg.textContent = '';
     btn.disabled = true;
     try {
-      await api.pinTicket(c.id, { message: msg.value, pledge_amount: pledge.value || 0 });
-      msg.value = ''; pledge.value = '';
+      await api.pinTicket(c.id, { message: msg.value });
+      msg.value = '';
       toast(t('ticket.pinned'));
       await onDone();
     } catch (err) {
@@ -92,7 +91,6 @@ function ticketForm(c, m, onDone) {
     } finally { btn.disabled = false; }
   } },
     field({ label: t('ticket.message'), name: 'message', control: msg }),
-    field({ label: `${t('ticket.pledge')} · ${m.currency}`, name: 'pledge_amount', control: pledge, hint: t('ticket.pledgeHint') }),
     errMsg,
     btn,
   );

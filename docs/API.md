@@ -13,15 +13,16 @@ All responses are JSON. Errors look like `{ error, message, errors? }`.
 
 | Method | Path | Description |
 |---|---|---|
-| GET | `/api/meta?lang=<code>` | `locales` ([{code,name,dir}]), localized categories, outcomes, risk levels; `currency`; field `limits` |
+| GET | `/api/meta?lang=<code>` | `locales` ([{code,name,dir}]), localized categories, outcomes, risk levels; `content_license`, `code_license`; field `limits` |
 | GET | `/locales/<code>.json` | The full locale file (UI strings, labels, About page) |
 | GET / POST | `/api/me` | Read / set my display name `{ nickname }` |
-| GET | `/api/stats` | Totals for cases, lessons, tickets, pledges; cases by category |
+| GET | `/api/stats` | Totals for cases, lessons, tickets; cases by category |
+| GET | `/api/export` | Open data: every public case and ticket, with the content licence, without visitor ids |
 | GET | `/api/cases?category=&sort=recent\|risk\|lessons&q=&limit=&offset=` | List cases with risk score, lesson and ticket counts |
 | POST | `/api/cases` | Create a case (fields below) → 201 |
 | GET | `/api/cases/:id` | Case + `learned` (did I take the lesson) + `tickets` |
 | POST | `/api/cases/:id/lessons` | "I take this lesson" (idempotent) → `{ lesson_count }` |
-| POST | `/api/cases/:id/tickets` | Pin a ticket `{ message, pledge_amount? }` → 201 |
+| POST | `/api/cases/:id/tickets` | Pin a ticket `{ message }` → 201 |
 | GET | `/api/tickets?status=wall\|taken` | Tickets on the wall / already handed on |
 | POST | `/api/tickets/:id/take` | Take a ticket. 409 codes: `already_taken`, `own_ticket`, `one_per_case` |
 

@@ -43,14 +43,6 @@ export function fmtNum(n) {
   try { return Number(n).toLocaleString(locale); } catch { return String(n); }
 }
 
-export function fmtMoney(amount, currency) {
-  try {
-    return new Intl.NumberFormat(locale, { style: 'currency', currency, maximumFractionDigits: 0 }).format(amount);
-  } catch {
-    return `${fmtNum(amount)} ${currency}`;
-  }
-}
-
 export function labelOf(list, key) {
   return list.find((x) => x.key === key)?.label ?? key;
 }

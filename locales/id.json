@@ -3,16 +3,51 @@
   "name": "Bahasa Indonesia",
   "dir": "ltr",
   "catalog": {
-    "categories": { "road": "Jalan & berkendara", "walk": "Berjalan kaki", "home": "Rumah", "work": "Kerja & proyek", "transit": "Transportasi umum", "air": "Penerbangan", "water": "Air", "outdoors": "Luar ruangan", "other": "Lainnya" },
-    "outcomes": { "near_miss": "Nyaris celaka, selamat", "observed": "Menyaksikan atau belajar dari video", "injury": "Cedera", "fatal": "Meninggal" },
-    "risk_levels": { "low": "Rendah", "moderate": "Sedang", "high": "Tinggi", "critical": "Kritis" }
+    "categories": {
+      "road": "Jalan & berkendara",
+      "walk": "Berjalan kaki",
+      "home": "Rumah",
+      "work": "Kerja & proyek",
+      "transit": "Transportasi umum",
+      "air": "Penerbangan",
+      "water": "Air",
+      "outdoors": "Luar ruangan",
+      "other": "Lainnya"
+    },
+    "outcomes": {
+      "near_miss": "Nyaris celaka, selamat",
+      "observed": "Menyaksikan atau belajar dari video",
+      "injury": "Cedera",
+      "fatal": "Meninggal"
+    },
+    "risk_levels": {
+      "low": "Rendah",
+      "moderate": "Sedang",
+      "high": "Tinggi",
+      "critical": "Kritis"
+    }
   },
   "ui": {
     "tagline": "Lihat bahaya lebih awal. Teruskan pelajarannya.",
-    "nav": { "cases": "Kasus", "wall": "Dinding tiket", "about": "Tentang", "new": "Catat kasus" },
-    "who": { "edit": "Nama tampilan (maks. 20 karakter)", "saved": "Mulai sekarang Anda tercatat sebagai \"{name}\"." },
-    "lang": { "label": "Bahasa" },
-    "footer": "Tanpa menyalahkan. Kami mencatat struktur yang menjaga orang tetap aman.",
+    "nav": {
+      "cases": "Kasus",
+      "wall": "Dinding tiket",
+      "about": "Tentang",
+      "new": "Catat kasus"
+    },
+    "who": {
+      "edit": "Nama tampilan (maks. 20 karakter)",
+      "saved": "Mulai sekarang Anda tercatat sebagai \"{name}\"."
+    },
+    "lang": {
+      "label": "Bahasa"
+    },
+    "footer": {
+      "blame": "Tanpa menyalahkan. Kami mencatat struktur yang menjaga orang tetap aman.",
+      "free": "Gratis untuk semua. Tanpa iklan, tanpa pelacakan, tanpa paket berbayar.",
+      "license": "Sumber terbuka ({code}) · Konten di bawah {content}",
+      "source": "Kode sumber"
+    },
     "errors": {
       "generic": "Terjadi kesalahan.",
       "not_found": "Halaman tidak ditemukan.",
@@ -30,11 +65,27 @@
       "stats": "{cases} kasus · {lessons} pelajaran diambil · {wall} tiket di dinding · {taken} diteruskan",
       "search": "Cari kasus",
       "category": "Semua kategori",
-      "sort": { "recent": "Terbaru", "risk": "Risiko tertinggi", "lessons": "Paling banyak diambil" },
-      "empty": "Belum ada kasus. Catat yang pertama."
+      "sort": {
+        "recent": "Terbaru",
+        "risk": "Risiko tertinggi",
+        "lessons": "Paling banyak diambil"
+      },
+      "empty": "Belum ada kasus. Catat yang pertama.",
+      "export": "Unduh semua kasus sebagai data terbuka"
     },
-    "card": { "avoid": "Cara menghindar:", "lessons": "{n} pelajaran", "tickets": "{n} tiket" },
-    "risk": { "badge": "Risiko {score} ({label})", "title": "Keparahan {s} × Kemungkinan {l}", "panel": "Risiko", "severity": "Keparahan", "likelihood": "Kemungkinan", "score": "Skor" },
+    "card": {
+      "avoid": "Cara menghindar:",
+      "lessons": "{n} pelajaran",
+      "tickets": "{n} tiket"
+    },
+    "risk": {
+      "badge": "Risiko {score} ({label})",
+      "title": "Keparahan {s} × Kemungkinan {l}",
+      "panel": "Risiko",
+      "severity": "Keparahan",
+      "likelihood": "Kemungkinan",
+      "score": "Skor"
+    },
     "detail": {
       "back": "← Semua kasus",
       "by": "{name} · {date}",
@@ -47,7 +98,11 @@
       "learn": "Saya ambil pelajaran ini",
       "learned": "Pelajaran diambil",
       "learnToast": "Diingat. Semoga tidak terjadi apa-apa.",
-      "count": { "zero": "Belum ada yang mengambil pelajaran ini", "one": "1 orang mengambil pelajaran ini", "some": "{n} orang mengambil pelajaran ini" },
+      "count": {
+        "zero": "Belum ada yang mengambil pelajaran ini",
+        "one": "1 orang mengambil pelajaran ini",
+        "some": "{n} orang mengambil pelajaran ini"
+      },
       "share": "Bagikan",
       "shareCopied": "Tautan disalin.",
       "oneLine": "Dalam satu baris",
@@ -58,21 +113,18 @@
     "ticket": {
       "message": "Pesan untuk orang berikutnya",
       "placeholder": "mis. Untuk setiap pengemudi baru: lajur cepat itu dipinjam, bukan ditempati.",
-      "pledge": "Janji untuk dana keselamatan (opsional)",
-      "pledgeHint": "Belum ada pembayaran. Total janji bersifat publik dan ditujukan untuk alat menghindar seperti strip reflektif dan pegangan kamar mandi.",
       "pin": "Tempelkan tiket",
       "pinned": "Tiket Anda ada di dinding.",
       "take": "Ambil tiket ini",
       "mine": "Tiket Anda",
       "mineTitle": "Anda tidak bisa mengambil tiket yang Anda tempel sendiri",
       "taken": "Anda mengambil tiket. Simpan pesan dari {name}.",
-      "takenBy": "Diambil oleh {name} pada {date}",
-      "pledged": "Janji: {amount}"
+      "takenBy": "Diambil oleh {name} pada {date}"
     },
     "wall": {
       "h1": "Dinding tiket",
       "lead": "Tiket dari orang-orang yang berkata \"pelajaran ini melindungi saya\". Ambil satu, pelajaran tercatat sebagai milik Anda, dan tiket hilang dari dinding. Yang mengambil tiket bisa menempelkan tiket di kasus lain.",
-      "stats": "{wall} di dinding · {taken} diteruskan · {pledged} dijanjikan · {lessons} pelajaran diambil",
+      "stats": "{wall} di dinding · {taken} diteruskan · {lessons} pelajaran diambil",
       "empty": "Dinding kosong. Baca satu kasus dan tempelkan tiket pertama.",
       "recent": "Baru diteruskan",
       "none": "Belum ada."
@@ -95,16 +147,29 @@
       "habitPh": "mis. melihat ponsel saat menunggu lampu merah",
       "severity": "Keparahan",
       "severityHint": "Jika terjadi, seberapa parah cederanya?",
-      "severityScale": ["Sepele", "Cedera ringan", "Perlu perawatan", "Berat / cacat", "Meninggal"],
+      "severityScale": [
+        "Sepele",
+        "Cedera ringan",
+        "Perlu perawatan",
+        "Berat / cacat",
+        "Meninggal"
+      ],
       "likelihood": "Kemungkinan",
       "likelihoodHint": "Dalam situasi ini, seberapa sering?",
-      "likelihoodScale": ["Jarang", "Sesekali", "Kadang-kadang", "Sering", "Hampir selalu"],
+      "likelihoodScale": [
+        "Jarang",
+        "Sesekali",
+        "Kadang-kadang",
+        "Sering",
+        "Hampir selalu"
+      ],
       "outcome": "Hasil",
       "location": "Jenis tempat (opsional)",
       "locationPh": "mis. jembatan, keluar terowongan",
       "source": "Tautan sumber (opsional)",
       "submit": "Simpan kasus",
-      "saved": "Tersimpan. Seseorang akan mundur selangkah karena ini."
+      "saved": "Tersimpan. Seseorang akan mundur selangkah karena ini.",
+      "license": "Dengan menyimpan, Anda menerbitkan kasus ini di bawah lisensi {content}, sehingga siapa pun boleh membagikan dan menggunakannya kembali dengan menyebut sumber. Jangan sertakan nama atau apa pun yang mengidentifikasi seseorang."
     }
   },
   "about": {
@@ -115,16 +180,25 @@
       {
         "h": "Tiga kata",
         "items": [
-          { "term": "Bahaya", "def": "Sumber potensi celaka. Titik buta kanan truk, lantai ubin basah, kendaraan berhenti di lajur aktif." },
-          { "term": "Paparan", "def": "Keadaan yang menempatkan Anda di jalurnya. Berdiri kurang dari 1 m dari sisi truk; melirik ponsel di lajur cepat." },
-          { "term": "Risiko", "def": "Keparahan × kemungkinan. Bahaya jarang bisa dihilangkan, tetapi memutus paparan adalah pilihan Anda. Karena itu kolom kunci setiap kasus adalah \"Menghindar\"." }
+          {
+            "term": "Bahaya",
+            "def": "Sumber potensi celaka. Titik buta kanan truk, lantai ubin basah, kendaraan berhenti di lajur aktif."
+          },
+          {
+            "term": "Paparan",
+            "def": "Keadaan yang menempatkan Anda di jalurnya. Berdiri kurang dari 1 m dari sisi truk; melirik ponsel di lajur cepat."
+          },
+          {
+            "term": "Risiko",
+            "def": "Keparahan × kemungkinan. Bahaya jarang bisa dihilangkan, tetapi memutus paparan adalah pilihan Anda. Karena itu kolom kunci setiap kasus adalah \"Menghindar\"."
+          }
         ]
       },
       {
         "h": "Ekonomi: semua jadi lebih baik",
         "p": [
           "Di beberapa warung ada kupon tertempel di dinding. Pelanggan membayar sedikit lebih dan sebuah kupon naik; seorang pelajar mengambilnya dan makan gratis. Pemilik dapat usaha, pemberi dapat kegembiraan, pelajar dapat makan. Tak ada yang rugi dan semua untung sedikit. Caffè sospeso di Napoli dan toko Mirinae di Korea berjalan dengan prinsip yang sama.",
-          "Di sini, orang yang mencatat nyaris celaka melihat berapa orang mengambil pelajarannya. Orang yang dilindungi pelajaran itu menempelkan tiket dengan pesan dan bisa berjanji untuk dana keselamatan. Orang yang mengambil tiket mendapat pelajaran dan pesan. Janji kembali sebagai alat menghindar: strip reflektif, pegangan, lampu peringatan belakang.",
+          "Di sini, orang yang mencatat nyaris celaka melihat berapa orang mengambil pelajarannya. Orang yang dilindungi pelajaran itu menempelkan tiket dengan pesan. Orang yang mengambil tiket mendapat pelajaran dan pesan. Tidak ada yang berbayar di sini, dan tidak ada yang menghasilkan uang di sini.",
           "Penting bahwa tiket hanya sekali pakai. \"Suka\" tersalin tanpa batas dan tidak menyerahkan apa pun kepada siapa pun. Tiket hanya bisa diambil satu orang, dan begitu hilang Anda ingin menempelkan satu untuk orang berikutnya. Mekanisme kecil itulah yang menciptakan timbal balik."
         ]
       },
@@ -140,6 +214,14 @@
         "h": "Yang menyebar adalah tindakan, bukan rasa takut",
         "p": [
           "Video kecelakaan menyebar sebagai rasa takut, dan rasa takut tidak mengubah perilaku. Satuan berbagi di Stepback adalah satu kalimat tindakan menghindar. Satu kartu, satu kalimat, satu tautan. Ia hanya menyebar jika pembaca bisa melakukannya besok."
+        ]
+      },
+      {
+        "h": "Gratis, terbuka, dan nirlaba",
+        "p": [
+          "Stepback adalah barang publik. Gratis, tanpa iklan, tidak melacak Anda, dan tidak punya paket berbayar. Tidak ada yang mengambil untung darinya, dan ia dibangun agar tidak ada yang bisa: kodenya sumber terbuka di bawah AGPL, setiap kasus diterbitkan di bawah Creative Commons BY-SA, dan seluruh data bisa diunduh siapa pun kapan pun. Jika para pengelolanya suatu hari tersesat, siapa pun bisa mengambil kode dan data lalu melanjutkan.",
+          "Ini mengikuti platform yang tetap berguna selama puluhan tahun. Wikipedia berjalan dari donasi kecil dan menolak iklan demi menjaga independensinya. OpenStreetMap dirawat relawan dan memberikan datanya dengan lisensi berbagi serupa. Sistem pelaporan keselamatan penerbangan berjalan karena lembaga yang menerima laporan terpisah dari lembaga yang menghukum. Kami meniru ketiganya: tanpa uang di dalam produk, konten dan data terbuka, dan tanpa menyalahkan.",
+          "Biaya operasional dipublikasikan, dan jika suatu hari ditutupi donasi, pembukuannya terbuka."
         ]
       },
       {

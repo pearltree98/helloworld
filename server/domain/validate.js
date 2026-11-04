@@ -23,7 +23,6 @@ export const LIMITS = {
   source_url: 500,
   message: 300,
   nickname: 20,
-  pledge_max: 1_000_000,
 };
 
 const str = (v) => (typeof v === 'string' ? v.trim() : '');
@@ -76,15 +75,8 @@ export function validateTicket(body) {
   if (!message) errors.message = { code: 'required' };
   else if (message.length > LIMITS.message) errors.message = { code: 'too_long', max: LIMITS.message };
 
-  let pledge = 0;
-  if (body.pledge_amount !== undefined && body.pledge_amount !== null && body.pledge_amount !== '') {
-    const n = intIn(body.pledge_amount, 0, LIMITS.pledge_max);
-    if (n === null) errors.pledge_amount = { code: 'out_of_range', min: 0, max: LIMITS.pledge_max };
-    else pledge = n;
-  }
-
   if (Object.keys(errors).length) throw new ValidationError(errors);
-  return { message, pledge_amount: pledge };
+  return { message };
 }
 
 export function cleanNickname(v) {

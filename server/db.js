@@ -47,7 +47,6 @@ CREATE TABLE IF NOT EXISTS tickets (
   case_id     INTEGER NOT NULL REFERENCES cases(id) ON DELETE CASCADE,
   giver_id    TEXT NOT NULL REFERENCES visitors(id),
   message     TEXT NOT NULL,
-  pledge_amount  INTEGER NOT NULL DEFAULT 0,
   taker_id    TEXT REFERENCES visitors(id),
   taken_at    TEXT,
   created_at  TEXT NOT NULL DEFAULT (datetime('now'))
@@ -188,10 +187,10 @@ export class Repo {
     return this.db.prepare(`${TICKET_SELECT} WHERE t.id = ?`).get(id) ?? null;
   }
 
-  insertTicket(caseId, giverId, { message, pledge_amount }) {
+  insertTicket(caseId, giverId, { message }) {
     const { lastInsertRowid } = this.db
-      .prepare('INSERT INTO tickets (case_id, giver_id, message, pledge_amount) VALUES (?, ?, ?, ?)')
-      .run(caseId, giverId, message, pledge_amount);
+      .prepare('INSERT INTO tickets (case_id, giver_id, message) VALUES (?, ?, ?)')
+      .run(caseId, giverId, message);
     return this.getTicket(Number(lastInsertRowid));
   }
 
@@ -224,6 +223,16 @@ export class Repo {
     return { ticket: this.getTicket(ticketId) };
   }
 
+  // ---- open data --------------------------------------------------------
+  /** Everything public, for the open-data export. Visitor ids are not included. */
+  exportAll() {
+    const cases = this.db.prepare(`${CASE_SELECT} ORDER BY c.id`).all().map(withRisk).map(({ author_id, ...c }) => c);
+    const tickets = this.db
+      .prepare('SELECT t.id, t.case_id, t.message, g.nickname AS giver_name, k.nickname AS taker_name, t.taken_at, t.created_at FROM tickets t JOIN visitors g ON g.id = t.giver_id LEFT JOIN visitors k ON k.id = t.taker_id ORDER BY t.id')
+      .all();
+    return { cases, tickets };
+  }
+
   // ---- stats ----------------------------------------------------------
   stats() {
     const one = (sql) => this.db.prepare(sql).get();
@@ -232,7 +241,6 @@ export class Repo {
       lessons: one('SELECT COUNT(*) AS n FROM lessons').n,
       tickets_on_wall: one('SELECT COUNT(*) AS n FROM tickets WHERE taker_id IS NULL').n,
       tickets_taken: one('SELECT COUNT(*) AS n FROM tickets WHERE taker_id IS NOT NULL').n,
-      pledged_amount: one('SELECT COALESCE(SUM(pledge_amount), 0) AS n FROM tickets').n,
       contributors: one('SELECT COUNT(DISTINCT author_id) AS n FROM cases').n,
       by_category: this.db
         .prepare('SELECT category, COUNT(*) AS n FROM cases GROUP BY category ORDER BY n DESC')

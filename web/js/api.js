@@ -48,7 +48,7 @@ export const api = {
 };
 
 const metaCache = new Map();
-/** Localized catalog (categories, outcomes, risk levels, currency). Cached per locale. */
+/** Localized catalog (categories, outcomes, risk levels, licences). Cached per locale. */
 export async function meta() {
   if (!metaCache.has(locale)) metaCache.set(locale, await api.meta(locale));
   return metaCache.get(locale);

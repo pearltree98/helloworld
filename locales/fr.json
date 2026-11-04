@@ -42,7 +42,12 @@
     "lang": {
       "label": "Langue"
     },
-    "footer": "Sans blâme. Nous enregistrons la structure qui protège les gens.",
+    "footer": {
+      "blame": "Sans blâme. Nous enregistrons la structure qui protège les gens.",
+      "free": "Gratuit pour tous. Sans publicité, sans pistage, sans offre payante.",
+      "license": "Code ouvert ({code}) · Contenu sous {content}",
+      "source": "Code source"
+    },
     "errors": {
       "generic": "Une erreur s'est produite.",
       "not_found": "Page introuvable.",
@@ -65,7 +70,8 @@
         "risk": "Risque le plus élevé",
         "lessons": "Leçons les plus prises"
       },
-      "empty": "Aucun cas pour l'instant. Enregistrez le premier."
+      "empty": "Aucun cas pour l'instant. Enregistrez le premier.",
+      "export": "Télécharger tous les cas en données ouvertes"
     },
     "card": {
       "avoid": "Pour l'éviter :",
@@ -107,21 +113,18 @@
     "ticket": {
       "message": "Un mot pour la personne suivante",
       "placeholder": "ex. À chaque nouveau conducteur : la voie rapide s'emprunte, elle ne s'occupe pas.",
-      "pledge": "Promesse au fonds de sécurité (facultatif)",
-      "pledgeHint": "Aucun paiement n'est encore prélevé. Le total des promesses est public et servira à des outils d'évitement : bandes réfléchissantes, barres d'appui de salle de bain.",
       "pin": "Épingler le ticket",
       "pinned": "Votre ticket est au mur.",
       "take": "Prendre ce ticket",
       "mine": "Votre ticket",
       "mineTitle": "Vous ne pouvez pas prendre un ticket que vous avez épinglé",
       "taken": "Vous avez pris le ticket. Gardez le mot de {name} avec vous.",
-      "takenBy": "Pris par {name} le {date}",
-      "pledged": "Promesse : {amount}"
+      "takenBy": "Pris par {name} le {date}"
     },
     "wall": {
       "h1": "Mur de tickets",
       "lead": "Des tickets épinglés par des personnes qui ont dit « cette leçon m'a protégé ». Prenez-en un : la leçon est enregistrée comme la vôtre et le ticket quitte le mur. Qui prend un ticket peut en épingler un sur un autre cas.",
-      "stats": "{wall} au mur · {taken} transmis · {pledged} promis · {lessons} leçons prises",
+      "stats": "{wall} au mur · {taken} transmis · {lessons} leçons prises",
       "empty": "Le mur est vide. Lisez un cas et épinglez le premier ticket.",
       "recent": "Transmis récemment",
       "none": "Aucun pour l'instant."
@@ -165,7 +168,8 @@
       "locationPh": "ex. ponts, sorties de tunnel",
       "source": "Lien source (facultatif)",
       "submit": "Enregistrer le cas",
-      "saved": "Enregistré. Quelqu'un fera un pas en arrière grâce à cela."
+      "saved": "Enregistré. Quelqu'un fera un pas en arrière grâce à cela.",
+      "license": "En enregistrant, vous publiez ce cas sous la licence {content} : chacun peut le partager et le réutiliser en citant la source. N'indiquez ni nom ni élément permettant d'identifier une personne."
     }
   },
   "about": {
@@ -194,7 +198,7 @@
         "h": "Économie : tout le monde y gagne",
         "p": [
           "Dans certains cafés, des bons sont épinglés au mur. Un client paie un peu plus et un bon monte au mur ; un étudiant le décroche et mange gratuitement. Le patron a de la clientèle, le donateur de la joie, l'étudiant un repas. Personne ne perd, tout le monde gagne un peu. Le caffè sospeso de Naples et les boutiques Mirinae de Corée reposent sur le même principe.",
-          "Ici, la personne qui enregistre une frayeur voit combien de gens ont pris la leçon. Celle que la leçon a protégée épingle un ticket avec un mot et peut promettre une somme à un fonds de sécurité. Celle qui prend le ticket reçoit la leçon et le mot. Les promesses reviennent sous forme d'outils d'évitement : bandes réfléchissantes, barres d'appui, feux d'alerte arrière.",
+          "Ici, la personne qui enregistre une frayeur voit combien de gens ont pris la leçon. Celle que la leçon a protégée épingle un ticket avec un mot. Celle qui prend le ticket reçoit la leçon et le mot. Rien ici ne coûte d'argent, et rien ici n'en rapporte.",
           "Il est important que le ticket soit à usage unique. Un « j'aime » se copie à l'infini et ne remet rien à personne. Un ticket ne peut être pris que par une seule personne, et une fois parti on a envie d'en épingler un pour la suivante. C'est ce petit mécanisme qui crée la réciprocité."
         ]
       },
@@ -210,6 +214,14 @@
         "h": "Ce qui se propage, c'est un geste, pas la peur",
         "p": [
           "Les vidéos d'accidents se propagent comme de la peur, et la peur ne change pas les comportements. L'unité de partage de Stepback est une phrase d'évitement. Une carte, une phrase, un lien. Elle ne voyage que si le lecteur peut l'appliquer demain."
+        ]
+      },
+      {
+        "h": "Gratuit, ouvert et sans but lucratif",
+        "p": [
+          "Stepback est un bien commun. Il est gratuit, sans publicité, ne vous piste pas et n'a pas d'offre payante. Personne n'en tire profit, et il est construit pour que personne ne le puisse : le code est libre sous AGPL, chaque cas est publié sous Creative Commons BY-SA, et l'ensemble des données peut être téléchargé par n'importe qui à tout moment. Si ceux qui le font tourner s'égaraient, n'importe qui pourrait reprendre le code et les données et continuer.",
+          "Nous suivons les plateformes restées utiles pendant des décennies. Wikipédia vit de petits dons et refuse la publicité pour protéger son indépendance. OpenStreetMap est entretenu par des bénévoles et donne ses données sous licence de partage à l'identique. Le système de signalement de sécurité aérienne fonctionne parce que l'organisme qui reçoit les signalements est séparé de celui qui sanctionne. Nous reprenons les trois : pas d'argent dans le produit, contenu et données ouverts, et aucun blâme.",
+          "Les coûts de fonctionnement sont publiés et, s'ils sont un jour couverts par des dons, les comptes le seront aussi."
         ]
       },
       {

@@ -12,8 +12,10 @@ import { LOCALES, LOCALES_DIR, DEFAULT_LOCALE, pickLocale, catalogLabels } from 
 
 const WEB_DIR = join(dirname(fileURLToPath(import.meta.url)), '..', 'web');
 
-/** Pledges are recorded in whole units of one configurable currency (ISO 4217). */
-export const CURRENCY = (process.env.CURRENCY ?? 'USD').toUpperCase();
+export const CONTENT_LICENSE = { name: 'CC BY-SA 4.0', url: 'https://creativecommons.org/licenses/by-sa/4.0/' };
+export const CODE_LICENSE = { name: 'AGPL-3.0', url: 'https://www.gnu.org/licenses/agpl-3.0.html' };
+/** AGPL §13: a network service must offer its users the source. Point this at the running fork. */
+export const SOURCE_URL = process.env.SOURCE_URL ?? 'https://github.com/pearltree98/helloworld';
 
 /**
  * Visitor identity (v1: no login; the browser mints an id and sends it as a header).
@@ -58,7 +60,9 @@ export function createApp(repo) {
       locale,
       locales: LOCALES,
       default_locale: DEFAULT_LOCALE,
-      currency: CURRENCY,
+      content_license: CONTENT_LICENSE,
+      code_license: CODE_LICENSE,
+      source_url: SOURCE_URL,
       limits: LIMITS,
       categories: CATEGORY_KEYS.map((key) => ({ key, label: label('categories', key) })),
       outcomes: OUTCOME_KEYS.map((key) => ({ key, label: label('outcomes', key) })),
@@ -72,6 +76,12 @@ export function createApp(repo) {
   app.post('/api/me', (req, res) => {
     const v = repo.ensureVisitor(req.visitor.id, cleanNickname(req.body?.nickname));
     res.json({ id: v.id, nickname: v.nickname, registered: true });
+  });
+
+  // Open data: the whole public dataset, reusable under the content licence.
+  app.get('/api/export', (_req, res) => {
+    res.set('Cache-Control', 'public, max-age=300');
+    res.json({ license: CONTENT_LICENSE, exported_at: new Date().toISOString(), ...repo.exportAll() });
   });
 
   app.use('/api/cases', casesRouter);

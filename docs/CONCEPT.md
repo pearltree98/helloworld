@@ -36,7 +36,6 @@ Owner (revenue, reputation), giver (joy) and student (a meal) all end up better 
 | Customer paying extra | The person who pins a ticket | Expresses "this lesson protected me" and hands it on (meaning) |
 | Student taking a voucher | The person who takes a ticket | The lesson plus a note someone left for them (protection and welcome) |
 | The wall | The ticket wall | A place where goodwill is visible (social proof) |
-| Voucher value | Safety-fund pledge | Returned as "avoiding tools": reflective strips, grab bars, rear warning lights (v1 records pledges only) |
 
 ### 4.3 Why one-time
 
@@ -45,9 +44,9 @@ A ticket can be taken by **exactly one person** and then leaves the wall. Someon
 
 Rules enforced by the server: you cannot take your own ticket; one ticket per case per visitor; both giver and taker are recorded as having taken the lesson.
 
-### 4.4 Where money sits
+### 4.4 Where money sits: nowhere
 
-In v1 money exists only as a **pledge**. Wiring payments first turns the product into a donation platform and pushes the core asset, the cases and lessons, into the background. Pledge totals are public to build trust, and spending is limited to "avoiding tools" to keep the purpose clear. The currency is configurable so the same code runs anywhere.
+There is no money in the product. An earlier draft had an optional pledge to a safety fund; it was removed because a free service that touches money immediately raises the question "who keeps it?", because a fund needs an organisation that protects nobody from a reversing car, and because pricing a prosocial act tends to reduce it. The public-good commitments, the examples they follow and the governance model are in [CHARTER.md](CHARTER.md).
 
 ## 5. Sociology: a no-blame reporting culture
 
@@ -89,15 +88,14 @@ In v1 money exists only as a **pledge**. Wiring payments first turns the product
 
 | Stage | Scope | Why |
 |---|---|---|
-| v1 (now) | Cases, lessons, ticket wall, pledges, browser-local identity, 15 languages | See whether the loop turns |
+| v1 (now) | Cases, lessons, ticket wall, browser-local identity, 15 languages, open data and licences | See whether the loop turns |
 | v1.1 | Report and hide, merge duplicates, link previews | Quality |
 | v1.2 | Accounts (social login), "my tickets / my lessons" pages | Sustained participation |
-| v2 | Payments plus a public ledger of fund spending, offline ticket walls | Keep trust while money flows |
+| v2 | Public moderation log, charter-change process, offline ticket walls | Governance that users can audit |
 | v2.x | Browse by place type or region, weekly digest, images and video, more locales | Reach |
 
 ## 10. Open questions
 
 - How do we invite a taker to **pin a ticket in turn** without nagging? (One prompt, right after taking.)
-- When pledges become real money, who spends it and how is that shown transparently?
 - How far do we go with fatal cases? The line between protecting bereaved families and sharing the lesson.
 - Does a "lesson taken" click become a changed behaviour? (A light check-in one week later: "did you do it?")

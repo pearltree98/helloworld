@@ -42,7 +42,12 @@
     "lang": {
       "label": "Lingua"
     },
-    "footer": "Senza colpe. Registriamo la struttura che protegge le persone.",
+    "footer": {
+      "blame": "Senza colpe. Registriamo la struttura che protegge le persone.",
+      "free": "Gratis per tutti. Niente pubblicità, niente tracciamento, niente piani a pagamento.",
+      "license": "Codice aperto ({code}) · Contenuti con licenza {content}",
+      "source": "Codice sorgente"
+    },
     "errors": {
       "generic": "Qualcosa è andato storto.",
       "not_found": "Pagina non trovata.",
@@ -65,7 +70,8 @@
         "risk": "Rischio più alto",
         "lessons": "Lezioni più prese"
       },
-      "empty": "Ancora nessun caso. Registra il primo."
+      "empty": "Ancora nessun caso. Registra il primo.",
+      "export": "Scarica tutti i casi come dati aperti"
     },
     "card": {
       "avoid": "Per evitarlo:",
@@ -107,21 +113,18 @@
     "ticket": {
       "message": "Un messaggio per la persona successiva",
       "placeholder": "es. A ogni neopatentato: la corsia di sorpasso si prende in prestito, non si occupa.",
-      "pledge": "Impegno per il fondo sicurezza (facoltativo)",
-      "pledgeHint": "Non viene ancora prelevato nulla. Il totale impegnato è pubblico e servirà per strumenti che aiutano a evitare: fasce riflettenti, maniglioni per il bagno.",
       "pin": "Lascia il biglietto",
       "pinned": "Il tuo biglietto è in bacheca.",
       "take": "Prendi questo biglietto",
       "mine": "Il tuo biglietto",
       "mineTitle": "Non puoi prendere un biglietto che hai lasciato tu",
       "taken": "Hai preso il biglietto. Porta con te il messaggio di {name}.",
-      "takenBy": "Preso da {name} il {date}",
-      "pledged": "Impegno: {amount}"
+      "takenBy": "Preso da {name} il {date}"
     },
     "wall": {
       "h1": "Bacheca dei biglietti",
       "lead": "Biglietti lasciati da chi ha detto \"questa lezione mi ha protetto\". Prendine uno e la lezione viene registrata come tua; il biglietto lascia la bacheca. Chi prende un biglietto può lasciarne uno su un altro caso.",
-      "stats": "{wall} in bacheca · {taken} passati · {pledged} impegnati · {lessons} lezioni prese",
+      "stats": "{wall} in bacheca · {taken} passati · {lessons} lezioni prese",
       "empty": "La bacheca è vuota. Leggi un caso e lascia il primo biglietto.",
       "recent": "Passati di recente",
       "none": "Ancora nessuno."
@@ -165,7 +168,8 @@
       "locationPh": "es. ponti, uscite di galleria",
       "source": "Link alla fonte (facoltativo)",
       "submit": "Salva il caso",
-      "saved": "Salvato. Qualcuno farà un passo indietro grazie a questo."
+      "saved": "Salvato. Qualcuno farà un passo indietro grazie a questo.",
+      "license": "Salvando, pubblichi questo caso con licenza {content}: chiunque può condividerlo e riutilizzarlo citando la fonte. Non inserire nomi o elementi che identifichino una persona."
     }
   },
   "about": {
@@ -194,7 +198,7 @@
         "h": "Economia: tutti ci guadagnano",
         "p": [
           "In alcuni bar ci sono buoni appesi al muro. Un cliente paga qualcosa in più e un buono sale al muro; uno studente lo stacca e mangia gratis. Il titolare ha clienti, chi dona ha gioia, lo studente mangia. Nessuno perde e tutti guadagnano un po'. Il caffè sospeso di Napoli e i negozi Mirinae della Corea funzionano con lo stesso principio.",
-          "Qui, chi registra uno spavento vede quante persone hanno preso la lezione. Chi è stato protetto da quella lezione lascia un biglietto con un messaggio e può impegnarsi con un fondo sicurezza. Chi prende il biglietto riceve la lezione e il messaggio. Gli impegni tornano come strumenti per evitare: fasce riflettenti, maniglioni, luci di avviso posteriori.",
+          "Qui, chi registra uno spavento vede quante persone hanno preso la lezione. Chi è stato protetto da quella lezione lascia un biglietto con un messaggio. Chi prende il biglietto riceve la lezione e il messaggio. Qui niente costa denaro e niente produce denaro.",
           "Conta che il biglietto sia monouso. Un \"mi piace\" si copia all'infinito e non consegna nulla a nessuno. Un biglietto può prenderlo una sola persona, e quando sparisce viene voglia di lasciarne uno per la prossima. È questo piccolo meccanismo a creare reciprocità."
         ]
       },
@@ -210,6 +214,14 @@
         "h": "Si diffonde un gesto, non la paura",
         "p": [
           "I video degli incidenti si diffondono come paura, e la paura non cambia i comportamenti. L'unità di condivisione di Stepback è una frase per evitare. Una scheda, una frase, un link. Viaggia solo se il lettore può farlo domani."
+        ]
+      },
+      {
+        "h": "Gratuito, aperto e senza scopo di lucro",
+        "p": [
+          "Stepback è un bene pubblico. È gratuito, senza pubblicità, non ti traccia e non ha piani a pagamento. Nessuno ci guadagna, ed è costruito perché nessuno possa farlo: il codice è open source sotto AGPL, ogni caso è pubblicato con Creative Commons BY-SA e l'intero insieme di dati può essere scaricato da chiunque in qualsiasi momento. Se chi lo gestisce perdesse la strada, chiunque potrebbe prendere codice e dati e continuare.",
+          "Segue le piattaforme rimaste utili per decenni. Wikipedia vive di piccole donazioni e rifiuta la pubblicità per proteggere la propria indipendenza. OpenStreetMap è mantenuto da volontari e cede i suoi dati con una licenza share-alike. Il sistema di segnalazione della sicurezza aerea funziona perché l'ente che riceve le segnalazioni è separato da quello che punisce. Copiamo tutti e tre: niente denaro nel prodotto, contenuti e dati aperti, nessuna colpa.",
+          "I costi di gestione sono pubblicati e, se un giorno saranno coperti da donazioni, i conti saranno pubblici."
         ]
       },
       {

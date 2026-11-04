@@ -4,6 +4,8 @@
 
 Stepback is a community app for everyday hazards. People record a close call, a crash they saw on video, or a fall in a parent's bathroom as **hazard → exposure → avoiding action**, and hand the lesson to the next person as a **ticket**, the way meal vouchers are pinned to a café wall for whoever needs one.
 
+Stepback is a public good: free for everyone, no ads, no tracking, no money inside the product. The code is AGPL-3.0, every case is CC BY-SA 4.0, and the whole dataset is downloadable. The commitments and the examples they come from (Wikipedia, OpenStreetMap, iNaturalist, NASA's aviation safety reporting system) are in [docs/CHARTER.md](docs/CHARTER.md) ([한국어](docs/ko/CHARTER.md)).
+
 The reasoning behind the design (economics, sociology, marketing) is in [docs/CONCEPT.md](docs/CONCEPT.md) ([한국어](docs/ko/CONCEPT.md)); the HTTP API is in [docs/API.md](docs/API.md).
 
 ## Run it
@@ -21,7 +23,7 @@ Requires Node 22.13 or newer. The database is Node's built-in `node:sqlite`, so 
 |---|---|---|
 | `PORT` | `3000` | HTTP port |
 | `DB_PATH` | `data/stepback.db` | SQLite file (`:memory:` for tests) |
-| `CURRENCY` | `USD` | ISO 4217 code used for safety-fund pledges |
+| `SOURCE_URL` | this repository | Link to the source shown in the footer, as the AGPL asks of a network service. Point it at your fork. |
 
 ## Languages
 
@@ -30,6 +32,12 @@ The UI ships in 15 languages: English, Arabic, German, Spanish, French, Hindi, I
 Each language is one file in `locales/<code>.json` holding the UI strings, the category / outcome / risk labels and the About page. The server reads these files for `/api/meta`, and the browser fetches the same files, so there is a single source of truth per language. To add a language, copy `locales/en.json`, translate it, and restart; `npm test` checks that every file carries the same keys.
 
 The non-English translations were drafted by an AI model and have not yet been reviewed by native speakers. Corrections are welcome as plain edits to the JSON files.
+
+## Licences
+
+- Code: [GNU AGPL-3.0](LICENSE).
+- Content (cases and tickets): [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Contributors agree to this when they save a case; the form says so.
+- Open data: `GET /api/export` returns every public case and ticket with the licence attached and no visitor ids.
 
 ## Design
 
@@ -72,12 +80,12 @@ test/
 
 - A lesson is taken once per visitor per case.
 - Pinning a ticket records the giver as having taken the lesson. A ticket can be taken by **exactly one** person, never by its giver, and a visitor can take only one ticket per case. Taking a ticket also records the lesson.
-- A safety-fund pledge is a **pledge**, not a payment (v1).
+- There is no money anywhere: no payments, pledges or funds. See the charter for why.
 
 ## Known limits and roadmap
 
 - Visitors are identified by a browser-local id, not an account. → accounts / social login.
 - No reporting or moderation yet. → report, hide, merge duplicates.
-- Pledges are only recorded. → payments and a public ledger of what the fund bought.
+- No moderation log yet. → public log of hidden items and reasons (see the governance table in the charter).
 - No map. → browse by place type or region, "lessons near me".
 - Weekly digest, image and video attachments, native review of translations, more locales.

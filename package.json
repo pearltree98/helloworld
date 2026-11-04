@@ -2,8 +2,9 @@
   "name": "stepback",
   "version": "0.1.0",
   "private": true,
+  "license": "AGPL-3.0-only",
+  "description": "Stepback \u2014 record everyday hazards and the avoiding action you learned, then hand the lesson on like a voucher on a caf\u00e9 wall",
   "type": "module",
-  "description": "Stepback — record everyday hazards and the avoiding action you learned, then hand the lesson on like a voucher on a café wall",
   "scripts": {
     "start": "node --no-warnings=ExperimentalWarning server/index.js",
     "dev": "node --no-warnings=ExperimentalWarning --watch server/index.js",

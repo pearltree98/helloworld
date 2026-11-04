@@ -42,7 +42,12 @@
     "lang": {
       "label": "Language"
     },
-    "footer": "No blame. We record the structure that keeps people safe.",
+    "footer": {
+      "blame": "No blame. We record the structure that keeps people safe.",
+      "free": "Free for everyone. No ads, no tracking, no paid tiers.",
+      "license": "Open source ({code}) · Content under {content}",
+      "source": "Source code"
+    },
     "errors": {
       "generic": "Something went wrong.",
       "not_found": "Page not found.",
@@ -65,7 +70,8 @@
         "risk": "Highest risk",
         "lessons": "Most lessons taken"
       },
-      "empty": "No cases yet. Record the first one."
+      "empty": "No cases yet. Record the first one.",
+      "export": "Download all cases as open data"
     },
     "card": {
       "avoid": "Avoid it:",
@@ -107,21 +113,18 @@
     "ticket": {
       "message": "A note for the next person",
       "placeholder": "e.g. To every new driver: the fast lane is borrowed, not owned.",
-      "pledge": "Safety-fund pledge (optional)",
-      "pledgeHint": "No payment is taken yet. Pledge totals are public and are meant for avoiding tools such as reflective strips and bathroom grab bars.",
       "pin": "Pin the ticket",
       "pinned": "Your ticket is on the wall.",
       "take": "Take this ticket",
       "mine": "Your ticket",
       "mineTitle": "You cannot take a ticket you pinned yourself",
       "taken": "You took the ticket. Keep {name}'s note with you.",
-      "takenBy": "Taken by {name} on {date}",
-      "pledged": "Pledge: {amount}"
+      "takenBy": "Taken by {name} on {date}"
     },
     "wall": {
       "h1": "Ticket wall",
       "lead": "Tickets pinned by people who said \"this lesson protected me\". Take one and the lesson is recorded as yours; the ticket leaves the wall. People who take a ticket can pin one on another case.",
-      "stats": "{wall} on the wall · {taken} handed on · {pledged} pledged · {lessons} lessons taken",
+      "stats": "{wall} on the wall · {taken} handed on · {lessons} lessons taken",
       "empty": "The wall is empty. Read a case and pin the first ticket.",
       "recent": "Recently handed on",
       "none": "None yet."
@@ -165,7 +168,8 @@
       "locationPh": "e.g. bridges, tunnel exits",
       "source": "Source link (optional)",
       "submit": "Save the case",
-      "saved": "Saved. Someone will take a step back because of this."
+      "saved": "Saved. Someone will take a step back because of this.",
+      "license": "By saving, you publish this case under the {content} licence, so anyone may share and reuse it with credit. Please do not include names or anything that identifies a person."
     }
   },
   "about": {
@@ -194,7 +198,7 @@
         "h": "Economics: everyone ends up better off",
         "p": [
           "In some cafés there are vouchers pinned to the wall. A customer pays a little extra and a voucher goes up; a student takes one down and eats for free. The owner gets business, the giver gets joy, the student gets a meal. Nobody loses and everybody gains a little. Naples' caffè sospeso and Korea's Mirinae shops run on the same principle.",
-          "Here, the person who records a close call sees how many people took the lesson. The person it protected pins a ticket with a note and may pledge to a safety fund. The person who takes the ticket gets the lesson and the note. Pledges go back out as avoiding tools: reflective strips, grab bars, rear warning lights.",
+          "Here, the person who records a close call sees how many people took the lesson. The person it protected pins a ticket with a note. The person who takes the ticket gets the lesson and the note. Nothing here costs money, and nothing here earns money.",
           "It matters that a ticket is one-time. A like copies forever and hands nothing to anyone. A ticket can be taken by exactly one person, and once it is gone you feel like pinning one for the next person. That small device is what creates reciprocity."
         ]
       },
@@ -210,6 +214,14 @@
         "h": "What spreads is an action, not fear",
         "p": [
           "Crash footage spreads as fear, and fear does not change behaviour. Stepback's unit of sharing is one sentence of avoiding action. One card, one sentence, one link. It travels only if the reader can do it tomorrow."
+        ]
+      },
+      {
+        "h": "Free, open, and not for profit",
+        "p": [
+          "Stepback is a public good. It is free to use, carries no advertising, does not track you, and has no paid tier. Nobody profits from it, and it is built so that nobody can: the code is open source under the AGPL, every case is published under Creative Commons BY-SA, and the whole dataset can be downloaded by anyone at any time. If the people running it ever lost their way, anyone could take the code and the data and carry on.",
+          "This follows the platforms that have stayed useful for decades. Wikipedia runs on small donations and refuses advertising to protect its independence. OpenStreetMap is kept by volunteers and gives its data away under a share-alike licence. Aviation's safety reporting system works because the body that receives reports is separate from the body that punishes. We copy all three: no money inside the product, open content and data, and no blame.",
+          "Running costs are published, and if they are ever covered by donations, the ledger is public."
         ]
       },
       {

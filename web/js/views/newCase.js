@@ -59,6 +59,7 @@ export async function newCaseView(root) {
         field({ label: t('form.location'), name: 'location_text', error: E('location_text'), control: text('location_text', { maxlength: L.location_text, placeholder: t('form.locationPh') }) }),
         field({ label: t('form.source'), name: 'source_url', error: E('source_url'), control: text('source_url', { maxlength: L.source_url, placeholder: 'https://' }) }),
       ),
+      h('p', { class: 'hint' }, t('form.license', { content: m.content_license.name })),
       errBox,
       submit,
     );

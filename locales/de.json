@@ -42,7 +42,12 @@
     "lang": {
       "label": "Sprache"
     },
-    "footer": "Keine Schuldzuweisung. Wir halten die Struktur fest, die Menschen schützt.",
+    "footer": {
+      "blame": "Keine Schuldzuweisung. Wir halten die Struktur fest, die Menschen schützt.",
+      "free": "Kostenlos für alle. Keine Werbung, kein Tracking, keine Bezahlstufen.",
+      "license": "Open Source ({code}) · Inhalte unter {content}",
+      "source": "Quellcode"
+    },
     "errors": {
       "generic": "Etwas ist schiefgelaufen.",
       "not_found": "Seite nicht gefunden.",
@@ -65,7 +70,8 @@
         "risk": "Höchstes Risiko",
         "lessons": "Meiste Lektionen"
       },
-      "empty": "Noch keine Fälle. Erfasse den ersten."
+      "empty": "Noch keine Fälle. Erfasse den ersten.",
+      "export": "Alle Fälle als offene Daten herunterladen"
     },
     "card": {
       "avoid": "So vermeidest du es:",
@@ -107,21 +113,18 @@
     "ticket": {
       "message": "Eine Notiz für die nächste Person",
       "placeholder": "z. B. An jeden Fahranfänger: Die linke Spur ist geliehen, nicht gemietet.",
-      "pledge": "Zusage für den Sicherheitsfonds (optional)",
-      "pledgeHint": "Es wird noch nichts abgebucht. Zugesagte Beträge sind öffentlich und für Hilfsmittel zum Ausweichen gedacht: Reflexstreifen, Haltegriffe im Bad.",
       "pin": "Ticket anheften",
       "pinned": "Dein Ticket hängt an der Wand.",
       "take": "Dieses Ticket nehmen",
       "mine": "Dein Ticket",
       "mineTitle": "Ein selbst angeheftetes Ticket kannst du nicht nehmen",
       "taken": "Du hast das Ticket genommen. Behalte die Notiz von {name} bei dir.",
-      "takenBy": "Genommen von {name} am {date}",
-      "pledged": "Zusage: {amount}"
+      "takenBy": "Genommen von {name} am {date}"
     },
     "wall": {
       "h1": "Ticketwand",
       "lead": "Tickets von Menschen, die gesagt haben: „Diese Lektion hat mich geschützt.“ Nimm eines, und die Lektion wird als deine erfasst; das Ticket verlässt die Wand. Wer ein Ticket nimmt, kann bei einem anderen Fall eines anheften.",
-      "stats": "{wall} an der Wand · {taken} weitergegeben · {pledged} zugesagt · {lessons} Lektionen genommen",
+      "stats": "{wall} an der Wand · {taken} weitergegeben · {lessons} Lektionen genommen",
       "empty": "Die Wand ist leer. Lies einen Fall und hefte das erste Ticket an.",
       "recent": "Kürzlich weitergegeben",
       "none": "Noch keine."
@@ -165,7 +168,8 @@
       "locationPh": "z. B. Brücken, Tunnelausfahrten",
       "source": "Quellenlink (optional)",
       "submit": "Fall speichern",
-      "saved": "Gespeichert. Jemand wird deswegen einen Schritt zurücktreten."
+      "saved": "Gespeichert. Jemand wird deswegen einen Schritt zurücktreten.",
+      "license": "Mit dem Speichern veröffentlichst du diesen Fall unter der Lizenz {content}, sodass jede Person ihn mit Namensnennung teilen und weiterverwenden darf. Bitte keine Namen oder Angaben, die eine Person erkennbar machen."
     }
   },
   "about": {
@@ -194,7 +198,7 @@
         "h": "Ökonomie: alle stehen besser da",
         "p": [
           "In manchen Cafés hängen Gutscheine an der Wand. Ein Gast zahlt etwas mehr, ein Gutschein kommt an die Wand; eine Studentin nimmt ihn ab und isst umsonst. Der Wirt hat Umsatz, der Gebende Freude, die Studentin eine Mahlzeit. Niemand verliert, alle gewinnen ein wenig. Der caffè sospeso aus Neapel und die koreanischen Mirinae-Läden beruhen auf demselben Prinzip.",
-          "Hier sieht, wer einen Beinahe-Unfall erfasst, wie viele Menschen die Lektion genommen haben. Wen die Lektion geschützt hat, heftet ein Ticket mit einer Notiz an und kann dem Sicherheitsfonds etwas zusagen. Wer das Ticket nimmt, bekommt Lektion und Notiz. Zusagen fließen als Hilfsmittel zurück: Reflexstreifen, Haltegriffe, Rückfahrwarnleuchten.",
+          "Hier sieht, wer einen Beinahe-Unfall erfasst, wie viele Menschen die Lektion genommen haben. Wen die Lektion geschützt hat, heftet ein Ticket mit einer Notiz an. Wer das Ticket nimmt, bekommt Lektion und Notiz. Nichts hier kostet Geld, und nichts hier verdient Geld.",
           "Es zählt, dass ein Ticket einmalig ist. Ein „Gefällt mir“ kopiert sich endlos und überreicht niemandem etwas. Ein Ticket kann genau eine Person nehmen, und ist es weg, möchte man eines für die nächste anheften. Dieser kleine Mechanismus erzeugt Gegenseitigkeit."
         ]
       },
@@ -210,6 +214,14 @@
         "h": "Was sich verbreitet, ist eine Handlung, nicht Angst",
         "p": [
           "Unfallvideos verbreiten sich als Angst, und Angst ändert kein Verhalten. Die Teileinheit von Stepback ist ein Satz Vermeidung. Eine Karte, ein Satz, ein Link. Er reist nur, wenn die Leserin es morgen tun kann."
+        ]
+      },
+      {
+        "h": "Kostenlos, offen und gemeinnützig",
+        "p": [
+          "Stepback ist ein öffentliches Gut. Es ist kostenlos, werbefrei, trackt dich nicht und hat keine Bezahlstufe. Niemand verdient daran, und es ist so gebaut, dass niemand das könnte: Der Code ist Open Source unter der AGPL, jeder Fall erscheint unter Creative Commons BY-SA, und den gesamten Datenbestand kann jede Person jederzeit herunterladen. Sollten die Betreiber je vom Weg abkommen, könnte jede Person Code und Daten übernehmen und weitermachen.",
+          "Das folgt den Plattformen, die seit Jahrzehnten nützlich geblieben sind. Wikipedia lebt von kleinen Spenden und lehnt Werbung ab, um ihre Unabhängigkeit zu schützen. OpenStreetMap wird von Freiwilligen gepflegt und gibt seine Daten unter einer Share-alike-Lizenz weiter. Das Meldesystem der Luftfahrt funktioniert, weil die Stelle, die Meldungen entgegennimmt, von der Stelle getrennt ist, die bestraft. Wir übernehmen alle drei: kein Geld im Produkt, offene Inhalte und Daten, keine Schuldzuweisung.",
+          "Die Betriebskosten werden veröffentlicht, und falls sie je durch Spenden gedeckt werden, ist das Buch öffentlich."
         ]
       },
       {

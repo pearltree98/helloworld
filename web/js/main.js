@@ -18,11 +18,21 @@ const routes = [
 
 const main = document.getElementById('main');
 let token = 0;
+let metaInfo = null;
 
 function paintChrome() {
   document.title = `${BRAND} — ${t('tagline')}`;
   document.getElementById('brand-name').textContent = BRAND;
-  document.getElementById('footer').textContent = `${BRAND} · ${t('footer')}`;
+  const code = metaInfo?.code_license ?? { name: 'AGPL-3.0', url: '#' };
+  const content = metaInfo?.content_license ?? { name: 'CC BY-SA 4.0', url: '#' };
+  const lic = t('footer.license', { code: '\u0000code\u0000', content: '\u0000content\u0000' }).split('\u0000');
+  clear(document.getElementById('footer')).append(
+    h('p', {}, `${BRAND} · ${t('footer.blame')}`),
+    h('p', {}, t('footer.free')),
+    h('p', {}, ...lic.map((part) => (part === 'code' ? h('a', { href: code.url, rel: 'license noopener', target: '_blank' }, code.name)
+      : part === 'content' ? h('a', { href: content.url, rel: 'license noopener', target: '_blank' }, content.name) : part)),
+      metaInfo?.source_url ? [' · ', h('a', { href: metaInfo.source_url, rel: 'noopener', target: '_blank' }, t('footer.source'))] : null),
+  );
   clear(document.getElementById('nav')).append(
     h('a', { href: '#/', dataset: { route: '/' } }, t('nav.cases')),
     h('a', { href: '#/wall', dataset: { route: '/wall' } }, t('nav.wall')),
@@ -81,8 +91,8 @@ window.addEventListener('hashchange', render);
 
 (async () => {
   try {
-    const meta = await api.meta();
-    await initI18n(meta.locales);
+    metaInfo = await api.meta();
+    await initI18n(metaInfo.locales);
   } catch (e) {
     console.error(e);
   }

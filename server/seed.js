@@ -190,10 +190,10 @@ export const SEED_CASES = [
 ];
 
 const SEED_TICKETS = [
-  { caseIndex: 0, message: 'Next to a big truck, one step back. May this one sentence protect someone\'s day.', pledge_amount: 5 },
-  { caseIndex: 1, message: 'To every new driver: the fast lane is borrowed, not owned.', pledge_amount: 0 },
-  { caseIndex: 2, message: 'For every parent walking a child through a parking lot.', pledge_amount: 3 },
-  { caseIndex: 6, message: 'Put a grab bar in your parents\' bathroom. I learned this too late.', pledge_amount: 10 },
+  { caseIndex: 0, message: 'Next to a big truck, one step back. May this one sentence protect someone\'s day.' },
+  { caseIndex: 1, message: 'To every new driver: the fast lane is borrowed, not owned.' },
+  { caseIndex: 2, message: 'For every parent walking a child through a parking lot.' },
+  { caseIndex: 6, message: 'Put a grab bar in your parents\' bathroom. I learned this too late.' },
 ];
 
 export function seedIfEmpty(repo) {
@@ -201,7 +201,7 @@ export function seedIfEmpty(repo) {
   repo.ensureVisitor(TEAM_ID, 'Stepback team');
   const created = SEED_CASES.map((c) => repo.insertCase(validateCase(c), TEAM_ID));
   for (const t of SEED_TICKETS) {
-    repo.insertTicket(created[t.caseIndex].id, TEAM_ID, { message: t.message, pledge_amount: t.pledge_amount });
+    repo.insertTicket(created[t.caseIndex].id, TEAM_ID, { message: t.message });
     repo.addLesson(created[t.caseIndex].id, TEAM_ID);
   }
   return true;
