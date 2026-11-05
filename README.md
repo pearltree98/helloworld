@@ -1,5 +1,7 @@
 # Stepback
 
+> **Status: prototype. Do not deploy to the public internet.** Identity is a forgeable browser header, visitor ids leak in API responses (any user can be impersonated), there is no rate limit, no reporting and no deletion. See [docs/EVALUATION.md](docs/EVALUATION.md) for the reproduced defects and the decision record. No further code is planned until the seven-day field experiment described there has a result.
+
 > Nothing happening is the biggest win.
 
 Stepback is a community app for everyday hazards. People record a close call, a crash they saw on video, or a fall in a parent's bathroom as **hazard → exposure → avoiding action**, and hand the lesson to the next person as a **ticket**, the way meal vouchers are pinned to a café wall for whoever needs one.
