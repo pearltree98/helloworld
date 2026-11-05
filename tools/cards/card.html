@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<style>
+  @font-face { font-family: "KR"; src: local("Noto Sans KR"), local("NotoSansKR"), local("Pretendard"); }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { width: 1080px; height: 1080px; background: #fff; color: #222;
+    font-family: "Noto Sans KR", "Pretendard", "KR", "WenQuanYi Zen Hei", sans-serif; word-break: keep-all; }
+  .card { width: 1080px; height: 1080px; padding: 64px 80px 56px; display: flex; flex-direction: column; border-top: 14px solid #0a58ca; }
+  .cat { font-size: 30px; color: #666; letter-spacing: 0.02em; }
+  h1 { font-size: 60px; line-height: 1.25; font-weight: 700; margin: 14px 0 34px; letter-spacing: -0.01em; }
+  .label { font-size: 28px; color: #666; margin-bottom: 10px; }
+  .hazard { font-size: 36px; line-height: 1.5; color: #444; margin: 0 0 34px; }
+  .avoid { border-left: 10px solid #0a58ca; background: #f3f6fb; padding: 28px 36px; margin: 0; }
+  .avoid .label { color: #0a58ca; font-weight: 700; }
+  .avoid p { font-size: 42px; line-height: 1.45; font-weight: 700; margin: 0; }
+  .foot { margin-top: auto; display: flex; justify-content: space-between; align-items: flex-end; border-top: 2px solid #ddd; padding-top: 26px; }
+  .foot .motto { font-size: 30px; color: #222; font-weight: 700; }
+  .foot .sub { font-size: 24px; color: #777; margin-top: 6px; }
+  .foot .n { font-size: 26px; color: #999; }
+</style></head>
+<body><div class="card">
+  <div class="cat" id="cat"></div>
+  <h1 id="title"></h1>
+  <div class="label">위험의 원천</div>
+  <p class="hazard" id="hazard"></p>
+  <div class="avoid"><div class="label">피하는 행동</div><p id="avoid"></p></div>
+  <div class="foot">
+    <div><div class="motto">아무 일도 일어나지 않은 것이 가장 큰 승리입니다.</div>
+         <div class="sub">아찔했던 순간을 기록하고, 교훈을 다음 사람에게 건넵니다. · 탓하지 않습니다.</div></div>
+    <div class="n" id="n"></div>
+  </div>
+</div></body></html>
