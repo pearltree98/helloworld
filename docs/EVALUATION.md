@@ -1,7 +1,16 @@
 # External evaluation and decision record (2026-11-05)
 
-Three evaluators reviewed the full source with the same adversarial prompt
-(`tools/eval/evaluation-prompt.md`): ChatGPT, Gemini, and the Claude session that built it.
+Four evaluators reviewed the full source with the same adversarial prompt
+(`tools/eval/evaluation-prompt.md`): ChatGPT, Gemini, Grok, and the Claude session that built it.
+
+| | ChatGPT | Gemini | Grok | Build session |
+|---|---|---|---|---|
+| Verdict | (c) narrow and rebuild | (b) fold the app, keep the frame | (c) narrow and rebuild | (c); the frame is the asset |
+| Ticket | demote | remove | remove | artificial scarcity |
+| Public deploy as is | no | no (0/10) | no (1/10) | no |
+| Advice verification | P0 | none, fatal | none | none |
+| Priority error | yes | yes (1/10) | yes (2/10) | yes |
+| First audience | delivery riders | delivery riders | workplace safety officers | whichever the maintainer can reach |
 
 ## Where all three agree (treated as settled)
 
@@ -14,8 +23,11 @@ Three evaluators reviewed the full source with the same adversarial prompt
 | 15 languages, charter and licences came before user 1 | Priority error; do not add more breadth |
 | Code quality is fine and nearly irrelevant to the decision | Stop writing code until the premise is tested |
 
-Both external evaluators independently chose the same first audience: urban delivery motorcycle riders.
-Caveat: the first experiment must run in a community the maintainer can actually reach.
+Two evaluators independently chose urban delivery motorcycle riders; Grok chose workplace safety officers
+(construction, manufacturing, logistics). What the picks share: people exposed to the same hazard daily, for whom
+reporting has a real payoff. The general public does not meet that condition. Caveats: safety officers already have
+EHS software, so that path turns the project into a B2B tool rather than the everyday public good it set out to be;
+and the first experiment must run in a community the maintainer can actually reach.
 
 ## Where they differ
 
@@ -30,6 +42,9 @@ Gemini added two structural points the others missed:
 
 - ChatGPT reported that the case form loses input after a validation error (severity: high). Verified false in a browser: all fields survive the repaint (`web/js/views/newCase.js`, `kept`).
 - ChatGPT could not run the tests in its sandbox; they pass here (13/13).
+
+Grok's experiment asks for stated intent ("would you write one?"). Stated intent is a weak signal; actual
+three-line submissions remain the primary metric, with reaction counts as a secondary one.
 
 ## The experiment that decides between (b) and (c)
 
