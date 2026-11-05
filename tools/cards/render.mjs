@@ -1,6 +1,7 @@
 /**
  * Renders content.json into shareable 1080×1080 PNG cards in tools/cards/out/.
- *   node tools/cards/render.mjs
+ *   node tools/cards/render.mjs [content.json]
+ *   node tools/cards/render.mjs tools/cards/riders.json   # rider set
  * Needs Playwright with Chromium and a Korean font (e.g. Noto Sans KR) installed on the machine.
  */
 import { readFileSync, mkdirSync } from 'node:fs';
@@ -9,7 +10,8 @@ import { dirname, join } from 'node:path';
 
 const dir = dirname(fileURLToPath(import.meta.url));
 const { chromium } = await import('playwright').catch(() => import('/opt/node-tools/node_modules/playwright/index.js'));
-const items = JSON.parse(readFileSync(join(dir, 'content.json'), 'utf8'));
+const contentPath = process.argv[2] ?? join(dir, 'content.json');
+const items = JSON.parse(readFileSync(contentPath, 'utf8'));
 const html = readFileSync(join(dir, 'card.html'), 'utf8');
 mkdirSync(join(dir, 'out'), { recursive: true });
 

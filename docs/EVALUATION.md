@@ -86,6 +86,12 @@ Seven days, zero code.
 | ≤ 5 (or < 0.5 % of N) | (a)/(b): stop the app; the frame survives as a format |
 | Stop signal regardless of count: ≥ 30 % of submissions blame a named person, plate or company | "No blame" does not hold in this group; rethink the premise |
 
+## Decision (2026-11-05)
+
+Target: **delivery motorcycle riders**, chosen by the maintainer after the five evaluations. Rider seed drafts are in
+`tools/cards/riders.json` (to be replaced by real submissions); the experiment kit is in `tools/experiment/`.
+No application code changes until the result below is in.
+
 ## Result
 
 _To be filled in after the experiment._
