@@ -20,13 +20,13 @@ const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1080, height: 1080 }, deviceScaleFactor: 1 });
 await page.setContent(html);
 for (const it of items) {
-  await page.evaluate((it) => {
+  await page.evaluate(({ it, total }) => {
     document.getElementById('cat').textContent = it.cat;
     document.getElementById('title').textContent = it.title;
     document.getElementById('hazard').textContent = it.hazard;
     document.getElementById('avoid').textContent = it.avoid;
-    document.getElementById('n').textContent = `${String(it.n).padStart(2, '0')} / ${items.length}`;
-  }, it);
+    document.getElementById('n').textContent = `${String(it.n).padStart(2, '0')} / ${total}`;
+  }, { it, total: items.length });
   await page.evaluate(() => document.fonts.ready);
   if (await page.evaluate(() => document.querySelector('.card').scrollHeight > 1080)) console.warn('overflow on card', it.n);
   await page.screenshot({ path: join(dir, 'out', `${String(it.n).padStart(2, '0')}.png`) });
