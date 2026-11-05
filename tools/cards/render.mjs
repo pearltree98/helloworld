@@ -9,7 +9,8 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const dir = dirname(fileURLToPath(import.meta.url));
-const { chromium } = await import('playwright').catch(() => import('/opt/node-tools/node_modules/playwright/index.js'));
+const pwMod = await import('playwright').catch(() => import('/opt/node-tools/node_modules/playwright/index.js'));
+const chromium = pwMod.chromium ?? pwMod.default?.chromium; // CommonJS fallback exposes it on default
 const contentPath = process.argv[2] ?? join(dir, 'content.json');
 const items = JSON.parse(readFileSync(contentPath, 'utf8'));
 const html = readFileSync(join(dir, 'card.html'), 'utf8');
