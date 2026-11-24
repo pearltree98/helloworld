@@ -1,5 +1,7 @@
 # Stepback
 
+> 이 저장소에는 별개의 앱 **[현장노트](fieldnote/README.md)**(카드 모집인 영업 기록·성적표, 정적 PWA)도 들어 있습니다.
+
 > **Status: prototype. Do not deploy to the public internet.** Identity is a forgeable browser header, visitor ids leak in API responses (any user can be impersonated), there is no rate limit, no reporting and no deletion. See [docs/EVALUATION.md](docs/EVALUATION.md) for the reproduced defects and the decision record. No further code is planned until the seven-day field experiment described there has a result.
 
 > Nothing happening is the biggest win.
