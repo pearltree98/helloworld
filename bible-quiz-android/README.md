@@ -18,6 +18,9 @@
      --out bible-quiz.apk dist/app-release-unsigned.apk
    ```
 
+   `apksigner`는 Android SDK build-tools에 들어 있다. 1.0.0은 Maven Central의 `apksig` 라이브러리로
+   v2 서명만 했다 (minSdk 24 = Android 7.0이라 v1 서명은 필요 없다).
+
 3. 새 버전을 낼 때는 `app/build.gradle`의 `versionCode`(1씩 증가)와 `versionName`을 올린다.
 
 ## 서명 키와 전체 화면
