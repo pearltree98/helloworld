@@ -333,7 +333,8 @@ export function practiceScreen(route) {
       skipped: false,
       hasRecording: false,
       selfEval: { volume: false, pace: false, clarity: false },
-      retry: late, // a late or missing start goes back to 다시 풀기 unless you untick it
+      // A late or missing start, or an answer cut off by the time limit, goes back to 다시 풀기 unless you untick it.
+      retry: late || reason === 'timeout',
     };
 
     let audioUrl = null;
