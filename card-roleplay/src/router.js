@@ -3,6 +3,8 @@ import { parseHash, navigate } from './nav.js';
 import { homeScreen } from './screens/home.js';
 import { practiceScreen } from './screens/practice.js';
 import { permissionScreen } from './screens/permission.js';
+import { bankScreen } from './screens/bank.js';
+import { historyScreen } from './screens/history.js';
 import { loadFlags } from './core/store.js';
 
 function placeholder(title) {
@@ -16,8 +18,8 @@ const ROUTES = {
   '': homeScreen,
   practice: practiceScreen,
   permission: permissionScreen,
-  bank: placeholder('질문 은행'),
-  history: placeholder('기록'),
+  bank: bankScreen,
+  history: historyScreen,
   settings: placeholder('설정'),
 };
 

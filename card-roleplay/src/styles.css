@@ -87,7 +87,7 @@ a {
   color: var(--primary);
 }
 
-.screen > * + * {
+main.screen > * + * {
   margin-top: 14px;
 }
 

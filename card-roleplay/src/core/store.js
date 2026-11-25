@@ -1,6 +1,6 @@
 // localStorage persistence for settings, question bank, Leitner progress,
 // session history and one-off flags. Recordings live in IndexedDB (recordings.js).
-import seed from '../data/seed.json';
+import seed from '../data/seed.json' with { type: 'json' };
 import { normalizeSettings } from './settings.js';
 import { normalizeBank } from './bank.js';
 
