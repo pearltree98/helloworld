@@ -76,3 +76,62 @@ export function createLevelMonitor(stream, { intervalMs = 50 } = {}) {
     },
   };
 }
+
+export const hasRecorder = () => typeof window !== 'undefined' && 'MediaRecorder' in window;
+
+function pickMimeType() {
+  const candidates = ['audio/webm;codecs=opus', 'audio/webm', 'audio/mp4', 'audio/ogg;codecs=opus'];
+  return candidates.find((t) => window.MediaRecorder.isTypeSupported?.(t)) || '';
+}
+
+/** MediaRecorder over the session's mic stream. stop() resolves with a Blob, or null if nothing was recorded. */
+export function createRecorder(stream) {
+  if (!hasRecorder()) return null;
+  const mimeType = pickMimeType();
+  let rec = null;
+  let chunks = [];
+
+  return {
+    start() {
+      chunks = [];
+      try {
+        rec = new MediaRecorder(stream, mimeType ? { mimeType } : undefined);
+      } catch {
+        rec = null;
+        return false;
+      }
+      rec.ondataavailable = (event) => {
+        if (event.data?.size) chunks.push(event.data);
+      };
+      rec.start(250);
+      return true;
+    },
+    stop() {
+      return new Promise((resolve) => {
+        if (!rec || rec.state === 'inactive') return resolve(null);
+        const r = rec;
+        rec = null;
+        r.onstop = () => resolve(chunks.length ? new Blob(chunks, { type: r.mimeType || mimeType || 'audio/webm' }) : null);
+        r.onerror = () => resolve(null);
+        try {
+          r.stop();
+        } catch {
+          resolve(null);
+        }
+      });
+    },
+    discard() {
+      if (rec && rec.state !== 'inactive') {
+        rec.ondataavailable = null;
+        rec.onstop = null;
+        try {
+          rec.stop();
+        } catch {
+          /* already stopped */
+        }
+      }
+      rec = null;
+      chunks = [];
+    },
+  };
+}
