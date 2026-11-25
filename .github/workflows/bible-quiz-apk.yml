@@ -1,0 +1,49 @@
+# 성경 역사 문제풀이 안드로이드 앱(TWA)을 빌드한다.
+# 서명하지 않은 APK를 만들어 bible-quiz-android/dist/ 에 커밋한다.
+# 서명 키는 저장소 밖에 보관하고, 서명은 따로 한다 (bible-quiz-android/README.md 참고).
+
+name: bible-quiz APK
+
+on:
+  push:
+    paths:
+      - 'bible-quiz-android/**'
+      - '!bible-quiz-android/dist/**'
+      - '.github/workflows/bible-quiz-apk.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Build unsigned release APK
+        working-directory: bible-quiz-android
+        run: ./gradlew --no-daemon assembleRelease
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release-unsigned
+          path: bible-quiz-android/app/build/outputs/apk/release/*.apk
+
+      - name: Commit unsigned APK to the branch
+        run: |
+          mkdir -p bible-quiz-android/dist
+          cp bible-quiz-android/app/build/outputs/apk/release/app-release-unsigned.apk bible-quiz-android/dist/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add bible-quiz-android/dist/app-release-unsigned.apk
+          if git diff --cached --quiet; then echo "no change"; exit 0; fi
+          git commit -m "Build unsigned bible-quiz APK (${GITHUB_SHA::7}) [skip ci]"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.vercel.biblehistoryquiz",
+      "sha256_cert_fingerprints": [
+        "A2:01:EF:56:A8:86:07:7F:DC:4E:4B:96:62:B3:04:45:8F:95:DC:90:64:D3:98:5C:C6:E5:5C:CA:CF:A3:6E:3E"
+      ]
+    }
+  }
+]

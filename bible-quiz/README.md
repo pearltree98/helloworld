@@ -87,18 +87,23 @@ python3 -m http.server 4173    # http://localhost:4173
 
 ## 배포 (Vercel)
 
-1. Vercel에서 이 저장소를 Import한다.
-2. **Root Directory를 `bible-quiz`로** 지정한다. Framework Preset은 `Other`, Build Command는 비워 둔다.
-3. 배포 후 `https://<프로젝트>.vercel.app`이 앱 주소가 된다.
+- Vercel 프로젝트 `bible-history-quiz` (Root Directory `bible-quiz`, Framework `Other`, Build Command 없음)
+- 주소: https://bible-history-quiz.vercel.app
 
-이후 `data/*.json`을 고쳐 push하면 자동으로 다시 배포된다. 서비스 워커가 네트워크를 먼저 확인하므로 새 문항은 온라인일 때 바로 보인다.
+지금은 Vercel의 GitHub 연동이 이 저장소에 설치되어 있지 않아서 **push만으로는 자동 배포되지 않는다.**
+Vercel 대시보드에서 다시 배포하거나, GitHub의 Vercel 앱 설정(Repository access)에 이 저장소를 추가하고
+프로젝트의 Git 연결과 Production Branch를 지정하면 push할 때마다 자동 배포된다.
+
+서비스 워커가 네트워크를 먼저 확인하므로, 다시 배포한 새 문항은 온라인일 때 바로 보인다.
 앱 파일 목록(`sw.js`의 `SHELL`)을 바꿀 때만 `sw.js`의 `VERSION`을 올린다.
 
-## APK 만들기 (PWABuilder)
+## 안드로이드 앱 (APK)
 
-1. https://www.pwabuilder.com 에 배포 주소를 넣는다. manifest, 서비스 워커, 아이콘(any·maskable), 스크린샷이 이미 들어 있다.
-2. Package for stores → Android → 패키지 이름(예: `app.bible.quiz`)을 정하고 받는다.
-3. 받은 zip 안의 `assetlinks.json`을 `bible-quiz/.well-known/assetlinks.json`에 넣고 다시 배포하면, 앱 상단에 주소창이 뜨지 않는다.
+- 배포 주소: https://bible-history-quiz.vercel.app (Vercel 프로젝트 `bible-history-quiz`)
+- 안드로이드 프로젝트는 `../bible-quiz-android/`에 있다 (Bubblewrap으로 만든 TWA). 빌드 방법은 그 폴더의 README 참고.
+- `.well-known/assetlinks.json`에 서명 키 지문이 들어 있어서, 앱이 주소창 없이 전체 화면으로 열린다.
+  서명 키를 바꾸면 이 파일의 지문도 바꿔야 한다.
+- 앱은 웹 내용을 불러오므로, 문항을 추가할 때는 웹만 다시 배포하면 된다.
 
 ## 풀이 기록
 
