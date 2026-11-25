@@ -1,0 +1,4 @@
+node_modules/
+dist/
+.vercel/
+e2e/out/

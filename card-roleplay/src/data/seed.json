@@ -1,0 +1,82 @@
+[
+  {
+    "id": "q01",
+    "question": "카드 이미 있어요.",
+    "persona": "busy",
+    "modelAnswer": "네, 지금 카드 쓰시는 데 불편 없으시면 괜찮습니다. 혹시 주로 어디에 쓰시는지만 여쭤봐도 될까요? 맞는 혜택이 있으면 짧게만 말씀드릴게요.",
+    "needsCheck": false,
+    "tags": ["거절"]
+  },
+  {
+    "id": "q02",
+    "question": "연회비 얼마예요?",
+    "persona": "owner",
+    "modelAnswer": "이 카드는 연회비가 [확인 필요]원입니다. 대신 [핵심 혜택 확인 필요]이 있어서, 한 달에 이 정도 쓰시면 연회비보다 혜택이 큽니다.",
+    "needsCheck": true,
+    "tags": ["조건", "연회비"]
+  },
+  {
+    "id": "q03",
+    "question": "실적 채워야 해요?",
+    "persona": "owner",
+    "modelAnswer": "네, 혜택을 받으려면 전월 [확인 필요]원 이상 쓰셔야 합니다. 조건은 숨기지 않고 먼저 말씀드릴게요.",
+    "needsCheck": true,
+    "tags": ["조건", "실적"]
+  },
+  {
+    "id": "q04",
+    "question": "카드 만들면 신용점수 떨어지지 않아요?",
+    "persona": null,
+    "modelAnswer": "[확인 필요: 발급 신청 시 조회가 점수에 미치는 영향] 정확한 기준을 확인해서 말씀드리겠습니다.",
+    "needsCheck": true,
+    "tags": ["신용"]
+  },
+  {
+    "id": "q05",
+    "question": "지금 바빠요.",
+    "persona": "busy",
+    "modelAnswer": "네, 시간 뺏지 않겠습니다. 감사합니다.",
+    "needsCheck": false,
+    "tags": ["거절"]
+  },
+  {
+    "id": "q06",
+    "question": "생각해 볼게요.",
+    "persona": null,
+    "modelAnswer": "네, 천천히 생각해 보세요. 궁금한 점 있으시면 편하게 연락 주세요.",
+    "needsCheck": false,
+    "tags": ["거절"]
+  },
+  {
+    "id": "q07",
+    "question": "다른 카드사랑 뭐가 달라요?",
+    "persona": "veteran",
+    "modelAnswer": "다른 카드사 상품을 깎아내리진 않겠습니다. 이 카드는 [확인 필요] 쪽에 강점이 있어서, 그쪽 소비가 많으시면 맞으실 겁니다.",
+    "needsCheck": true,
+    "tags": ["비교"]
+  },
+  {
+    "id": "q08",
+    "question": "해지는 쉬워요?",
+    "persona": null,
+    "modelAnswer": "[확인 필요: 해지 방법] 앱이나 고객센터로 하실 수 있습니다.",
+    "needsCheck": true,
+    "tags": ["해지"]
+  },
+  {
+    "id": "q09",
+    "question": "사은품 없어요?",
+    "persona": "veteran",
+    "modelAnswer": "법으로 정해진 기준 안에서만 드릴 수 있어서 큰 사은품은 없습니다. 대신 카드 자체 혜택을 정확히 말씀드릴게요.",
+    "needsCheck": true,
+    "tags": ["사은품", "규정"]
+  },
+  {
+    "id": "q10",
+    "question": "모집인 맞아요? 어디 소속이에요?",
+    "persona": "owner",
+    "modelAnswer": "네, 현대카드 [확인 필요: 지점명] 소속 모집인 OOO입니다. 등록증 보여드릴게요.",
+    "needsCheck": true,
+    "tags": ["신원"]
+  }
+]

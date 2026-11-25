@@ -1,0 +1,21 @@
+{
+  "name": "card-roleplay",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "카드 영업 응대 롤플레이 연습 앱 (모바일 PWA, 백엔드 없음)",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview --host",
+    "test": "node --test",
+    "e2e": "vite build && node e2e/run.mjs",
+    "icons": "node scripts/make-icons.mjs"
+  },
+  "devDependencies": {
+    "vite": "^8.3.8"
+  },
+  "engines": {
+    "node": ">=22.12"
+  }
+}
