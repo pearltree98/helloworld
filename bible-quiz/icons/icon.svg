@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2c2436"/>
+      <stop offset="1" stop-color="#17151c"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <g id="art">
+    <!-- 펼친 책 -->
+    <path d="M256 160 C214 132 152 128 98 142 V362 C152 348 214 352 256 380 Z" fill="#f6efe0"/>
+    <path d="M256 160 C298 132 360 128 414 142 V362 C360 348 298 352 256 380 Z" fill="#e8dcc4"/>
+    <path d="M256 160 V380" stroke="#c9a45c" stroke-width="7" stroke-linecap="round"/>
+    <g stroke="#c4b393" stroke-width="9" stroke-linecap="round" fill="none">
+      <path d="M126 192 C162 184 198 186 228 196"/>
+      <path d="M126 230 C162 222 198 224 228 234"/>
+      <path d="M126 268 C162 260 198 262 228 272"/>
+      <path d="M284 196 C314 186 350 184 386 192"/>
+      <path d="M284 234 C314 224 350 222 386 230"/>
+    </g>
+    <!-- 정답 체크 -->
+    <circle cx="364" cy="354" r="72" fill="#4cc38a" stroke="#17151c" stroke-width="14"/>
+    <path d="M330 355 L354 379 L400 331" stroke="#0b2418" stroke-width="18" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

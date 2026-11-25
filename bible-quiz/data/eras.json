@@ -1,0 +1,12 @@
+{
+  "eras": [
+    { "id": "patriarchs", "name": "족장",            "books": "창세기 12–50장",             "period": "BC 2100경–1800경" },
+    { "id": "exodus",     "name": "출애굽·광야",      "books": "출애굽기–신명기",            "period": "BC 1446–1406" },
+    { "id": "conquest",   "name": "정복·사사",        "books": "여호수아–룻기",              "period": "BC 1406–1050경" },
+    { "id": "united",     "name": "통일왕국",         "books": "사무엘상–열왕기상 11장",      "period": "BC 1050경–930" },
+    { "id": "divided",    "name": "분열왕국",         "books": "열왕기상 12장–열왕기하 25장", "period": "BC 930–586" },
+    { "id": "exile",      "name": "포로·귀환",        "books": "에스라·느헤미야·에스더·다니엘", "period": "BC 586–430경" },
+    { "id": "gospels",    "name": "복음서",           "books": "마태복음–요한복음",          "period": "BC 5경–AD 30경" },
+    { "id": "acts",       "name": "사도행전·초대교회", "books": "사도행전–요한계시록",        "period": "AD 30경–95경" }
+  ]
+}
