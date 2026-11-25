@@ -1,7 +1,9 @@
 import { h, topbar } from './ui/dom.js';
-import { parseHash } from './nav.js';
+import { parseHash, navigate } from './nav.js';
 import { homeScreen } from './screens/home.js';
 import { practiceScreen } from './screens/practice.js';
+import { permissionScreen } from './screens/permission.js';
+import { loadFlags } from './core/store.js';
 
 function placeholder(title) {
   return () => ({
@@ -13,6 +15,7 @@ function placeholder(title) {
 const ROUTES = {
   '': homeScreen,
   practice: practiceScreen,
+  permission: permissionScreen,
   bank: placeholder('질문 은행'),
   history: placeholder('기록'),
   settings: placeholder('설정'),
@@ -23,6 +26,10 @@ export function startRouter(root) {
 
   function render() {
     const route = parseHash();
+    if (route.name === '' && !loadFlags().permissionIntroSeen) {
+      navigate('permission', { replace: true });
+      return;
+    }
     const make = ROUTES[route.name] || homeScreen;
     try {
       current?.destroy?.();

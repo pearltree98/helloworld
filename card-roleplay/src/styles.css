@@ -865,3 +865,11 @@ details.session[open] > summary {
   color: var(--primary);
   font-size: 40px;
 }
+
+.practice-body > * + * {
+  margin-top: 12px;
+}
+
+.stack:empty {
+  display: none;
+}
