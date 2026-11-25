@@ -30,6 +30,13 @@ export function h(tag, props, ...children) {
   return el;
 }
 
+/** Like el.replaceChildren(), but skips null/false children the way h() does. */
+export function fill(el, ...children) {
+  el.replaceChildren();
+  append(el, children);
+  return el;
+}
+
 export function s(tag, props, ...children) {
   const el = document.createElementNS(SVG_NS, tag);
   apply(el, props);

@@ -1,6 +1,7 @@
 import { h, topbar } from './ui/dom.js';
 import { parseHash } from './nav.js';
 import { homeScreen } from './screens/home.js';
+import { practiceScreen } from './screens/practice.js';
 
 function placeholder(title) {
   return () => ({
@@ -11,7 +12,7 @@ function placeholder(title) {
 
 const ROUTES = {
   '': homeScreen,
-  practice: placeholder('연습'),
+  practice: practiceScreen,
   bank: placeholder('질문 은행'),
   history: placeholder('기록'),
   settings: placeholder('설정'),
