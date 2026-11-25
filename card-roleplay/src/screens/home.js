@@ -1,9 +1,12 @@
-import { h, formatDateTime } from '../ui/dom.js';
+import { h, formatDateTime, notice } from '../ui/dom.js';
 import { navigate } from '../nav.js';
 import { loadBank, loadProgress, loadHistory, loadSettings } from '../core/store.js';
 import { retryCount, boxCounts } from '../core/leitner.js';
 import { summarize, formatSec } from '../core/stats.js';
 import { canInstall, promptInstall, onInstallChange } from '../pwa.js';
+import { hasSTT } from '../media/stt.js';
+import { hasMic } from '../media/mic.js';
+import { isSamsungInternet } from '../media/support.js';
 
 export const PRINCIPLES = [
   '과장하지 않는다. 조건(연회비·실적)은 먼저 말한다.',
@@ -35,6 +38,10 @@ export function homeScreen() {
       h('h1', {}, '카드 응대 연습'),
       h('p', { class: 'lead' }, `${settings.reactionLimitSec}초 안에 입을 열고, ${settings.answerLimitSec}초 안에 짧고 진실하게.`),
     ),
+    !hasMic() && notice('이 브라우저는 마이크를 쓸 수 없습니다. 안드로이드 크롬에서 열어 주세요.', 'error'),
+    hasMic() &&
+      (!hasSTT() || isSamsungInternet()) &&
+      notice('이 브라우저에서는 전사(받아쓰기)가 안 될 수 있습니다. 크롬에서 열면 전사가 됩니다. 녹음과 음량 측정은 그대로 됩니다.', 'warn'),
     h(
       'div',
       { class: 'stack' },

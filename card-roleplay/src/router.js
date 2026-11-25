@@ -1,18 +1,11 @@
-import { h, topbar } from './ui/dom.js';
 import { parseHash, navigate } from './nav.js';
 import { homeScreen } from './screens/home.js';
 import { practiceScreen } from './screens/practice.js';
 import { permissionScreen } from './screens/permission.js';
 import { bankScreen } from './screens/bank.js';
 import { historyScreen } from './screens/history.js';
+import { settingsScreen } from './screens/settings.js';
 import { loadFlags } from './core/store.js';
-
-function placeholder(title) {
-  return () => ({
-    el: h('main', { class: 'screen' }, topbar(title), h('p', { class: 'muted' }, '준비 중입니다.')),
-    title,
-  });
-}
 
 const ROUTES = {
   '': homeScreen,
@@ -20,7 +13,7 @@ const ROUTES = {
   permission: permissionScreen,
   bank: bankScreen,
   history: historyScreen,
-  settings: placeholder('설정'),
+  settings: settingsScreen,
 };
 
 export function startRouter(root) {
